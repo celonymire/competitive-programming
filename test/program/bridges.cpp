@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <graph/bridges.hpp>
+#include <celony/graph/bridges.hpp>
 
 class Solution {
 public:

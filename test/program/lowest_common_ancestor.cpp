@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <graph/lowest_common_ancestor.hpp>
+#include <celony/graph/lowest_common_ancestor.hpp>
 
 int main() {
   cin.tie(0)->sync_with_stdio(false);

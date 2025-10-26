@@ -3,7 +3,7 @@ find_package(Python COMPONENTS Interpreter REQUIRED)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories("../library/cpp")
+include_directories("../include")
 
 function(add_library_test name)
     add_executable(${name}_program "program/${name}.cpp")

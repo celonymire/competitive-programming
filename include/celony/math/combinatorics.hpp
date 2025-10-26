@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <math/modint.hpp>
+#include <celony/math/modint.hpp>
 
 /**
  * @brief Computes information necessary for combinatoric calculations in `O(1)`

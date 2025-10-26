@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <range_query/segment_tree.hpp>
+#include <celony/range_query/segment_tree.hpp>
 
 int main() {
   int n, m;

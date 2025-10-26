@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <range_query/segment_tree.hpp>
+#include <celony/range_query/segment_tree.hpp>
 
 /**
  * @brief Answers non-trivial path queries of a tree in `O(log^2 N)`.

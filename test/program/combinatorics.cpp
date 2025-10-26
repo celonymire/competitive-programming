@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <math/combinatorics.hpp>
+#include <celony/math/combinatorics.hpp>
 
 int main() {
   cin.tie(0)->sync_with_stdio(false);

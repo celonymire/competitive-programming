@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <range_query/treap.hpp>
+#include <celony/range_query/treap.hpp>
 
 int main() {
   int n, m;

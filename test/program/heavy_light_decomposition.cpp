@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <range_query/heavy_light_decomposition.hpp>
+#include <celony/range_query/heavy_light_decomposition.hpp>
 
 int main() {
   cin.tie(0)->sync_with_stdio(false);

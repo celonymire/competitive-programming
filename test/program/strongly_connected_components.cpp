@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <graph/strongly_connected_components.hpp>
+#include <celony/graph/strongly_connected_components.hpp>
 
 int main() {
   int n, m;

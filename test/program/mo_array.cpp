@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <miscellaneous/hilbert.hpp>
-#include <range_query/mo_array.hpp>
+#include <celony/miscellaneous/hilbert.hpp>
+#include <celony/range_query/mo_array.hpp>
 
 int main() {
   cin.tie(0)->sync_with_stdio(false);

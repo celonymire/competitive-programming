@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <graph/lowest_common_ancestor.hpp>
+#include <celony/graph/lowest_common_ancestor.hpp>
 
 /**
  * @brief Mo's Algorithm to answer offline path queries in `O(sqrt(N))`.

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <range_query/segment_tree_lazy.hpp>
+#include <celony/range_query/segment_tree_lazy.hpp>
 
 int main() {
   int n, q;

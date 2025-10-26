@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <string/rolling_hash.hpp>
+#include <celony/string/rolling_hash.hpp>
 
 int main() {
   cin.tie(0)->sync_with_stdio(false);
