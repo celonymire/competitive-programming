@@ -1,4 +1,7 @@
 /*
+**/.cache
+**/.clangd
+**/compile_flags.txt
 
 !include/
 !leetcode/
