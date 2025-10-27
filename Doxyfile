@@ -101,8 +101,14 @@ HTML_FOOTER            = docs/doxygen/footer-doxygen-awesome.html
 HTML_STYLESHEET        =
 # Add Doxygen Awesome theme CSS (submodule path)
 HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css
-# Copy the theme JS so it is available in the generated output root
-HTML_EXTRA_FILES       = doxygen-awesome-css/doxygen-awesome.js
+# Copy the theme JS files from the submodule so they are available in the generated output root.
+# The submodule ships multiple small JS files (darkmode, fragment copy buttons, interactive TOC, etc.).
+# List them all so Doxygen will copy them into the HTML output root.
+HTML_EXTRA_FILES       = doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js \
+                         doxygen-awesome-css/doxygen-awesome-fragment-copy-button.js \
+                         doxygen-awesome-css/doxygen-awesome-interactive-toc.js \
+                         doxygen-awesome-css/doxygen-awesome-paragraph-link.js \
+                         doxygen-awesome-css/doxygen-awesome-tabs.js
 # Force a light base style for Doxygen >= 1.9.5, the theme provides its own dark toggle
 HTML_COLORSTYLE        = LIGHT
 HTML_COLORSTYLE_HUE    = 220
