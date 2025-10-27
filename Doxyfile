@@ -26,7 +26,7 @@ PROJECT_BRIEF          = "API reference and notes for competitive-programming"
 PROJECT_NUMBER         =
 
 # Where to put the generated documentation (relative to where doxygen is run)
-OUTPUT_DIRECTORY       = docs/doxygen
+OUTPUT_DIRECTORY       = build
 
 # Create subdirectories for output files (useful for large projects)
 CREATE_SUBDIRS         = YES
@@ -83,14 +83,18 @@ PREDEFINED             =
 EXPAND_AS_DEFINED      =
 
 # Source browsing
-SOURCE_BROWSER         = YES
-INLINE_SOURCES         = YES
-VERBATIM_HEADERS       = YES
+# Disable embedding source code and inline sources in the generated documentation
+SOURCE_BROWSER         = NO
+INLINE_SOURCES         = NO
+# Do not include verbatim copies of headers in the output
+VERBATIM_HEADERS       = NO
+# Keep stripping special comment blocks from source fragments (not used when sources are disabled)
 STRIP_CODE_COMMENTS    = YES
 REFERENCED_BY_RELATION = YES
 REFERENCES_RELATION    = YES
 REFERENCES_LINK_SOURCE = YES
-SOURCE_TOOLTIPS        = YES
+# Disable source tooltips since source browsing is disabled
+SOURCE_TOOLTIPS        = NO
 
 # HTML output configuration
 GENERATE_HTML          = YES
