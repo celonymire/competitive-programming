@@ -1,0 +1,8 @@
+<map id="include/celony/range_query/heavy_light_decomposition.hpp" name="include/celony/range_query/heavy_light_decomposition.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,283,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="89,181,199,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,47,124,69,116,94,113,113,116,133,131,168,126,171,111,134,108,113,111,93,119,67,130,45"/>
+<area shape="rect" id="Node000003" href="$d1/df8/segment__tree_8hpp.html" title=" " alt="" coords="126,93,277,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,44,183,80,179,83,155,47"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="190,135,163,172,159,168,185,132"/>
+</map>
