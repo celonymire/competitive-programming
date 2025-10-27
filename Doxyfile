@@ -1,0 +1,175 @@
+# Doxyfile 1.15.0
+# Configuration file for Doxygen for the competitive-programming project.
+#
+# This configuration enables the Doxygen Awesome theme (as a submodule)
+# and configures Doxygen to copy and include the theme CSS and JS.
+#
+# Notes:
+# - The repository should contain the theme at: doxygen-awesome-css/
+#   (for example added as a git submodule).
+# - A small footer file is expected at: docs/doxygen/footer-doxygen-awesome.html
+#   which references the copied JS (doxygen-awesome.js) that Doxygen copies into
+#   the docs output directory via HTML_EXTRA_FILES.
+#
+# To regenerate docs:
+#   cd competitive-programming
+#   doxygen Doxyfile
+#
+# -----------------------------------------------------------------------------
+
+# The character encoding of this file
+DOXYFILE_ENCODING      = UTF-8
+
+# Project identification
+PROJECT_NAME           = "competitive-programming"
+PROJECT_BRIEF          = "API reference and notes for competitive-programming"
+PROJECT_NUMBER         =
+
+# Where to put the generated documentation (relative to where doxygen is run)
+OUTPUT_DIRECTORY       = docs/doxygen
+
+# Create subdirectories for output files (useful for large projects)
+CREATE_SUBDIRS         = YES
+CREATE_SUBDIRS_LEVEL   = 8
+
+# Language of generated output
+OUTPUT_LANGUAGE        = English
+
+# Input (source) files and folders
+INPUT                  = include README.md
+INPUT_ENCODING         = UTF-8
+FILE_PATTERNS          = *.h \
+                         *.hpp \
+                         *.hh \
+                         *.hxx \
+                         *.c \
+                         *.cpp \
+                         *.cc \
+                         *.cxx \
+                         *.md
+RECURSIVE              = YES
+EXCLUDE                =
+EXCLUDE_PATTERNS       =
+EXCLUDE_SYMLINKS       = NO
+
+# Use README.md as the main page
+USE_MDFILE_AS_MAINPAGE = README.md
+IMPLICIT_DIR_DOCS      = YES
+MARKDOWN_SUPPORT       = YES
+MARKDOWN_STRICT        = YES
+MARKDOWN_ID_STYLE      = DOXYGEN
+TOC_INCLUDE_HEADINGS   = 6
+
+# Extraction options
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+EXTRACT_ANON_NSPACES   = YES
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_UNDOC_CLASSES     = NO
+HIDE_FRIEND_COMPOUNDS  = NO
+SEPARATE_MEMBER_PAGES  = NO
+INLINE_INHERITED_MEMB  = NO
+
+# Preprocessing
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = NO
+EXPAND_ONLY_PREDEF     = NO
+SEARCH_INCLUDES        = YES
+INCLUDE_PATH           =
+INCLUDE_FILE_PATTERNS  =
+PREDEFINED             =
+EXPAND_AS_DEFINED      =
+
+# Source browsing
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+VERBATIM_HEADERS       = YES
+STRIP_CODE_COMMENTS    = YES
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+REFERENCES_LINK_SOURCE = YES
+SOURCE_TOOLTIPS        = YES
+
+# HTML output configuration
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+HTML_HEADER            =
+HTML_FOOTER            = docs/doxygen/footer-doxygen-awesome.html
+HTML_STYLESHEET        =
+# Add Doxygen Awesome theme CSS (submodule path)
+HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css
+# Copy the theme JS so it is available in the generated output root
+HTML_EXTRA_FILES       = doxygen-awesome-css/doxygen-awesome.js
+# Force a light base style for Doxygen >= 1.9.5, the theme provides its own dark toggle
+HTML_COLORSTYLE        = LIGHT
+HTML_COLORSTYLE_HUE    = 220
+HTML_COLORSTYLE_SAT    = 100
+HTML_COLORSTYLE_GAMMA  = 80
+
+# Treeview / index settings (required/recommended for the theme)
+GENERATE_TREEVIEW      = YES
+DISABLE_INDEX          = NO
+FULL_SIDEBAR           = NO
+PAGE_OUTLINE_PANEL     = YES
+HTML_DYNAMIC_MENUS     = YES
+HTML_DYNAMIC_SECTIONS  = NO
+HTML_COPY_CLIPBOARD    = YES
+HTML_CODE_FOLDING      = YES
+
+# Search
+SEARCHENGINE           = YES
+SERVER_BASED_SEARCH    = NO
+EXTERNAL_SEARCH        = NO
+
+# Index and presentation
+ALPHABETICAL_INDEX     = YES
+HTML_INDEX_NUM_ENTRIES = 100
+HTML_PROJECT_COOKIE    =
+
+# Diagrams (Graphviz)
+HAVE_DOT               = YES
+DOT_PATH               =
+DOTFILE_DIRS           =
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+DOT_NUM_THREADS        = 0
+DOT_CLEANUP            = YES
+DOT_GRAPH_MAX_NODES    = 100
+
+# Output formats to turn off
+GENERATE_LATEX         = NO
+GENERATE_RTF           = NO
+GENERATE_MAN           = NO
+GENERATE_XML           = NO
+GENERATE_DOCSET        = NO
+GENERATE_HTMLHELP      = NO
+GENERATE_QHP           = NO
+
+# Misc
+TIMESTAMP              = NO
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_NO_PARAMDOC       = NO
+WARN_FORMAT            = "$file:$line: $text"
+WARN_LOGFILE           =
+
+# Layout / Advanced
+LAYOUT_FILE            =
+GENERATE_TAGFILE       =
+TAGFILES               =
+ALLEXTERNALS           = NO
+EXTERNAL_GROUPS        = YES
+EXTERNAL_PAGES         = YES
+
+# Optimization
+NUM_PROC_THREADS       = 1
+LOOKUP_CACHE_SIZE      = 0
+
+# Remainder: keep defaults or project-specific tuning below as needed
+
+# End of file
