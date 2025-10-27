@@ -26,7 +26,7 @@ PROJECT_BRIEF          = "API reference and notes for competitive-programming"
 PROJECT_NUMBER         =
 
 # Where to put the generated documentation (relative to where doxygen is run)
-OUTPUT_DIRECTORY       = docs/doxygen
+OUTPUT_DIRECTORY       = build
 
 # Create subdirectories for output files (useful for large projects)
 CREATE_SUBDIRS         = YES

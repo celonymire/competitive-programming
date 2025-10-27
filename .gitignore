@@ -1,14 +1,11 @@
-/*
-**/.cache
-**/.clangd
-**/compile_flags.txt
+code/
+build/
 
-!include/
-!leetcode/
-!test/
-!.github/
-!.clang-format
-!ruff.toml
-!README.md
-!CMakeLists.txt
-!ac-library
+.venv/
+.ruff_cache/
+.zed/
+.fastolympiccoding/
+**/.cache/
+
+compile_commands.json
+.clangd
