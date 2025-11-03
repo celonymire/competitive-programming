@@ -4,6 +4,7 @@ build/
 .venv/
 .ruff_cache/
 .zed/
+.vscode/
 .fastolympiccoding/
 **/.cache/
 
