@@ -21,8 +21,8 @@
 DOXYFILE_ENCODING      = UTF-8
 
 # Project identification
-PROJECT_NAME           = "competitive-programming"
-PROJECT_BRIEF          = "API reference and notes for competitive-programming"
+PROJECT_NAME           = "Celony's Competitive Programming Collection"
+PROJECT_BRIEF          = "API reference for data structures and algorithms"
 PROJECT_NUMBER         =
 
 # Where to put the generated documentation (relative to where doxygen is run)
