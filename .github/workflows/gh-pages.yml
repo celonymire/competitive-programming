@@ -1,42 +1,46 @@
 name: GitHub Pages
 
 on:
-    push:
-        branches:
-            - master
-    workflow_dispatch:
+  workflow_run:
+    workflows: ["Check"]
+    types:
+      - completed
+    branches:
+      - master
+  workflow_dispatch:
 
 permissions:
-    contents: write
+  contents: write
 
 concurrency:
-    group: gh-pages-deploy
-    cancel-in-progress: true
+  group: gh-pages-deploy
+  cancel-in-progress: true
 
 jobs:
-    build-and-deploy:
-        name: Build and Deploy
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-              with:
-                  submodules: false
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
 
-            - name: Initialize doxygen-awesome-css submodule
-              run: git submodule update --init --depth 1 doxygen-awesome-css
+      - name: Initialize doxygen-awesome-css submodule
+        run: git submodule update --init --depth 1 doxygen-awesome-css
 
-            - name: Install Doxygen and Graphviz
-              run: |
-                  sudo apt-get update
-                  sudo apt-get install doxygen graphviz
+      - name: Install Doxygen and Graphviz
+        run: |
+          sudo apt-get update
+          sudo apt-get install doxygen graphviz
 
-            - name: Run Doxygen
-              run: doxygen
+      - name: Run Doxygen
+        run: doxygen
 
-            - name: Deploy to gh-pages
-              uses: peaceiris/actions-gh-pages@v4
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./build/html
-                  publish_branch: gh-pages
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/html
+          publish_branch: gh-pages

@@ -1,24 +1,24 @@
 name: Check
 
 on:
-    push:
-        branches:
-            - master
-    pull_request:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
-    build:
-        name: Test
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            - name: Configure tests
-              run: cmake . -B build
+      - name: Configure tests
+        run: cmake . -B build
 
-            - name: Build tests
-              run: cmake --build build --target all --parallel
+      - name: Build tests
+        run: cmake --build build --target all --parallel
 
-            - name: Run tests
-              run: ctest --test-dir build --output-on-failure -j
+      - name: Run tests
+        run: ctest --test-dir build --output-on-failure -j
