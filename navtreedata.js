@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "competitive-programming", "index.html", [
+  [ "Celony's Competitive Programming Collection", "index.html", [
     [ "✨ My Stash of Templates ✨", "index.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
