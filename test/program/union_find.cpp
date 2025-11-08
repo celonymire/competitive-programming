@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <celony/data_structure/union_find.hpp>
+#include <celony/graph/union_find.hpp>
 
 int main() {
   cin.tie(0)->sync_with_stdio(false);
