@@ -14,9 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configure tests
-        run: cmake . -B build
-
       - name: Build tests
         run: cmake build
 
