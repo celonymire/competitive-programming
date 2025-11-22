@@ -1,6 +1,7 @@
 code/
 build/
 
+.xmake/
 .venv/
 .ruff_cache/
 .zed/

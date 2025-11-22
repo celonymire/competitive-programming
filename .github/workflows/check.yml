@@ -18,7 +18,7 @@ jobs:
         run: cmake . -B build
 
       - name: Build tests
-        run: cmake --build build --target all --parallel
+        run: cmake build
 
       - name: Run tests
-        run: ctest --test-dir build --output-on-failure -j
+        run: xmake run
