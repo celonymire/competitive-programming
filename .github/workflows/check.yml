@@ -19,8 +19,5 @@ jobs:
         with:
           xmake-version: latest
 
-      - name: Build tests
-        run: xmake build
-
       - name: Run tests
-        run: xmake run
+        run: xmake test -j

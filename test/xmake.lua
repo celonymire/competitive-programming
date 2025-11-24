@@ -13,11 +13,13 @@ function library_target(name)
     target(name)
         set_kind("phony")
         add_deps(name .. "_program", name .. "_solution")
-        on_run(function(target)
+        add_tests("default")
+        on_test(function(target, opts)
             local program_target = target:dep(name .. "_program")
             local solution_target = target:dep(name .. "_solution")
             os.cd(os.projectdir())
             os.execv("python", {"-m", "test.checker." .. name, "-p", program_target:targetfile(), "-s", solution_target:targetfile()})
+            return true
         end)
 end
 
