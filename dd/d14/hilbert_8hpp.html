@@ -106,7 +106,7 @@ Include dependency graph for hilbert.hpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:abbc570a0bbca31b3dcbc9021c65f0c17" id="r_abbc570a0bbca31b3dcbc9021c65f0c17"><td class="memItemLeft" align="right" valign="top">vector&lt; uint64_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d14/hilbert_8hpp.html#abbc570a0bbca31b3dcbc9021c65f0c17">hilbert</a> (const vector&lt; pair&lt; int, int &gt; &gt; &amp;q)</td></tr>
-<tr class="memdesc:abbc570a0bbca31b3dcbc9021c65f0c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Hilbert Curve for the queries.  <br /></td></tr>
+<tr class="memdesc:abbc570a0bbca31b3dcbc9021c65f0c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes Hilbert curve ordering for 2D points/queries.  <br /></td></tr>
 <tr class="separator:abbc570a0bbca31b3dcbc9021c65f0c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -126,13 +126,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the Hilbert Curve for the queries. </p>
+<p>Computes Hilbert curve ordering for 2D points/queries. </p>
+<p>Maps 2D coordinates to 1D values along a space-filling Hilbert curve. This ordering has excellent locality properties, making it ideal for reordering queries in Mo's algorithm to minimize pointer movements.</p>
+<p>Time Complexity: O(Q log max(coordinates)) Space Complexity: O(Q)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">q</td><td>List of queries of <code>a[l..r]</code>. </td></tr>
+    <tr><td class="paramname">q</td><td>List of 2D points/queries as (x, y) pairs. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of 64-bit integers representing Hilbert curve positions. Sorting queries by these values optimizes Mo's algorithm.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This is the recommended heuristic for Mo's algorithm. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://codeforces.com/blog/entry/61203">https://codeforces.com/blog/entry/61203</a> </dd></dl>
 
 </div>
 </div>

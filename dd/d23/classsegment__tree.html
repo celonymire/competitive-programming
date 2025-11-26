@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('dd/d23/classsegment__tree.html','../..
 </div><!--header-->
 <div class="contents">
 
-<p>Segment Tree for efficient point update and range queries.  
+<p>Iterative Segment Tree for point updates and range queries.  
  <a href="../../dd/d23/classsegment__tree.html#details">More...</a></p>
 
 <p><code>#include &lt;segment_tree.hpp&gt;</code></p>
@@ -114,34 +114,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5d09fdefa168f2c439e3e180a6623181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the default value for queries.  <br /></td></tr>
 <tr class="separator:a5d09fdefa168f2c439e3e180a6623181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5860af9abd4f212fd3179ea41afecc30" id="r_a5860af9abd4f212fd3179ea41afecc30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/classsegment__tree.html#a5860af9abd4f212fd3179ea41afecc30">update</a> (int i, const T &amp;v)</td></tr>
-<tr class="memdesc:a5860af9abd4f212fd3179ea41afecc30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the value at the index.  <br /></td></tr>
+<tr class="memdesc:a5860af9abd4f212fd3179ea41afecc30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the value at index i using the combine operation.  <br /></td></tr>
 <tr class="separator:a5860af9abd4f212fd3179ea41afecc30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2353439c86916ed17d4cee2c23e938a6" id="r_a2353439c86916ed17d4cee2c23e938a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/classsegment__tree.html#a2353439c86916ed17d4cee2c23e938a6">set</a> (int i, const T &amp;v)</td></tr>
-<tr class="memdesc:a2353439c86916ed17d4cee2c23e938a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value at the index.  <br /></td></tr>
+<tr class="memdesc:a2353439c86916ed17d4cee2c23e938a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value at index i, replacing the current value.  <br /></td></tr>
 <tr class="separator:a2353439c86916ed17d4cee2c23e938a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb5cf511cf48aabdba5f1088e611481c" id="r_abb5cf511cf48aabdba5f1088e611481c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/classsegment__tree.html#abb5cf511cf48aabdba5f1088e611481c">query</a> (int l, int r) const</td></tr>
-<tr class="memdesc:abb5cf511cf48aabdba5f1088e611481c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the range <code>[l, r)</code>.  <br /></td></tr>
+<tr class="memdesc:abb5cf511cf48aabdba5f1088e611481c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the range [l, r) using the combine operation.  <br /></td></tr>
 <tr class="separator:abb5cf511cf48aabdba5f1088e611481c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae334781887d068a460010a8fd0479c79" id="r_ae334781887d068a460010a8fd0479c79"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:ae334781887d068a460010a8fd0479c79"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d23/classsegment__tree.html#ae334781887d068a460010a8fd0479c79">max_r</a> (int l, F &amp;&amp;f)</td></tr>
-<tr class="memdesc:ae334781887d068a460010a8fd0479c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find maximum <code>r&gt;=l</code> s.t. <code>f(a[l..r-1])</code> remains true.  <br /></td></tr>
+<tr class="memdesc:ae334781887d068a460010a8fd0479c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the maximum index r &gt;= l such that f(query(l, r)) is true.  <br /></td></tr>
 <tr class="separator:ae334781887d068a460010a8fd0479c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5008cd82e36dc5ff286321007cf32a9" id="r_ab5008cd82e36dc5ff286321007cf32a9"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:ab5008cd82e36dc5ff286321007cf32a9"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d23/classsegment__tree.html#ab5008cd82e36dc5ff286321007cf32a9">min_l</a> (int r, F &amp;&amp;f)</td></tr>
-<tr class="memdesc:ab5008cd82e36dc5ff286321007cf32a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find minimum <code>l&lt;=r</code> s.t. <code>f(a[l+1..r])</code> remains true.  <br /></td></tr>
+<tr class="memdesc:ab5008cd82e36dc5ff286321007cf32a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the minimum index l &lt;= r such that f(query(l+1, r+1)) is true.  <br /></td></tr>
 <tr class="separator:ab5008cd82e36dc5ff286321007cf32a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename Combine&gt;<br />
-class segment_tree&lt; T, Combine &gt;</div><p>Segment Tree for efficient point update and range queries. </p>
-<p>The Segment Tree is implemented iteratively.</p>
+class segment_tree&lt; T, Combine &gt;</div><p>Iterative Segment Tree for point updates and range queries. </p>
+<p>A versatile data structure supporting efficient range queries and point updates for any associative operation. This iterative implementation is faster and simpler than recursive versions, with excellent cache locality.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Value type. </td></tr>
-    <tr><td class="paramname">Combine</td><td>Binary callable. </td></tr>
+    <tr><td class="paramname">Combine</td><td>Binary associative operation (e.g., min, max, sum, gcd).</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Combine operation must be associative. </dd>
+<dd>
+Supports efficient binary search on prefixes/suffixes. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2243d1b2e4d90d911420a394b65f612c" name="a2243d1b2e4d90d911420a394b65f612c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2243d1b2e4d90d911420a394b65f612c">&#9670;&#160;</a></span>segment_tree() <span class="overload">[1/2]</span></h2>
@@ -230,11 +233,11 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Constructs a Segment Tree from the array. </p>
+<p>Time Complexity: O(N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>The array. </td></tr>
     <tr><td class="paramname">v0</td><td>Default value for queries. </td></tr>
-    <tr><td class="paramname">combine</td><td>Binary callable. </td></tr>
   </table>
   </dd>
 </dl>
@@ -268,6 +271,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the default value for queries. </p>
+<p>Time Complexity: O(1) </p>
 
 <p class="reference">Referenced by <a class="el" href="../../dc/de3/classheavy__light__decomposition.html#a726caf3fe261d4116248e3418e01c45e">heavy_light_decomposition&lt; T, Combine &gt;::query()</a>.</p>
 
@@ -311,14 +315,16 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Find maximum <code>r&gt;=l</code> s.t. <code>f(a[l..r-1])</code> remains true. </p>
+<p>Finds the maximum index r &gt;= l such that f(query(l, r)) is true. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">l</td><td>Left bound. </td></tr>
-    <tr><td class="paramname">f</td><td>Predicate callable. </td></tr>
+    <tr><td class="paramname">l</td><td>Left bound (inclusive). </td></tr>
+    <tr><td class="paramname">f</td><td>Predicate function that takes a query result and returns bool. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Maximum valid index r, or n if no valid range exists. </dd></dl>
 
 </div>
 </div>
@@ -360,14 +366,16 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Find minimum <code>l&lt;=r</code> s.t. <code>f(a[l+1..r])</code> remains true. </p>
+<p>Finds the minimum index l &lt;= r such that f(query(l+1, r+1)) is true. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r</td><td>Right bound. </td></tr>
-    <tr><td class="paramname">f</td><td>Predicate callable. </td></tr>
+    <tr><td class="paramname">r</td><td>Right bound (inclusive). </td></tr>
+    <tr><td class="paramname">f</td><td>Predicate function that takes a query result and returns bool. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimum valid index l. </dd></dl>
 
 </div>
 </div>
@@ -407,14 +415,16 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Queries the range <code>[l, r)</code>. </p>
+<p>Queries the range [l, r) using the combine operation. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">l</td><td>Left bound. </td></tr>
-    <tr><td class="paramname">r</td><td>Right bound. </td></tr>
+    <tr><td class="paramname">l</td><td>Left bound (inclusive). </td></tr>
+    <tr><td class="paramname">r</td><td>Right bound (exclusive). </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The combined result of elements [l, r). </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="../../dc/de3/classheavy__light__decomposition.html#a726caf3fe261d4116248e3418e01c45e">heavy_light_decomposition&lt; T, Combine &gt;::query()</a>.</p>
 
@@ -456,11 +466,12 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the value at the index. </p>
+<p>Sets the value at index i, replacing the current value. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The index. </td></tr>
-    <tr><td class="paramname">v</td><td>Value to set. </td></tr>
+    <tr><td class="paramname">i</td><td>Zero-indexed position. </td></tr>
+    <tr><td class="paramname">v</td><td>New value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -505,11 +516,12 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Update the value at the index. </p>
+<p>Updates the value at index i using the combine operation. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The index. </td></tr>
-    <tr><td class="paramname">v</td><td>Value to update with. </td></tr>
+    <tr><td class="paramname">i</td><td>Zero-indexed position. </td></tr>
+    <tr><td class="paramname">v</td><td>Value to combine with the current element. </td></tr>
   </table>
   </dd>
 </dl>

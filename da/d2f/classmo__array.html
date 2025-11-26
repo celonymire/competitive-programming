@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('da/d2f/classmo__array.html','../../');
 </div><!--header-->
 <div class="contents">
 
-<p>Mo's Algorithm to answer offline range queries in <code>O(sqrt(N))</code>.  
+<p>Mo's Algorithm for offline range queries on arrays.  
  <a href="../../da/d2f/classmo__array.html#details">More...</a></p>
 
 <p><code>#include &lt;mo_array.hpp&gt;</code></p>
@@ -106,29 +106,32 @@ $(document).ready(function(){initNavTree('da/d2f/classmo__array.html','../../');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab45c37cf8466666c508ac2225b63ded7" id="r_ab45c37cf8466666c508ac2225b63ded7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d2f/classmo__array.html#ab45c37cf8466666c508ac2225b63ded7">mo_array</a> (function&lt; void(int)&gt; add, function&lt; void(int)&gt; erase, function&lt; R(Args...)&gt; f)</td></tr>
+<tr class="memdesc:ab45c37cf8466666c508ac2225b63ded7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Mo's algorithm solver.  <br /></td></tr>
 <tr class="separator:ab45c37cf8466666c508ac2225b63ded7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afba534e0c7524199225c424589a44b9a" id="r_afba534e0c7524199225c424589a44b9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d2f/classmo__array.html#afba534e0c7524199225c424589a44b9a">query</a> (int l, int r, const Args &amp;...args)</td></tr>
-<tr class="memdesc:afba534e0c7524199225c424589a44b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a query of <code>f(a[l..r])</code> to solve.  <br /></td></tr>
+<tr class="memdesc:afba534e0c7524199225c424589a44b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a range query to be solved offline.  <br /></td></tr>
 <tr class="separator:afba534e0c7524199225c424589a44b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e6ef1eef1f8f0419b03a9fd003e391b" id="r_a1e6ef1eef1f8f0419b03a9fd003e391b"><td class="memTemplParams" colspan="2">template&lt;typename H &gt; </td></tr>
 <tr class="memitem:a1e6ef1eef1f8f0419b03a9fd003e391b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d2f/classmo__array.html#a1e6ef1eef1f8f0419b03a9fd003e391b">solve</a> (H &amp;&amp;heuristic)</td></tr>
-<tr class="memdesc:a1e6ef1eef1f8f0419b03a9fd003e391b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves all the queries and return list of answers in the order of the queries added.  <br /></td></tr>
+<tr class="memdesc:a1e6ef1eef1f8f0419b03a9fd003e391b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves all queries and returns answers in insertion order.  <br /></td></tr>
 <tr class="separator:a1e6ef1eef1f8f0419b03a9fd003e391b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename R, typename... Args&gt;<br />
-class mo_array&lt; R, Args &gt;</div><p>Mo's Algorithm to answer offline range queries in <code>O(sqrt(N))</code>. </p>
-<p>Use this when the queries are non-trivial to merge from both halves, and the answer can be computed whenever an element is added and deleted in a "sliding
-window" fashion.</p>
-<p>The actual performance depends on the heuristic used to determine the order of the queries. The best all-around heuristic used is Hilbert Curve, but this implementation allows passing arbitrary heuristic function.</p>
-<p>Learn more about Hilbert Curve at <a href="https://codeforces.com/blog/entry/61203">https://codeforces.com/blog/entry/61203</a>.</p>
+class mo_array&lt; R, Args &gt;</div><p>Mo's Algorithm for offline range queries on arrays. </p>
+<p>Efficiently answers multiple range queries by reordering them to minimize the number of add/remove operations in a sliding window. Particularly useful when direct computation is expensive but incremental updates are cheap.</p>
+<p>The actual performance heavily depends on the query ordering heuristic. Hilbert curve ordering typically provides 2-3x speedup over simpler heuristics.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">R</td><td>Query answer type. </td></tr>
-    <tr><td class="paramname">Args</td><td>Additional argument types to pass to the answer function. </td></tr>
+    <tr><td class="paramname">Args</td><td>Additional argument types passed to answer function.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Queries must be answered offline (all queries known in advance). </dd>
+<dd>
+Best for problems where incremental updates are O(1) or O(log N). </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://codeforces.com/blog/entry/61203">https://codeforces.com/blog/entry/61203</a> for Hilbert curve details. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab45c37cf8466666c508ac2225b63ded7" name="ab45c37cf8466666c508ac2225b63ded7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab45c37cf8466666c508ac2225b63ded7">&#9670;&#160;</a></span>mo_array()</h2>
@@ -171,6 +174,8 @@ template&lt;typename R , typename... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a Mo's algorithm solver. </p>
 
 </div>
 </div>
@@ -217,12 +222,13 @@ template&lt;typename R , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Adds a query of <code>f(a[l..r])</code> to solve. </p>
+<p>Adds a range query to be solved offline. </p>
+<p>Time Complexity: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">l</td><td>Left boundary. </td></tr>
-    <tr><td class="paramname">r</td><td>right boundary. </td></tr>
-    <tr><td class="paramname">args</td><td>Additional arguments for the current query. </td></tr>
+    <tr><td class="paramname">l</td><td>Left boundary (inclusive). </td></tr>
+    <tr><td class="paramname">r</td><td>Right boundary (inclusive). </td></tr>
+    <tr><td class="paramname">args</td><td>Additional arguments to pass to the answer function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -257,13 +263,15 @@ template&lt;typename H &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Solves all the queries and return list of answers in the order of the queries added. </p>
+<p>Solves all queries and returns answers in insertion order. </p>
+<p>Time Complexity: O((N + Q)√N) where Q is the number of queries</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>The heuristic function with signature <code>Fn(queries) -&gt; H</code> where <code>Q[i]</code> will be processed before <code>Q[j]</code> if <code>H[i]&lt;H[j]</code>. </td></tr>
+    <tr><td class="paramname">heuristic</td><td>Function that assigns a comparable value to each query. Queries are processed in increasing order of these values. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of answers corresponding to each query in the order they were added. </dd></dl>
 
 </div>
 </div>

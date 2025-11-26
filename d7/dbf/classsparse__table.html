@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('d7/dbf/classsparse__table.html','../..
 </div><!--header-->
 <div class="contents">
 
-<p>Answers subarray queries in <code>O(1)</code> with <code>O(N log N)</code> preprocessing.  
+<p>Sparse Table for O(1) range queries on immutable arrays.  
  <a href="../../d7/dbf/classsparse__table.html#details">More...</a></p>
 
 <p><code>#include &lt;sparse_table.hpp&gt;</code></p>
@@ -106,22 +106,30 @@ $(document).ready(function(){initNavTree('d7/dbf/classsparse__table.html','../..
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3d177ea39fc50e1625e0b0cb27d329c4" id="r_a3d177ea39fc50e1625e0b0cb27d329c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dbf/classsparse__table.html#a3d177ea39fc50e1625e0b0cb27d329c4">sparse_table</a> (const vector&lt; T &gt; &amp;v, const Combine &amp;combine)</td></tr>
+<tr class="memdesc:a3d177ea39fc50e1625e0b0cb27d329c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a sparse table from an array.  <br /></td></tr>
 <tr class="separator:a3d177ea39fc50e1625e0b0cb27d329c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab56dcd2a529052f44a82e09b7d6ecaaf" id="r_ab56dcd2a529052f44a82e09b7d6ecaaf"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dbf/classsparse__table.html#ab56dcd2a529052f44a82e09b7d6ecaaf">query</a> (int l, int r) const</td></tr>
-<tr class="memdesc:ab56dcd2a529052f44a82e09b7d6ecaaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the range <code>[l, r]</code> in <code>O(1)</code>.  <br /></td></tr>
+<tr class="memdesc:ab56dcd2a529052f44a82e09b7d6ecaaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the range [l, r] using the idempotent combine operation.  <br /></td></tr>
 <tr class="separator:ab56dcd2a529052f44a82e09b7d6ecaaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename Combine&gt;<br />
-class sparse_table&lt; T, Combine &gt;</div><p>Answers subarray queries in <code>O(1)</code> with <code>O(N log N)</code> preprocessing. </p>
-<p>Sparse Tables are immutable, but they can answer range queries very fast if the answer remains correct when merging answers of two (possibly) overlapping ranges. Some example operations are <code>gcd</code> and <code>min</code>.</p>
+class sparse_table&lt; T, Combine &gt;</div><p>Sparse Table for O(1) range queries on immutable arrays. </p>
+<p>Precomputes answers for all ranges of length 2^k, enabling constant-time queries for idempotent operations. An operation is idempotent if f(x, x) = x, which allows overlapping ranges in queries.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Value type. </td></tr>
-    <tr><td class="paramname">Combine</td><td>Binary functor to merge two values. </td></tr>
+    <tr><td class="paramname">Combine</td><td>Binary idempotent operation (e.g., min, max, gcd, lcm).</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>The array is immutable after construction. </dd>
+<dd>
+Combine must be idempotent: f(x, x) = x. </dd>
+<dd>
+Perfect for static RMQ (Range Minimum Query) problems. </dd>
+<dd>
+More space-efficient than segment trees for read-only scenarios. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3d177ea39fc50e1625e0b0cb27d329c4" name="a3d177ea39fc50e1625e0b0cb27d329c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d177ea39fc50e1625e0b0cb27d329c4">&#9670;&#160;</a></span>sparse_table()</h2>
@@ -158,6 +166,15 @@ template&lt;typename T , typename Combine &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a sparse table from an array. </p>
+<p>Time Complexity: O(N log N) Space Complexity: O(N log N)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The array. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -198,14 +215,16 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Queries the range <code>[l, r]</code> in <code>O(1)</code>. </p>
+<p>Queries the range [l, r] using the idempotent combine operation. </p>
+<p>Time Complexity: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">l</td><td>Left bound. </td></tr>
-    <tr><td class="paramname">r</td><td>Right bound. </td></tr>
+    <tr><td class="paramname">l</td><td>Left bound (inclusive). </td></tr>
+    <tr><td class="paramname">r</td><td>Right bound (inclusive). </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The combined result of elements [l, r]. </dd></dl>
 
 </div>
 </div>

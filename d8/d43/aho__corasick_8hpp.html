@@ -114,7 +114,7 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:af5676c042973e1fb1a71beb59b9ae036" id="r_af5676c042973e1fb1a71beb59b9ae036"><td class="memTemplParams" colspan="2">template&lt;int Begin, int End&gt; </td></tr>
 <tr class="memitem:af5676c042973e1fb1a71beb59b9ae036"><td class="memTemplItemLeft" align="right" valign="top">vector&lt; <a class="el" href="../../d7/de0/structaho__corasick__node__t.html">aho_corasick_node_t</a>&lt; Begin, End &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d43/aho__corasick_8hpp.html#af5676c042973e1fb1a71beb59b9ae036">aho_corasick_automaton</a> (const vector&lt; string &gt; &amp;p)</td></tr>
-<tr class="memdesc:af5676c042973e1fb1a71beb59b9ae036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the automaton to efficiently match the given patterns.  <br /></td></tr>
+<tr class="memdesc:af5676c042973e1fb1a71beb59b9ae036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an Aho-Corasick automaton for multi-pattern string matching.  <br /></td></tr>
 <tr class="separator:af5676c042973e1fb1a71beb59b9ae036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -136,15 +136,23 @@ template&lt;int Begin, int End&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the automaton to efficiently match the given patterns. </p>
-<p>Dedicated template parameters denoting the ASCII range of characters are provided to create C-style arrays for adjacent list (blame CodeForces).</p>
+<p>Constructs an Aho-Corasick automaton for multi-pattern string matching. </p>
+<p>Time Complexity: O(sum of pattern lengths + alphabet size * number of states) Space Complexity: O(sum of pattern lengths * alphabet size)</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Begin</td><td>Lowest character in range. </td></tr>
-    <tr><td class="paramname">End</td><td>Highest character in range. </td></tr>
+    <tr><td class="paramname">Begin</td><td>Lowest character value in the alphabet range. </td></tr>
+    <tr><td class="paramname">End</td><td>Highest character value in the alphabet range. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Vector of pattern strings to match. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The constructed automaton as a vector of nodes.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Template parameters define the alphabet using C-style arrays for performance. </dd></dl>
 
 </div>
 </div>

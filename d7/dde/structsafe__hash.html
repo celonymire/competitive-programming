@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('d7/dde/structsafe__hash.html','../../'
 </div><!--header-->
 <div class="contents">
 
-<p>Custom hasher to avoid exponential blowup for hash lookups.  
+<p>Cryptographically-inspired hash function resistant to collision attacks.  
  <a href="../../d7/dde/structsafe__hash.html#details">More...</a></p>
 
 <p><code>#include &lt;safe_hash.hpp&gt;</code></p>
@@ -109,8 +109,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3a85ff3e341a2ac28cd10f47152f9a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Custom hasher to avoid exponential blowup for hash lookups. </p>
-<p>Learn more at <a href="https://codeforces.com/blog/entry/62393">https://codeforces.com/blog/entry/62393</a>. </p>
+<div class="textblock"><p>Cryptographically-inspired hash function resistant to collision attacks. </p>
+<p>Standard unordered_map hash functions are vulnerable to adversarial input that causes many collisions, degrading performance to O(N) per operation. This hasher uses a random seed and mixing functions to prevent such attacks.</p>
+<p>Time Complexity: O(1) per hash Space Complexity: O(1)</p>
+<dl class="section note"><dt>Note</dt><dd>Essential for contests where adversaries can craft anti-hash test cases. </dd>
+<dd>
+Uses a random seed initialized at program startup. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://codeforces.com/blog/entry/62393">https://codeforces.com/blog/entry/62393</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3a85ff3e341a2ac28cd10f47152f9a41" name="a3a85ff3e341a2ac28cd10f47152f9a41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a85ff3e341a2ac28cd10f47152f9a41">&#9670;&#160;</a></span>operator()()</h2>

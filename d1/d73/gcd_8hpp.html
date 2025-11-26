@@ -107,7 +107,7 @@ Include dependency graph for gcd.hpp:</div>
 Functions</h2></td></tr>
 <tr class="memitem:ac86de0f2a33c5b13764ddde4afb3b576" id="r_ac86de0f2a33c5b13764ddde4afb3b576"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ac86de0f2a33c5b13764ddde4afb3b576"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d73/gcd_8hpp.html#ac86de0f2a33c5b13764ddde4afb3b576">gcd</a> (T a, T b, T &amp;x, T &amp;y)</td></tr>
-<tr class="memdesc:ac86de0f2a33c5b13764ddde4afb3b576"><td class="mdescLeft">&#160;</td><td class="mdescRight">The extended GCD algorithm that finds a solution for <code>ax+by=gcd(a,b)</code>.  <br /></td></tr>
+<tr class="memdesc:ac86de0f2a33c5b13764ddde4afb3b576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extended Euclidean Algorithm for finding Bézout coefficients.  <br /></td></tr>
 <tr class="separator:ac86de0f2a33c5b13764ddde4afb3b576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -151,16 +151,20 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>The extended GCD algorithm that finds a solution for <code>ax+by=gcd(a,b)</code>. </p>
+<p>Extended Euclidean Algorithm for finding Bézout coefficients. </p>
+<p>Computes integers x and y such that ax + by = gcd(a, b). This is useful for finding modular inverses and solving linear Diophantine equations.</p>
+<p>Time Complexity: O(log(min(a, b))) Space Complexity: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td>First number. </td></tr>
     <tr><td class="paramname">b</td><td>Second number. </td></tr>
-    <tr><td class="paramname">x</td><td>Reference to store <code>x</code>. </td></tr>
-    <tr><td class="paramname">y</td><td>Reference to store <code>y</code>. </td></tr>
+    <tr><td class="paramname">x</td><td>Reference to store the coefficient for a. </td></tr>
+    <tr><td class="paramname">y</td><td>Reference to store the coefficient for b. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>gcd(a, b)</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>To find modular inverse of a mod b (when gcd(a,b)=1), x will be the inverse after calling this function. </dd></dl>
 
 </div>
 </div>

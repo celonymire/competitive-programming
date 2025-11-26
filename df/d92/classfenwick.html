@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('df/d92/classfenwick.html','../../'); i
 </div><!--header-->
 <div class="contents">
 
-<p>Fenwick Tree that answers prefix queries in <code>O(log N)</code> with very low constant factor.  
+<p>Binary Indexed Tree (Fenwick Tree) for prefix queries.  
  <a href="../../df/d92/classfenwick.html#details">More...</a></p>
 
 <p><code>#include &lt;fenwick.hpp&gt;</code></p>
@@ -106,27 +106,33 @@ $(document).ready(function(){initNavTree('df/d92/classfenwick.html','../../'); i
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a446e1d9eb102474ad533c5b9257c1676" id="r_a446e1d9eb102474ad533c5b9257c1676"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d92/classfenwick.html#a446e1d9eb102474ad533c5b9257c1676">fenwick</a> (const vector&lt; T &gt; &amp;v, const Combine &amp;combine)</td></tr>
+<tr class="memdesc:a446e1d9eb102474ad533c5b9257c1676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Fenwick Tree from an array.  <br /></td></tr>
 <tr class="separator:a446e1d9eb102474ad533c5b9257c1676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37a5990fdc665f45e7287e8ad7f901ff" id="r_a37a5990fdc665f45e7287e8ad7f901ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d92/classfenwick.html#a37a5990fdc665f45e7287e8ad7f901ff">fenwick</a> (int n, T v, const Combine &amp;combine)</td></tr>
 <tr class="separator:a37a5990fdc665f45e7287e8ad7f901ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52191dc0f527a4fe556ed28869aaac97" id="r_a52191dc0f527a4fe556ed28869aaac97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d92/classfenwick.html#a52191dc0f527a4fe556ed28869aaac97">update</a> (int i, T v)</td></tr>
-<tr class="memdesc:a52191dc0f527a4fe556ed28869aaac97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the element.  <br /></td></tr>
+<tr class="memdesc:a52191dc0f527a4fe556ed28869aaac97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the element at index i using the combine operation.  <br /></td></tr>
 <tr class="separator:a52191dc0f527a4fe556ed28869aaac97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a928b3e127ed80409d8a90f1d928872d7" id="r_a928b3e127ed80409d8a90f1d928872d7"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d92/classfenwick.html#a928b3e127ed80409d8a90f1d928872d7">query</a> (int i) const</td></tr>
-<tr class="memdesc:a928b3e127ed80409d8a90f1d928872d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query the prefix <code>a[0..i-1]</code>.  <br /></td></tr>
+<tr class="memdesc:a928b3e127ed80409d8a90f1d928872d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the prefix sum for elements [0, i-1].  <br /></td></tr>
 <tr class="separator:a928b3e127ed80409d8a90f1d928872d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename Combine&gt;<br />
-class fenwick&lt; T, Combine &gt;</div><p>Fenwick Tree that answers prefix queries in <code>O(log N)</code> with very low constant factor. </p>
-<p>The difference with Segment Tree is: 1) Cannot directly set an element, instead update it through the combine function. 2) Very low constant factor for its operations.</p>
+class fenwick&lt; T, Combine &gt;</div><p>Binary Indexed Tree (Fenwick Tree) for prefix queries. </p>
+<p>Supports efficient point updates and prefix queries for associative operations. Much faster in practice than segment trees due to simpler operations and better cache locality. However, can only query prefixes, not arbitrary ranges.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Value type. </td></tr>
-    <tr><td class="paramname">Combine</td><td>Binary callable. </td></tr>
+    <tr><td class="paramname">Combine</td><td>Binary associative operation (e.g., addition, multiplication).</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Cannot directly set elements; only update via the combine function. </dd>
+<dd>
+For range queries, compute query(r) - query(l-1). </dd>
+<dd>
+Works best with invertible operations (addition, XOR, etc.). </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a446e1d9eb102474ad533c5b9257c1676" name="a446e1d9eb102474ad533c5b9257c1676"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a446e1d9eb102474ad533c5b9257c1676">&#9670;&#160;</a></span>fenwick() <span class="overload">[1/2]</span></h2>
@@ -163,6 +169,15 @@ template&lt;typename T , typename Combine &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a Fenwick Tree from an array. </p>
+<p>Time Complexity: O(N)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Initial array values. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -237,13 +252,15 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Query the prefix <code>a[0..i-1]</code>. </p>
+<p>Queries the prefix sum for elements [0, i-1]. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>One-indexed index. </td></tr>
+    <tr><td class="paramname">i</td><td>One-indexed index (exclusive upper bound). </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The combined result of elements [0, i-1]. </dd></dl>
 
 </div>
 </div>
@@ -283,11 +300,12 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Update the element. </p>
+<p>Updates the element at index i using the combine operation. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>One-indexed index. </td></tr>
-    <tr><td class="paramname">v</td><td>The value. </td></tr>
+    <tr><td class="paramname">v</td><td>Value to combine with the current element. </td></tr>
   </table>
   </dd>
 </dl>

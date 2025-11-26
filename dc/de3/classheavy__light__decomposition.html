@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('dc/de3/classheavy__light__decompositio
 </div><!--header-->
 <div class="contents">
 
-<p>Answers non-trivial path queries of a tree in <code>O(log^2 N)</code>.  
+<p>Heavy-Light Decomposition for path queries on trees.  
  <a href="../../dc/de3/classheavy__light__decomposition.html#details">More...</a></p>
 
 <p><code>#include &lt;heavy_light_decomposition.hpp&gt;</code></p>
@@ -106,29 +106,35 @@ $(document).ready(function(){initNavTree('dc/de3/classheavy__light__decompositio
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d5d4e2e91390c7532d6ac064eef2636" id="r_a2d5d4e2e91390c7532d6ac064eef2636"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/classheavy__light__decomposition.html#a2d5d4e2e91390c7532d6ac064eef2636">heavy_light_decomposition</a> (const vector&lt; vector&lt; int &gt; &gt; &amp;g, const T &amp;v, const Combine &amp;combine, int root=0)</td></tr>
+<tr class="memdesc:a2d5d4e2e91390c7532d6ac064eef2636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs HLD from a tree with uniform node values.  <br /></td></tr>
 <tr class="separator:a2d5d4e2e91390c7532d6ac064eef2636"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c883e44f00722554ed1369e56ce281b" id="r_a8c883e44f00722554ed1369e56ce281b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/classheavy__light__decomposition.html#a8c883e44f00722554ed1369e56ce281b">heavy_light_decomposition</a> (const vector&lt; vector&lt; int &gt; &gt; &amp;g, const vector&lt; T &gt; &amp;v, const T &amp;v0, const Combine &amp;combine, int root=0)</td></tr>
+<tr class="memdesc:a8c883e44f00722554ed1369e56ce281b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs HLD from a tree with specified node values.  <br /></td></tr>
 <tr class="separator:a8c883e44f00722554ed1369e56ce281b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a432961fa502955df689ba6de19d94d26" id="r_a432961fa502955df689ba6de19d94d26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/classheavy__light__decomposition.html#a432961fa502955df689ba6de19d94d26">update</a> (int a, const T &amp;v)</td></tr>
-<tr class="memdesc:a432961fa502955df689ba6de19d94d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the value at node.  <br /></td></tr>
+<tr class="memdesc:a432961fa502955df689ba6de19d94d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the value at a node using the combine operation.  <br /></td></tr>
 <tr class="separator:a432961fa502955df689ba6de19d94d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a299d2f40e97b797d87a3f3049adfa2f3" id="r_a299d2f40e97b797d87a3f3049adfa2f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/classheavy__light__decomposition.html#a299d2f40e97b797d87a3f3049adfa2f3">set</a> (int a, const T &amp;v)</td></tr>
-<tr class="memdesc:a299d2f40e97b797d87a3f3049adfa2f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value at node.  <br /></td></tr>
+<tr class="memdesc:a299d2f40e97b797d87a3f3049adfa2f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value at a node, replacing the current value.  <br /></td></tr>
 <tr class="separator:a299d2f40e97b797d87a3f3049adfa2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a726caf3fe261d4116248e3418e01c45e" id="r_a726caf3fe261d4116248e3418e01c45e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/classheavy__light__decomposition.html#a726caf3fe261d4116248e3418e01c45e">query</a> (int a, int b)</td></tr>
-<tr class="memdesc:a726caf3fe261d4116248e3418e01c45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the path from <code>a</code> to <code>b</code>.  <br /></td></tr>
+<tr class="memdesc:a726caf3fe261d4116248e3418e01c45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the path between nodes a and b using the combine operation.  <br /></td></tr>
 <tr class="separator:a726caf3fe261d4116248e3418e01c45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename Combine&gt;<br />
-class heavy_light_decomposition&lt; T, Combine &gt;</div><p>Answers non-trivial path queries of a tree in <code>O(log^2 N)</code>. </p>
+class heavy_light_decomposition&lt; T, Combine &gt;</div><p>Heavy-Light Decomposition for path queries on trees. </p>
+<p>Decomposes a tree into heavy and light edges, allowing path queries and updates to be answered using a segment tree. Each root-to-node path crosses at most O(log N) light edges, enabling efficient queries.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Value type. </td></tr>
-    <tr><td class="paramname">Combine</td><td>Binary callable. </td></tr>
+    <tr><td class="paramname">Combine</td><td>Binary associative operation for combining path values.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Each path crosses at most log N chains. </dd>
+<dd>
+For edge-weighted trees, store edge weights at the deeper endpoint. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2d5d4e2e91390c7532d6ac064eef2636" name="a2d5d4e2e91390c7532d6ac064eef2636"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d5d4e2e91390c7532d6ac064eef2636">&#9670;&#160;</a></span>heavy_light_decomposition() <span class="overload">[1/2]</span></h2>
@@ -177,6 +183,17 @@ template&lt;typename T , typename Combine &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs HLD from a tree with uniform node values. </p>
+<p>Time Complexity: O(N)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Tree adjacency list. </td></tr>
+    <tr><td class="paramname">v</td><td>Initial value for all nodes. </td></tr>
+    <tr><td class="paramname">root</td><td>Root of the tree (default 0). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -234,6 +251,18 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs HLD from a tree with specified node values. </p>
+<p>Time Complexity: O(N)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Tree adjacency list. </td></tr>
+    <tr><td class="paramname">v</td><td>Initial values for nodes. </td></tr>
+    <tr><td class="paramname">v0</td><td>Default value for queries. </td></tr>
+    <tr><td class="paramname">root</td><td>Root of the tree (default 0). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="reference">References <a class="el" href="../../dd/d23/classsegment__tree.html#a2353439c86916ed17d4cee2c23e938a6">segment_tree&lt; T, Combine &gt;::set()</a>.</p>
 
 </div>
@@ -275,7 +304,16 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Queries the path from <code>a</code> to <code>b</code>. </p>
+<p>Queries the path between nodes a and b using the combine operation. </p>
+<p>Time Complexity: O(log² N)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>First node index. </td></tr>
+    <tr><td class="paramname">b</td><td>Second node index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The combined result of all node values on the path from a to b. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../dd/d23/classsegment__tree.html#a5d09fdefa168f2c439e3e180a6623181">segment_tree&lt; T, Combine &gt;::identity()</a>, and <a class="el" href="../../dd/d23/classsegment__tree.html#abb5cf511cf48aabdba5f1088e611481c">segment_tree&lt; T, Combine &gt;::query()</a>.</p>
 
@@ -317,11 +355,12 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Set the value at node. </p>
+<p>Sets the value at a node, replacing the current value. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>The node. </td></tr>
-    <tr><td class="paramname">v</td><td>The value. </td></tr>
+    <tr><td class="paramname">a</td><td>Node index. </td></tr>
+    <tr><td class="paramname">v</td><td>New value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -366,11 +405,12 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Update the value at node. </p>
+<p>Updates the value at a node using the combine operation. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>The node. </td></tr>
-    <tr><td class="paramname">v</td><td>The value. </td></tr>
+    <tr><td class="paramname">a</td><td>Node index. </td></tr>
+    <tr><td class="paramname">v</td><td>Value to combine with the current node value. </td></tr>
   </table>
   </dd>
 </dl>

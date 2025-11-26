@@ -106,7 +106,7 @@ Include dependency graph for articulation_points.hpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa0922d0103c187c1ff89f65df63ea128" id="r_aa0922d0103c187c1ff89f65df63ea128"><td class="memItemLeft" align="right" valign="top">vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/articulation__points_8hpp.html#aa0922d0103c187c1ff89f65df63ea128">articulation_points</a> (vector&lt; vector&lt; int &gt; &gt; &amp;g)</td></tr>
-<tr class="memdesc:aa0922d0103c187c1ff89f65df63ea128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all the vertices that are articulation points.  <br /></td></tr>
+<tr class="memdesc:aa0922d0103c187c1ff89f65df63ea128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all vertices that are articulation points (cut vertices) in an undirected graph.  <br /></td></tr>
 <tr class="separator:aa0922d0103c187c1ff89f65df63ea128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -126,13 +126,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find all the vertices that are articulation points. </p>
+<p>Find all vertices that are articulation points (cut vertices) in an undirected graph. </p>
+<p>An articulation point is a vertex whose removal increases the number of connected components. Uses Tarjan's algorithm with DFS to identify such vertices efficiently.</p>
+<p>Time Complexity: O(V + E) where V is the number of vertices and E is the number of edges. Space Complexity: O(V) for the auxiliary arrays and recursion stack.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">g</td><td>The graph. </td></tr>
+    <tr><td class="paramname">g</td><td>The adjacency list representation of the undirected graph. g[i] contains the list of neighbors of vertex i. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector containing the indices of all articulation points.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The graph is assumed to be undirected. </dd>
+<dd>
+Works correctly on graphs with multiple connected components. </dd></dl>
 
 </div>
 </div>

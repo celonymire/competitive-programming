@@ -106,7 +106,7 @@ Include dependency graph for strongly_connected_components.hpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aba1bb82d7a5ff2d12b6dd49d9727cecb" id="r_aba1bb82d7a5ff2d12b6dd49d9727cecb"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5a/strongly__connected__components_8hpp.html#aba1bb82d7a5ff2d12b6dd49d9727cecb">strongly_connected_components</a> (vector&lt; vector&lt; int &gt; &gt; &amp;g)</td></tr>
-<tr class="memdesc:aba1bb82d7a5ff2d12b6dd49d9727cecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all the strongly connected components of a graph.  <br /></td></tr>
+<tr class="memdesc:aba1bb82d7a5ff2d12b6dd49d9727cecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all strongly connected components (SCCs) in a directed graph.  <br /></td></tr>
 <tr class="separator:aba1bb82d7a5ff2d12b6dd49d9727cecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -126,13 +126,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find all the strongly connected components of a graph. </p>
+<p>Find all strongly connected components (SCCs) in a directed graph. </p>
+<p>A strongly connected component is a maximal subgraph where every vertex is reachable from every other vertex. Uses Kosaraju's algorithm with two DFS passes to identify all SCCs.</p>
+<p>Time Complexity: O(V + E) where V is vertices and E is edges. Space Complexity: O(V + E) for storing the transpose graph.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">g</td><td>The graph. </td></tr>
+    <tr><td class="paramname">g</td><td>The adjacency list representation of the directed graph. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of vectors, where each inner vector contains the vertices of one strongly connected component.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The SCCs are returned in reverse topological order of the condensation graph. </dd></dl>
 
 </div>
 </div>

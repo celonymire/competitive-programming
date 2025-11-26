@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('df/d1e/classmodint.html','../../'); in
 </div><!--header-->
 <div class="contents">
 
-<p>Keeps the internal 32-bit integer value modulo <code>M</code>.  
+<p>Modular integer class for arithmetic modulo M.  
  <a href="../../df/d1e/classmodint.html#details">More...</a></p>
 
 <p><code>#include &lt;modint.hpp&gt;</code></p>
@@ -127,14 +127,22 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;int M&gt;<br />
-class modint&lt; M &gt;</div><p>Keeps the internal 32-bit integer value modulo <code>M</code>. </p>
-<p>The modulo is taken as a constant template parameter to optimize for the common case of fixed modulo, and it assumes the modulus is prime.</p>
+class modint&lt; M &gt;</div><p>Modular integer class for arithmetic modulo M. </p>
+<p>Automatically maintains values in the range [0, M) and supports all standard arithmetic operations. Uses compile-time constant modulus for efficiency. Division uses Fermat's little theorem for modular inverse, requiring prime modulus.</p>
+<p>Time Complexity:</p><ul>
+<li>All arithmetic operations: O(1)</li>
+<li><a class="el" href="../../df/d1e/classmodint.html#a7e34f5f8a9ad0d5671c8b770cf7e9cf2" title="Compute x^p mod M using binary exponentiation.">pow()</a>: O(log P)</li>
+<li><a class="el" href="../../df/d1e/classmodint.html#af1f0a7e5d688cc3cf8ca49c61aa1b4e7" title="Compute the modulo inverse of the internal value.">inv()</a>: O(log M) Space Complexity: O(1)</li>
+</ul>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">M</td><td>The modulus. </td></tr>
+    <tr><td class="paramname">M</td><td>The modulus (must be prime for division to work).</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Modulus must be prime for division and <a class="el" href="../../df/d1e/classmodint.html#af1f0a7e5d688cc3cf8ca49c61aa1b4e7" title="Compute the modulo inverse of the internal value.">inv()</a> to work correctly. </dd>
+<dd>
+The modulus is a compile-time constant for optimization. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a344cf72b3770442e22605e3fe5a5505f" name="a344cf72b3770442e22605e3fe5a5505f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a344cf72b3770442e22605e3fe5a5505f">&#9670;&#160;</a></span>modint() <span class="overload">[1/2]</span></h2>

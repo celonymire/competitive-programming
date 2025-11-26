@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Treap class that automatically handles updating subtree values.">
+<g id="a_Node000001"><a xlink:title="Implicit Treap for sequence operations with range queries.">
 <polygon fill="#999999" stroke="#666666" points="120,-19 0,-19 0,0 120,0 120,-19"/>
 <text text-anchor="middle" x="60" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">treap&lt; T, Combine &gt;</text>
 </a>

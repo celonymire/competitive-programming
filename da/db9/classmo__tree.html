@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('da/db9/classmo__tree.html','../../'); 
 </div><!--header-->
 <div class="contents">
 
-<p>Mo's Algorithm to answer offline path queries in <code>O(sqrt(N))</code>.  
+<p>Mo's Algorithm for offline path queries on trees.  
  <a href="../../da/db9/classmo__tree.html#details">More...</a></p>
 
 <p><code>#include &lt;mo_tree.hpp&gt;</code></p>
@@ -106,27 +106,30 @@ $(document).ready(function(){initNavTree('da/db9/classmo__tree.html','../../'); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af3f1e0e14a005ce762f3c192ca4896e5" id="r_af3f1e0e14a005ce762f3c192ca4896e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db9/classmo__tree.html#af3f1e0e14a005ce762f3c192ca4896e5">mo_tree</a> (function&lt; void(int)&gt; add, function&lt; void(int)&gt; remove, function&lt; R(Args...)&gt; f)</td></tr>
+<tr class="memdesc:af3f1e0e14a005ce762f3c192ca4896e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Mo's algorithm solver for tree paths.  <br /></td></tr>
 <tr class="separator:af3f1e0e14a005ce762f3c192ca4896e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa66c9dd7227715d3e249be077b91f3f6" id="r_aa66c9dd7227715d3e249be077b91f3f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db9/classmo__tree.html#aa66c9dd7227715d3e249be077b91f3f6">add_query</a> (int l, int r, const Args &amp;...args)</td></tr>
-<tr class="memdesc:aa66c9dd7227715d3e249be077b91f3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a query of <code>f(path-from-a-to-b)</code> to solve.  <br /></td></tr>
+<tr class="memdesc:aa66c9dd7227715d3e249be077b91f3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a tree path query to be solved offline.  <br /></td></tr>
 <tr class="separator:aa66c9dd7227715d3e249be077b91f3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73083b9f6304c3199bfd520d4e818c75" id="r_a73083b9f6304c3199bfd520d4e818c75"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:a73083b9f6304c3199bfd520d4e818c75"><td class="memTemplItemLeft" align="right" valign="top">vector&lt; R &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/db9/classmo__tree.html#a73083b9f6304c3199bfd520d4e818c75">solve</a> (F &amp;&amp;f, const <a class="el" href="../../d9/d3b/classlowest__common__ancestor.html">lowest_common_ancestor</a> &amp;lca)</td></tr>
-<tr class="memdesc:a73083b9f6304c3199bfd520d4e818c75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves all the queries and return list of answers in the order of the queries added.  <br /></td></tr>
+<tr class="memdesc:a73083b9f6304c3199bfd520d4e818c75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves all tree path queries and returns answers in insertion order.  <br /></td></tr>
 <tr class="separator:a73083b9f6304c3199bfd520d4e818c75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename R, typename... Args&gt;<br />
-class mo_tree&lt; R, Args &gt;</div><p>Mo's Algorithm to answer offline path queries in <code>O(sqrt(N))</code>. </p>
-<p>The actual performance depends on the heuristic used to determine the order of the queries. The best all-around heuristic used is Hilbert Curve, but this implementation allows passing arbitrary heuristic function.</p>
-<p>Learn more about Hilbert Curve at <a href="https://codeforces.com/blog/entry/61203">https://codeforces.com/blog/entry/61203</a>.</p>
+class mo_tree&lt; R, Args &gt;</div><p>Mo's Algorithm for offline path queries on trees. </p>
+<p>Efficiently answers multiple path queries on a tree by reordering them to minimize the number of add/remove operations. Uses the Euler tour technique to flatten the tree into an array, then applies Mo's algorithm.</p>
+<p>The actual performance heavily depends on the heuristic used to order queries. Hilbert curve ordering provides the best practical performance.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">R</td><td>Query answer type. </td></tr>
-    <tr><td class="paramname">Args</td><td>Additional argument types to pass to the answer function. </td></tr>
+    <tr><td class="paramname">Args</td><td>Additional argument types to pass to the answer function.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Requires a <a class="el" href="../../d9/d3b/classlowest__common__ancestor.html" title="Lowest Common Ancestor (LCA) data structure using ±1 RMQ reduction.">lowest_common_ancestor</a> object to be constructed first. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://codeforces.com/blog/entry/61203">https://codeforces.com/blog/entry/61203</a> for Hilbert curve details. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af3f1e0e14a005ce762f3c192ca4896e5" name="af3f1e0e14a005ce762f3c192ca4896e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3f1e0e14a005ce762f3c192ca4896e5">&#9670;&#160;</a></span>mo_tree()</h2>
@@ -169,6 +172,8 @@ template&lt;typename R , typename... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a Mo's algorithm solver for tree paths. </p>
 
 </div>
 </div>
@@ -215,12 +220,13 @@ template&lt;typename R , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Adds a query of <code>f(path-from-a-to-b)</code> to solve. </p>
+<p>Adds a tree path query to be solved offline. </p>
+<p>Time Complexity: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">l</td><td>Left node. </td></tr>
-    <tr><td class="paramname">r</td><td>right node. </td></tr>
-    <tr><td class="paramname">args</td><td>Additional arguments for the current query. </td></tr>
+    <tr><td class="paramname">l</td><td>First node index. </td></tr>
+    <tr><td class="paramname">r</td><td>Second node index. </td></tr>
+    <tr><td class="paramname">args</td><td>Additional arguments to pass to the answer function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -265,14 +271,16 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Solves all the queries and return list of answers in the order of the queries added. </p>
+<p>Solves all tree path queries and returns answers in insertion order. </p>
+<p>Time Complexity: O((N + Q)√N) where Q is the number of queries</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>The heuristic function with signature <code>Fn(queries) -&gt; H</code> where <code>Q[i]</code> will be answered before <code>Q[j]</code> if <code>H[i]&lt;H[j]</code>. </td></tr>
-    <tr><td class="paramname">lca</td><td>The LCA object of the graph. </td></tr>
+    <tr><td class="paramname">f</td><td>Heuristic function that assigns comparable values to queries. Queries are processed in increasing order of these values. For best performance, use Hilbert curve ordering. </td></tr>
+    <tr><td class="paramname">lca</td><td>The LCA data structure for the tree. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of answers corresponding to each query in the order they were added. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../d9/d3b/classlowest__common__ancestor.html#ae800afbd2d9fc0914c7ad49438383bd0">lowest_common_ancestor::query()</a>.</p>
 

@@ -112,7 +112,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d1e/classmodint.html">modint&lt; M &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeps the internal 32-bit integer value modulo <code>M</code>.  <a href="../../df/d1e/classmodint.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modular integer class for arithmetic modulo M.  <a href="../../df/d1e/classmodint.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -152,11 +152,11 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">constexpr</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Keeps the internal 32-bit integer value modulo M.">modint</a> &amp;<span class="keyword">operator</span> op##=(<span class="keyword">const</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Keeps the internal 32-bit integer value modulo M.">modint</a> &amp; other) {                     \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">constexpr</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Modular integer class for arithmetic modulo M.">modint</a> &amp;<span class="keyword">operator</span> op##=(<span class="keyword">const</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Modular integer class for arithmetic modulo M.">modint</a> &amp; other) {                     \</div>
 <div class="line">    v = ((1LL * v op2 other.f) % M + M) % M;                                   \</div>
 <div class="line">    <span class="keywordflow">return</span> *<span class="keyword">this</span>;                                                              \</div>
 <div class="line">  }                                                                            \</div>
-<div class="line">  <span class="keyword">constexpr</span> <span class="keyword">friend</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Keeps the internal 32-bit integer value modulo M.">modint</a> <span class="keyword">operator</span> op(<span class="keyword">const</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Keeps the internal 32-bit integer value modulo M.">modint</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Keeps the internal 32-bit integer value modulo M.">modint</a> &amp;b) {      \</div>
+<div class="line">  <span class="keyword">constexpr</span> <span class="keyword">friend</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Modular integer class for arithmetic modulo M.">modint</a> <span class="keyword">operator</span> op(<span class="keyword">const</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Modular integer class for arithmetic modulo M.">modint</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="../../df/d1e/classmodint.html" title="Modular integer class for arithmetic modulo M.">modint</a> &amp;b) {      \</div>
 <div class="line">    <span class="keyword">auto</span> c = a;                                                                \</div>
 <div class="line">    c op## = b;                                                                \</div>
 <div class="line">    <span class="keywordflow">return</span> c;                                                                  \</div>

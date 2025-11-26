@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('dd/d5c/structcombinatorics.html','../.
 </div><!--header-->
 <div class="contents">
 
-<p>Computes information necessary for combinatoric calculations in <code>O(1)</code> with <code>O(N)</code> precomputation. This assumes the modulus is prime.  
+<p>Precomputes factorials and inverses for fast combinatorial calculations.  
  <a href="../../dd/d5c/structcombinatorics.html#details">More...</a></p>
 
 <p><code>#include &lt;combinatorics.hpp&gt;</code></p>
@@ -107,12 +107,13 @@ $(document).ready(function(){initNavTree('dd/d5c/structcombinatorics.html','../.
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afc989060ae6470eb3a52e8d559ae6b5a" id="r_afc989060ae6470eb3a52e8d559ae6b5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d5c/structcombinatorics.html#afc989060ae6470eb3a52e8d559ae6b5a">combinatorics</a> (int n)</td></tr>
+<tr class="memdesc:afc989060ae6470eb3a52e8d559ae6b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precomputes factorials and inverses up to n.  <br /></td></tr>
 <tr class="separator:afc989060ae6470eb3a52e8d559ae6b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a092a6dad6a82198144bb210a2d853fcc" id="r_a092a6dad6a82198144bb210a2d853fcc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d1e/classmodint.html">modint</a>&lt; M &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d5c/structcombinatorics.html#a092a6dad6a82198144bb210a2d853fcc">ncr</a> (int n, int k) const</td></tr>
-<tr class="memdesc:a092a6dad6a82198144bb210a2d853fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>C(n, k)</code>.  <br /></td></tr>
+<tr class="memdesc:a092a6dad6a82198144bb210a2d853fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the binomial coefficient C(n, k) = n! / (k! * (n-k)!).  <br /></td></tr>
 <tr class="separator:a092a6dad6a82198144bb210a2d853fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac670c261202126adac8bc0c5067fe4e3" id="r_ac670c261202126adac8bc0c5067fe4e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d1e/classmodint.html">modint</a>&lt; M &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d5c/structcombinatorics.html#ac670c261202126adac8bc0c5067fe4e3">npr</a> (int n, int k) const</td></tr>
-<tr class="memdesc:ac670c261202126adac8bc0c5067fe4e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>P(n, k)</code>.  <br /></td></tr>
+<tr class="memdesc:ac670c261202126adac8bc0c5067fe4e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the permutation P(n, k) = n! / (n-k)!.  <br /></td></tr>
 <tr class="separator:ac670c261202126adac8bc0c5067fe4e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -126,13 +127,21 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;int M&gt;<br />
-struct combinatorics&lt; M &gt;</div><p>Computes information necessary for combinatoric calculations in <code>O(1)</code> with <code>O(N)</code> precomputation. This assumes the modulus is prime. </p>
+struct combinatorics&lt; M &gt;</div><p>Precomputes factorials and inverses for fast combinatorial calculations. </p>
+<p>Enables O(1) computation of binomial coefficients and permutations using precomputed factorials, inverse factorials, and modular inverses. Uses Fermat's little theorem for computing modular inverses, requiring prime modulus.</p>
+<p>Time Complexity:</p><ul>
+<li>Construction: O(N)</li>
+<li><a class="el" href="../../dd/d5c/structcombinatorics.html#a092a6dad6a82198144bb210a2d853fcc" title="Computes the binomial coefficient C(n, k) = n! / (k! * (n-k)!).">ncr()</a>, <a class="el" href="../../dd/d5c/structcombinatorics.html#ac670c261202126adac8bc0c5067fe4e3" title="Computes the permutation P(n, k) = n! / (n-k)!.">npr()</a>: O(1) Space Complexity: O(N)</li>
+</ul>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">M</td><td>The modulus. </td></tr>
+    <tr><td class="paramname">M</td><td>The modulus (must be prime).</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Modulus must be prime for Fermat's little theorem to work. </dd>
+<dd>
+Maximum n must be known at construction time. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afc989060ae6470eb3a52e8d559ae6b5a" name="afc989060ae6470eb3a52e8d559ae6b5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc989060ae6470eb3a52e8d559ae6b5a">&#9670;&#160;</a></span>combinatorics()</h2>
@@ -159,6 +168,14 @@ template&lt;int M&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Precomputes factorials and inverses up to n. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Maximum value for which to precompute (inclusive). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="../../dd/d5c/structcombinatorics.html#a7de1f6f8bec90f337637f831807d47f7">combinatorics&lt; M &gt;::fact</a>, <a class="el" href="../../dd/d5c/structcombinatorics.html#aefdc33f7992e5314dddd3e26310ea79e">combinatorics&lt; M &gt;::ifact</a>, and <a class="el" href="../../dd/d5c/structcombinatorics.html#ab440703745414b4c9a993775d45301ae">combinatorics&lt; M &gt;::inv</a>.</p>
 
@@ -201,7 +218,8 @@ template&lt;int M&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Compute <code>C(n, k)</code>. </p>
+<p>Computes the binomial coefficient C(n, k) = n! / (k! * (n-k)!). </p>
+<p>Time Complexity: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>Total number of objects. </td></tr>
@@ -209,6 +227,7 @@ template&lt;int M&gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The binomial coefficient C(n, k) modulo M. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../dd/d5c/structcombinatorics.html#a7de1f6f8bec90f337637f831807d47f7">combinatorics&lt; M &gt;::fact</a>, and <a class="el" href="../../dd/d5c/structcombinatorics.html#aefdc33f7992e5314dddd3e26310ea79e">combinatorics&lt; M &gt;::ifact</a>.</p>
 
@@ -250,14 +269,16 @@ template&lt;int M&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Compute <code>P(n, k)</code>. </p>
+<p>Computes the permutation P(n, k) = n! / (n-k)!. </p>
+<p>Time Complexity: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>Total number of objects. </td></tr>
-    <tr><td class="paramname">k</td><td>Number of objects to choose. </td></tr>
+    <tr><td class="paramname">k</td><td>Number of objects to arrange. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The permutation P(n, k) modulo M. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../dd/d5c/structcombinatorics.html#a7de1f6f8bec90f337637f831807d47f7">combinatorics&lt; M &gt;::fact</a>, and <a class="el" href="../../dd/d5c/structcombinatorics.html#aefdc33f7992e5314dddd3e26310ea79e">combinatorics&lt; M &gt;::ifact</a>.</p>
 

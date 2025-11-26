@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('d9/d3b/classlowest__common__ancestor.h
 </div><!--header-->
 <div class="contents">
 
-<p>Answers the LCA of two nodes in <code>O(1)</code> with <code>O(N)</code> precomputation.  
+<p>Lowest Common Ancestor (LCA) data structure using ±1 RMQ reduction.  
  <a href="../../d9/d3b/classlowest__common__ancestor.html#details">More...</a></p>
 
 <p><code>#include &lt;lowest_common_ancestor.hpp&gt;</code></p>
@@ -107,9 +107,10 @@ $(document).ready(function(){initNavTree('d9/d3b/classlowest__common__ancestor.h
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac42c3e2baf76f42e8f08b5fa4853ff58" id="r_ac42c3e2baf76f42e8f08b5fa4853ff58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d3b/classlowest__common__ancestor.html#ac42c3e2baf76f42e8f08b5fa4853ff58">lowest_common_ancestor</a> (const vector&lt; vector&lt; int &gt; &gt; &amp;g, int root=0)</td></tr>
+<tr class="memdesc:ac42c3e2baf76f42e8f08b5fa4853ff58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the LCA data structure for the given tree.  <br /></td></tr>
 <tr class="separator:ac42c3e2baf76f42e8f08b5fa4853ff58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae800afbd2d9fc0914c7ad49438383bd0" id="r_ae800afbd2d9fc0914c7ad49438383bd0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d3b/classlowest__common__ancestor.html#ae800afbd2d9fc0914c7ad49438383bd0">query</a> (int v, int u) const</td></tr>
-<tr class="memdesc:ae800afbd2d9fc0914c7ad49438383bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the LCA of two nodes.  <br /></td></tr>
+<tr class="memdesc:ae800afbd2d9fc0914c7ad49438383bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the lowest common ancestor of two nodes.  <br /></td></tr>
 <tr class="separator:ae800afbd2d9fc0914c7ad49438383bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
@@ -119,7 +120,11 @@ Friends</h2></td></tr>
 <tr class="separator:a12a058e0e0a94cd6d7703be3e03f477f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Answers the LCA of two nodes in <code>O(1)</code> with <code>O(N)</code> precomputation. </p>
+<div class="textblock"><p>Lowest Common Ancestor (LCA) data structure using ±1 RMQ reduction. </p>
+<p>Answers LCA queries in O(1) time after O(N) preprocessing. This implementation uses the Euler tour technique with ±1 Range Minimum Query (RMQ) optimization, which is theoretically optimal. The algorithm splits the tour into blocks, uses sparse table for inter-block queries, and precomputes all possible block configurations for intra-block queries.</p>
+<dl class="section note"><dt>Note</dt><dd>This is one of the most efficient LCA implementations for competitive programming. </dd>
+<dd>
+The tree must be connected and rooted at the specified root vertex. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac42c3e2baf76f42e8f08b5fa4853ff58" name="ac42c3e2baf76f42e8f08b5fa4853ff58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac42c3e2baf76f42e8f08b5fa4853ff58">&#9670;&#160;</a></span>lowest_common_ancestor()</h2>
@@ -154,6 +159,16 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs the LCA data structure for the given tree. </p>
+<p>Time Complexity: O(N) Space Complexity: O(N)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>The adjacency list representation of the tree. </td></tr>
+    <tr><td class="paramname">root</td><td>The root vertex of the tree (default is 0). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -192,14 +207,16 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the LCA of two nodes. </p>
+<p>Computes the lowest common ancestor of two nodes. </p>
+<p>Time Complexity: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>First node. </td></tr>
-    <tr><td class="paramname">u</td><td>Second node. </td></tr>
+    <tr><td class="paramname">v</td><td>First node index. </td></tr>
+    <tr><td class="paramname">u</td><td>Second node index. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the lowest common ancestor of u and v. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="../../da/db9/classmo__tree.html#a73083b9f6304c3199bfd520d4e818c75">mo_tree&lt; R, Args &gt;::solve()</a>.</p>
 

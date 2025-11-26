@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('db/d28/classsegment__tree__lazy.html',
 </div><!--header-->
 <div class="contents">
 
-<p>Segment Tree for efficient range updates and queries.  
+<p>Iterative Segment Tree with lazy propagation for range updates.  
  <a href="../../db/d28/classsegment__tree__lazy.html#details">More...</a></p>
 
 <p><code>#include &lt;segment_tree_lazy.hpp&gt;</code></p>
@@ -106,6 +106,7 @@ $(document).ready(function(){initNavTree('db/d28/classsegment__tree__lazy.html',
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a47a0d35a4f643417fcc944db5a9b7d7a" id="r_a47a0d35a4f643417fcc944db5a9b7d7a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d28/classsegment__tree__lazy.html#a47a0d35a4f643417fcc944db5a9b7d7a">segment_tree_lazy</a> (const vector&lt; T &gt; &amp;v, const T &amp;v0, const U &amp;u0, const Apply &amp;apply, const Push &amp;push, const Combine &amp;combine)</td></tr>
+<tr class="memdesc:a47a0d35a4f643417fcc944db5a9b7d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a lazy segment tree from an array.  <br /></td></tr>
 <tr class="separator:a47a0d35a4f643417fcc944db5a9b7d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89b2d95615326c130dded7f4b03f3168" id="r_a89b2d95615326c130dded7f4b03f3168"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d28/classsegment__tree__lazy.html#a89b2d95615326c130dded7f4b03f3168">segment_tree_lazy</a> (int n, const T &amp;v, const U &amp;u0, const Apply &amp;apply, const Push &amp;push, const Combine &amp;combine)</td></tr>
 <tr class="separator:a89b2d95615326c130dded7f4b03f3168"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,7 +114,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9f47407eac35cf6f489a4453bbffd975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the default value for queries.  <br /></td></tr>
 <tr class="separator:a9f47407eac35cf6f489a4453bbffd975"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7df4de24eb6ef1217fdecb3c9d1bb1fe" id="r_a7df4de24eb6ef1217fdecb3c9d1bb1fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d28/classsegment__tree__lazy.html#a7df4de24eb6ef1217fdecb3c9d1bb1fe">update</a> (int l, int r, const U &amp;v)</td></tr>
-<tr class="memdesc:a7df4de24eb6ef1217fdecb3c9d1bb1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the range <code>[l, r)</code>.  <br /></td></tr>
+<tr class="memdesc:a7df4de24eb6ef1217fdecb3c9d1bb1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a lazy update to the range [l, r).  <br /></td></tr>
 <tr class="separator:a7df4de24eb6ef1217fdecb3c9d1bb1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f02dc4c5470757cd3047d59dd98ff3a" id="r_a6f02dc4c5470757cd3047d59dd98ff3a"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d28/classsegment__tree__lazy.html#a6f02dc4c5470757cd3047d59dd98ff3a">query</a> (int l, int r)</td></tr>
 <tr class="memdesc:a6f02dc4c5470757cd3047d59dd98ff3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query the range <code>[l, r)</code>.  <br /></td></tr>
@@ -129,18 +130,21 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename U, typename Apply, typename Push, typename Combine&gt;<br />
-class segment_tree_lazy&lt; T, U, Apply, Push, Combine &gt;</div><p>Segment Tree for efficient range updates and queries. </p>
-<p>The Segment Tree is implemented iteratively.</p>
+class segment_tree_lazy&lt; T, U, Apply, Push, Combine &gt;</div><p>Iterative Segment Tree with lazy propagation for range updates. </p>
+<p>Extends the basic segment tree to support efficient range updates using lazy propagation. Updates are deferred until needed, allowing O(log N) range updates. Requires careful implementation of apply and push functions.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Value type. </td></tr>
-    <tr><td class="paramname">U</td><td>Update type. </td></tr>
-    <tr><td class="paramname">Apply</td><td>Applies accumulated updates to value. </td></tr>
-    <tr><td class="paramname">Push</td><td>Accumulates updates with new update. </td></tr>
-    <tr><td class="paramname">Combine</td><td>Binary callable. </td></tr>
+    <tr><td class="paramname">U</td><td>Update/lazy tag type. </td></tr>
+    <tr><td class="paramname">Apply</td><td>Function to apply lazy tag to a node: (T, U, size) -&gt; T </td></tr>
+    <tr><td class="paramname">Push</td><td>Function to combine lazy tags: (U, U, size) -&gt; U </td></tr>
+    <tr><td class="paramname">Combine</td><td>Binary associative operation on values.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Apply and Push functions must correctly handle the size parameter. </dd>
+<dd>
+Updates are applied lazily and propagated on-demand. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a47a0d35a4f643417fcc944db5a9b7d7a" name="a47a0d35a4f643417fcc944db5a9b7d7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a47a0d35a4f643417fcc944db5a9b7d7a">&#9670;&#160;</a></span>segment_tree_lazy() <span class="overload">[1/2]</span></h2>
@@ -201,6 +205,17 @@ template&lt;typename T , typename U , typename Apply , typename Push , typename 
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a lazy segment tree from an array. </p>
+<p>Time Complexity: O(N)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Initial array values. </td></tr>
+    <tr><td class="paramname">v0</td><td>Default value for queries. </td></tr>
+    <tr><td class="paramname">u0</td><td>Default lazy tag value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -293,6 +308,7 @@ template&lt;typename T , typename U , typename Apply , typename Push , typename 
 </div><div class="memdoc">
 
 <p>Returns the default value for queries. </p>
+<p>Time Complexity: O(1) </p>
 
 </div>
 </div>
@@ -335,6 +351,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Find maximum <code>r&gt;=l</code> s.t. <code>f(a[l..r-1])</code> remains true. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Left bound. </td></tr>
@@ -384,6 +401,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Find minimum <code>l&lt;=r</code> s.t. <code>f(a[l+1..r])</code> remains true. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">r</td><td>Right bound. </td></tr>
@@ -431,6 +449,7 @@ template&lt;typename T , typename U , typename Apply , typename Push , typename 
 </div><div class="memdoc">
 
 <p>Query the range <code>[l, r)</code>. </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Left bound. </td></tr>
@@ -483,12 +502,13 @@ template&lt;typename T , typename U , typename Apply , typename Push , typename 
 </table>
 </div><div class="memdoc">
 
-<p>Update the range <code>[l, r)</code>. </p>
+<p>Applies a lazy update to the range [l, r). </p>
+<p>Time Complexity: O(log N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">l</td><td>Left bound. </td></tr>
-    <tr><td class="paramname">r</td><td>Right bound. </td></tr>
-    <tr><td class="paramname">v</td><td>Value to update with. </td></tr>
+    <tr><td class="paramname">l</td><td>Left bound (inclusive). </td></tr>
+    <tr><td class="paramname">r</td><td>Right bound (exclusive). </td></tr>
+    <tr><td class="paramname">v</td><td>Update value to apply. </td></tr>
   </table>
   </dd>
 </dl>

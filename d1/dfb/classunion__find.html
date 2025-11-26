@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('d1/dfb/classunion__find.html','../../'
 </div><!--header-->
 <div class="contents">
 
-<p>Union Find that automatically calls merge functor.  
+<p>Disjoint Set Union (DSU) / Union-Find data structure with custom merge callback.  
  <a href="../../d1/dfb/classunion__find.html#details">More...</a></p>
 
 <p><code>#include &lt;union_find.hpp&gt;</code></p>
@@ -106,30 +106,32 @@ $(document).ready(function(){initNavTree('d1/dfb/classunion__find.html','../../'
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a66f2ecb7527c621e1d5a10bce921d25d" id="r_a66f2ecb7527c621e1d5a10bce921d25d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfb/classunion__find.html#a66f2ecb7527c621e1d5a10bce921d25d">union_find</a> (int n, const F &amp;f)</td></tr>
+<tr class="memdesc:a66f2ecb7527c621e1d5a10bce921d25d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Union-Find structure with n elements.  <br /></td></tr>
 <tr class="separator:a66f2ecb7527c621e1d5a10bce921d25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc69bd2cf18d1704b4c8070328e6e45a" id="r_abc69bd2cf18d1704b4c8070328e6e45a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfb/classunion__find.html#abc69bd2cf18d1704b4c8070328e6e45a">find</a> (int i)</td></tr>
-<tr class="memdesc:abc69bd2cf18d1704b4c8070328e6e45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the leader of component.  <br /></td></tr>
+<tr class="memdesc:abc69bd2cf18d1704b4c8070328e6e45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the leader of the component containing element i.  <br /></td></tr>
 <tr class="separator:abc69bd2cf18d1704b4c8070328e6e45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95ed91bd106663fb259c01334206a6f9" id="r_a95ed91bd106663fb259c01334206a6f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfb/classunion__find.html#a95ed91bd106663fb259c01334206a6f9">size</a> (int i)</td></tr>
-<tr class="memdesc:a95ed91bd106663fb259c01334206a6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of <code>i</code>'s component.  <br /></td></tr>
+<tr class="memdesc:a95ed91bd106663fb259c01334206a6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the component containing element i.  <br /></td></tr>
 <tr class="separator:a95ed91bd106663fb259c01334206a6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fbd8d474f1892e6fdfcb55ec07207da" id="r_a0fbd8d474f1892e6fdfcb55ec07207da"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfb/classunion__find.html#a0fbd8d474f1892e6fdfcb55ec07207da">components</a> () const</td></tr>
-<tr class="memdesc:a0fbd8d474f1892e6fdfcb55ec07207da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of components.  <br /></td></tr>
+<tr class="memdesc:a0fbd8d474f1892e6fdfcb55ec07207da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current number of disjoint components.  <br /></td></tr>
 <tr class="separator:a0fbd8d474f1892e6fdfcb55ec07207da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a246e0721ec646beb5c9c5126ed379a50" id="r_a246e0721ec646beb5c9c5126ed379a50"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfb/classunion__find.html#a246e0721ec646beb5c9c5126ed379a50">unite</a> (int i, int j)</td></tr>
-<tr class="memdesc:a246e0721ec646beb5c9c5126ed379a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unites two components if they are different.  <br /></td></tr>
+<tr class="memdesc:a246e0721ec646beb5c9c5126ed379a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unites the components containing elements i and j.  <br /></td></tr>
 <tr class="separator:a246e0721ec646beb5c9c5126ed379a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename F&gt;<br />
-class union_find&lt; F &gt;</div><p>Union Find that automatically calls merge functor. </p>
-<p>Uses true <code>O(N)</code> memory but uses size rather than rank, but size is much more useful information in practice and still runs very fast.</p>
+class union_find&lt; F &gt;</div><p>Disjoint Set Union (DSU) / Union-Find data structure with custom merge callback. </p>
+<p>Supports efficient union and find operations with path compression. Uses union-by-size for optimization and provides a callback mechanism to execute custom logic when merging components.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">F</td><td>Merge functor. </td></tr>
+    <tr><td class="paramname">F</td><td>Merge functor type with signature <code>void(int parent, int child)</code>. Called when merging components, where parent is the leader that absorbs the child component.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>α(N) is the inverse Ackermann function, effectively constant (&lt; 5) for all practical values of N. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a66f2ecb7527c621e1d5a10bce921d25d" name="a66f2ecb7527c621e1d5a10bce921d25d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66f2ecb7527c621e1d5a10bce921d25d">&#9670;&#160;</a></span>union_find()</h2>
@@ -167,6 +169,14 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs a Union-Find structure with n elements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of elements (0 to n-1). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -195,7 +205,8 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the number of components. </p>
+<p>Returns the current number of disjoint components. </p>
+<p>Time Complexity: O(1) </p><dl class="section return"><dt>Returns</dt><dd>The number of connected components. </dd></dl>
 
 </div>
 </div>
@@ -225,13 +236,15 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Find the leader of component. </p>
+<p>Finds the leader of the component containing element i. </p>
+<p>Time Complexity: O(α(N)) amortized</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The component. </td></tr>
+    <tr><td class="paramname">i</td><td>Element index. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The leader (representative) of the component. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../d1/dfb/classunion__find.html#abc69bd2cf18d1704b4c8070328e6e45a">union_find&lt; F &gt;::find()</a>.</p>
 
@@ -265,13 +278,15 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the size of <code>i</code>'s component. </p>
+<p>Returns the size of the component containing element i. </p>
+<p>Time Complexity: O(α(N)) amortized</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The component. </td></tr>
+    <tr><td class="paramname">i</td><td>Element index. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of elements in the component. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../d1/dfb/classunion__find.html#abc69bd2cf18d1704b4c8070328e6e45a">union_find&lt; F &gt;::find()</a>.</p>
 
@@ -313,14 +328,16 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Unites two components if they are different. </p>
+<p>Unites the components containing elements i and j. </p>
+<p>Time Complexity: O(α(N)) amortized</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>First component. </td></tr>
-    <tr><td class="paramname">j</td><td>Second component. </td></tr>
+    <tr><td class="paramname">i</td><td>First element index. </td></tr>
+    <tr><td class="paramname">j</td><td>Second element index. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the elements were in different components and were merged, false otherwise. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../d1/dfb/classunion__find.html#abc69bd2cf18d1704b4c8070328e6e45a">union_find&lt; F &gt;::find()</a>.</p>
 

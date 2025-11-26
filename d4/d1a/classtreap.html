@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('d4/d1a/classtreap.html','../../'); ini
 </div><!--header-->
 <div class="contents">
 
-<p>Treap class that automatically handles updating subtree values.  
+<p>Implicit Treap for sequence operations with range queries.  
  <a href="../../d4/d1a/classtreap.html#details">More...</a></p>
 
 <p><code>#include &lt;treap.hpp&gt;</code></p>
@@ -119,23 +119,24 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a47d7f896792401b91bc92104f894f7be" id="r_a47d7f896792401b91bc92104f894f7be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d1a/classtreap.html#a47d7f896792401b91bc92104f894f7be">treap</a> (const vector&lt; T &gt; &amp;v, const Combine &amp;combine)</td></tr>
+<tr class="memdesc:a47d7f896792401b91bc92104f894f7be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a treap from an array.  <br /></td></tr>
 <tr class="separator:a47d7f896792401b91bc92104f894f7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9774ef26d6ef928e6498a4090590d6d" id="r_ab9774ef26d6ef928e6498a4090590d6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d1a/classtreap.html#ab9774ef26d6ef928e6498a4090590d6d">treap</a> (int n, const T &amp;v, const Combine &amp;combine)</td></tr>
 <tr class="separator:ab9774ef26d6ef928e6498a4090590d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f41c971a1ba1a6314d0a5cc3e1b365e" id="r_a1f41c971a1ba1a6314d0a5cc3e1b365e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d1a/classtreap.html#a1f41c971a1ba1a6314d0a5cc3e1b365e">split</a> (<a class="el" href="../../d2/d74/structtreap_1_1node.html">node</a> *<a class="el" href="../../d4/d1a/classtreap.html#a53a9f4333743b75e59483f0eb8fe6929">root</a>, int k, <a class="el" href="../../d2/d74/structtreap_1_1node.html">node</a> *&amp;l, <a class="el" href="../../d2/d74/structtreap_1_1node.html">node</a> *&amp;r)</td></tr>
-<tr class="memdesc:a1f41c971a1ba1a6314d0a5cc3e1b365e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split the treap where <code>l</code> have first <code>k</code> elements and <code>r</code> have the rest.  <br /></td></tr>
+<tr class="memdesc:a1f41c971a1ba1a6314d0a5cc3e1b365e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the treap at position k into two treaps.  <br /></td></tr>
 <tr class="separator:a1f41c971a1ba1a6314d0a5cc3e1b365e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa04855fe380e494f3d5ab10d797d147" id="r_afa04855fe380e494f3d5ab10d797d147"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d1a/classtreap.html#afa04855fe380e494f3d5ab10d797d147">merge</a> (<a class="el" href="../../d2/d74/structtreap_1_1node.html">node</a> *l, <a class="el" href="../../d2/d74/structtreap_1_1node.html">node</a> *r, <a class="el" href="../../d2/d74/structtreap_1_1node.html">node</a> *&amp;<a class="el" href="../../d4/d1a/classtreap.html#a53a9f4333743b75e59483f0eb8fe6929">root</a>)</td></tr>
 <tr class="memdesc:afa04855fe380e494f3d5ab10d797d147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges two treaps into one.  <br /></td></tr>
 <tr class="separator:afa04855fe380e494f3d5ab10d797d147"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22ca282b00977fb2420df25802371719" id="r_a22ca282b00977fb2420df25802371719"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d1a/classtreap.html#a22ca282b00977fb2420df25802371719">reverse</a> (<a class="el" href="../../d2/d74/structtreap_1_1node.html">node</a> *<a class="el" href="../../d4/d1a/classtreap.html#a53a9f4333743b75e59483f0eb8fe6929">root</a>, int l, int r)</td></tr>
-<tr class="memdesc:a22ca282b00977fb2420df25802371719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the range <code>[l, r]</code>.  <br /></td></tr>
+<tr class="memdesc:a22ca282b00977fb2420df25802371719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the elements in the range [l, r].  <br /></td></tr>
 <tr class="separator:a22ca282b00977fb2420df25802371719"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2115a3a71dddbd3f8a4b3a3a356a09a" id="r_af2115a3a71dddbd3f8a4b3a3a356a09a"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d1a/classtreap.html#af2115a3a71dddbd3f8a4b3a3a356a09a">query</a> (<a class="el" href="../../d2/d74/structtreap_1_1node.html">node</a> *<a class="el" href="../../d4/d1a/classtreap.html#a53a9f4333743b75e59483f0eb8fe6929">root</a>, int l, int r, const T &amp;ans0)</td></tr>
-<tr class="memdesc:af2115a3a71dddbd3f8a4b3a3a356a09a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the range <code>[l, r]</code>.  <br /></td></tr>
+<tr class="memdesc:af2115a3a71dddbd3f8a4b3a3a356a09a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the range [l, r] using the combine operation.  <br /></td></tr>
 <tr class="separator:af2115a3a71dddbd3f8a4b3a3a356a09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae81d2756e9df75e9be3ddf1b4fced942" id="r_ae81d2756e9df75e9be3ddf1b4fced942"><td class="memItemLeft" align="right" valign="top">vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d1a/classtreap.html#ae81d2756e9df75e9be3ddf1b4fced942">data</a> (<a class="el" href="../../d2/d74/structtreap_1_1node.html">node</a> *<a class="el" href="../../d4/d1a/classtreap.html#a53a9f4333743b75e59483f0eb8fe6929">root</a>)</td></tr>
-<tr class="memdesc:ae81d2756e9df75e9be3ddf1b4fced942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the values of nodes ordered by their indices.  <br /></td></tr>
+<tr class="memdesc:ae81d2756e9df75e9be3ddf1b4fced942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts all values from the treap in sequence order.  <br /></td></tr>
 <tr class="separator:ae81d2756e9df75e9be3ddf1b4fced942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -154,14 +155,20 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename Combine&gt;<br />
-class treap&lt; T, Combine &gt;</div><p>Treap class that automatically handles updating subtree values. </p>
+class treap&lt; T, Combine &gt;</div><p>Implicit Treap for sequence operations with range queries. </p>
+<p>A randomized binary search tree that maintains sequence order implicitly through subtree sizes. Supports split/merge for flexible range operations, including reversals, insertions, deletions, and range queries.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Value type. </td></tr>
-    <tr><td class="paramname">Combine</td><td>Combines two subtree values with signature <code>Fn(left, right) -&gt; new-value</code>. </td></tr>
+    <tr><td class="paramname">Combine</td><td>Binary associative operation for combining subtree answers.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>All operations are O(log N) in expectation due to random priorities. </dd>
+<dd>
+Supports lazy propagation through the reversal flag. </dd>
+<dd>
+Perfect for problems requiring sequence modifications. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a47d7f896792401b91bc92104f894f7be" name="a47d7f896792401b91bc92104f894f7be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a47d7f896792401b91bc92104f894f7be">&#9670;&#160;</a></span>treap() <span class="overload">[1/2]</span></h2>
@@ -198,6 +205,15 @@ template&lt;typename T , typename Combine &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a treap from an array. </p>
+<p>Time Complexity: O(N) expected</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Initial array values. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="../../d2/d74/structtreap_1_1node.html#a2b766abdf7fe52c64436b184a5ec6ac2">treap&lt; T, Combine &gt;::node::l</a>, <a class="el" href="../../d2/d74/structtreap_1_1node.html#a754bb796d67bca09463f073fa90d4530">treap&lt; T, Combine &gt;::node::r</a>, and <a class="el" href="../../d4/d1a/classtreap.html#a53a9f4333743b75e59483f0eb8fe6929">treap&lt; T, Combine &gt;::root</a>.</p>
 
@@ -274,13 +290,15 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the values of nodes ordered by their indices. </p>
+<p>Extracts all values from the treap in sequence order. </p>
+<p>Time Complexity: O(N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">root</td><td>Treap root. </td></tr>
+    <tr><td class="paramname">root</td><td>Root of the treap. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing all elements in their sequence order. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../d2/d74/structtreap_1_1node.html#a2b766abdf7fe52c64436b184a5ec6ac2">treap&lt; T, Combine &gt;::node::l</a>, <a class="el" href="../../d2/d74/structtreap_1_1node.html#a754bb796d67bca09463f073fa90d4530">treap&lt; T, Combine &gt;::node::r</a>, <a class="el" href="../../d4/d1a/classtreap.html#a53a9f4333743b75e59483f0eb8fe6929">treap&lt; T, Combine &gt;::root</a>, and <a class="el" href="../../d2/d74/structtreap_1_1node.html#abdc32d7315c07f5a24f9cae77a3125cd">treap&lt; T, Combine &gt;::node::v</a>.</p>
 
@@ -313,6 +331,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Destroy the treap. </p>
+<p>Time Complexity: O(N)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>Treap root. </td></tr>
@@ -369,15 +388,16 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Merges two treaps into one. </p>
-<p>This implemenetation assumes all left treap node values are less than right treap node.</p>
+<p>Time Complexity: O(log N) expected</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">l</td><td>Left treap root. </td></tr>
-    <tr><td class="paramname">r</td><td>Right treap root. </td></tr>
-    <tr><td class="paramname">root</td><td>Pointer reference for new root; </td></tr>
+    <tr><td class="paramname">l</td><td>Root of the left treap. </td></tr>
+    <tr><td class="paramname">r</td><td>Root of the right treap. </td></tr>
+    <tr><td class="paramname">root</td><td>Output parameter for the merged treap root.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>This implementation assumes all elements in the left treap come before all elements in the right treap in sequence order. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../d2/d74/structtreap_1_1node.html#a2b766abdf7fe52c64436b184a5ec6ac2">treap&lt; T, Combine &gt;::node::l</a>, <a class="el" href="../../d4/d1a/classtreap.html#afa04855fe380e494f3d5ab10d797d147">treap&lt; T, Combine &gt;::merge()</a>, <a class="el" href="../../d2/d74/structtreap_1_1node.html#ae56af06b69c1a829e617b1698188cb5c">treap&lt; T, Combine &gt;::node::p</a>, <a class="el" href="../../d2/d74/structtreap_1_1node.html#a754bb796d67bca09463f073fa90d4530">treap&lt; T, Combine &gt;::node::r</a>, and <a class="el" href="../../d4/d1a/classtreap.html#a53a9f4333743b75e59483f0eb8fe6929">treap&lt; T, Combine &gt;::root</a>.</p>
 
@@ -412,6 +432,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns a new node with specified value. </p>
+<p>Time Complexity: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>Node value. </td></tr>
@@ -469,16 +490,18 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Queries the range <code>[l, r]</code>. </p>
+<p>Queries the range [l, r] using the combine operation. </p>
+<p>Time Complexity: O(log N) expected</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">root</td><td>Treap root. </td></tr>
-    <tr><td class="paramname">l</td><td>Left boundary. </td></tr>
-    <tr><td class="paramname">r</td><td>Right boundary. </td></tr>
-    <tr><td class="paramname">ans0</td><td>Default answer for nodes. </td></tr>
+    <tr><td class="paramname">root</td><td>Root of the treap. </td></tr>
+    <tr><td class="paramname">l</td><td>Left boundary (inclusive, 0-indexed). </td></tr>
+    <tr><td class="paramname">r</td><td>Right boundary (inclusive, 0-indexed). </td></tr>
+    <tr><td class="paramname">ans0</td><td>Identity value for empty ranges. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The combined result of elements [l, r]. </dd></dl>
 
 <p class="reference">References <a class="el" href="../../d2/d74/structtreap_1_1node.html#abda3bddcb4a3a51fd212f0cfe6c2ceac">treap&lt; T, Combine &gt;::node::ans</a>, <a class="el" href="../../d4/d1a/classtreap.html#afa04855fe380e494f3d5ab10d797d147">treap&lt; T, Combine &gt;::merge()</a>, <a class="el" href="../../d4/d1a/classtreap.html#a53a9f4333743b75e59483f0eb8fe6929">treap&lt; T, Combine &gt;::root</a>, and <a class="el" href="../../d4/d1a/classtreap.html#a1f41c971a1ba1a6314d0a5cc3e1b365e">treap&lt; T, Combine &gt;::split()</a>.</p>
 
@@ -526,12 +549,13 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reverses the range <code>[l, r]</code>. </p>
+<p>Reverses the elements in the range [l, r]. </p>
+<p>Time Complexity: O(log N) expected</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">root</td><td>Treap root. </td></tr>
-    <tr><td class="paramname">l</td><td>Left boundary. </td></tr>
-    <tr><td class="paramname">r</td><td>Right boundary. </td></tr>
+    <tr><td class="paramname">root</td><td>Root of the treap. </td></tr>
+    <tr><td class="paramname">l</td><td>Left boundary (inclusive, 0-indexed). </td></tr>
+    <tr><td class="paramname">r</td><td>Right boundary (inclusive, 0-indexed). </td></tr>
   </table>
   </dd>
 </dl>
@@ -588,13 +612,14 @@ template&lt;typename T , typename Combine &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Split the treap where <code>l</code> have first <code>k</code> elements and <code>r</code> have the rest. </p>
+<p>Splits the treap at position k into two treaps. </p>
+<p>Time Complexity: O(log N) expected</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">root</td><td>Root of treap. </td></tr>
-    <tr><td class="paramname">k</td><td>Number of elements for <code>l</code>. </td></tr>
-    <tr><td class="paramname">l</td><td>Pointer reference for left root. </td></tr>
-    <tr><td class="paramname">r</td><td>Pointer reference for right root. </td></tr>
+    <tr><td class="paramname">root</td><td>Root of the treap to split. </td></tr>
+    <tr><td class="paramname">k</td><td>Split position (left subtree will contain first k elements). </td></tr>
+    <tr><td class="paramname">l</td><td>Output parameter for the left subtree root. </td></tr>
+    <tr><td class="paramname">r</td><td>Output parameter for the right subtree root. </td></tr>
   </table>
   </dd>
 </dl>

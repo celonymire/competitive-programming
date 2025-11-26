@@ -106,7 +106,7 @@ Include dependency graph for bridges.hpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9c617b114f09a2fdaeec1a2a56723fea" id="r_a9c617b114f09a2fdaeec1a2a56723fea"><td class="memItemLeft" align="right" valign="top">vector&lt; pair&lt; int, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d8e/bridges_8hpp.html#a9c617b114f09a2fdaeec1a2a56723fea">bridges</a> (vector&lt; vector&lt; int &gt; &gt; &amp;g)</td></tr>
-<tr class="memdesc:a9c617b114f09a2fdaeec1a2a56723fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all the edges that are bridges.  <br /></td></tr>
+<tr class="memdesc:a9c617b114f09a2fdaeec1a2a56723fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all edges that are bridges (cut edges) in an undirected graph.  <br /></td></tr>
 <tr class="separator:a9c617b114f09a2fdaeec1a2a56723fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -126,13 +126,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find all the edges that are bridges. </p>
+<p>Find all edges that are bridges (cut edges) in an undirected graph. </p>
+<p>A bridge is an edge whose removal increases the number of connected components. Uses Tarjan's algorithm with DFS to identify such edges efficiently.</p>
+<p>Time Complexity: O(V + E) where V is the number of vertices and E is the number of edges. Space Complexity: O(V) for the auxiliary arrays and recursion stack.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">g</td><td>The graph. </td></tr>
+    <tr><td class="paramname">g</td><td>The adjacency list representation of the undirected graph. g[i] contains the list of neighbors of vertex i. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of pairs representing bridge edges (u, v).</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The graph is assumed to be undirected. </dd>
+<dd>
+Works correctly on graphs with multiple connected components. </dd></dl>
 
 </div>
 </div>
