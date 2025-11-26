@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -106,7 +116,7 @@ Include dependency graph for suffix_array.hpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3bc55e85f0635bfcea79d6e57eebda77" id="r_a3bc55e85f0635bfcea79d6e57eebda77"><td class="memItemLeft" align="right" valign="top">vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d4e/suffix__array_8hpp.html#a3bc55e85f0635bfcea79d6e57eebda77">suffix_array</a> (string &amp;s, int k=256)</td></tr>
-<tr class="memdesc:a3bc55e85f0635bfcea79d6e57eebda77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the suffix array of a given string in <code>O(N log N)</code>.  <br /></td></tr>
+<tr class="memdesc:a3bc55e85f0635bfcea79d6e57eebda77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the suffix array of a given string in \(O(N \log N)\).  <br /></td></tr>
 <tr class="separator:a3bc55e85f0635bfcea79d6e57eebda77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -136,8 +146,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute the suffix array of a given string in <code>O(N log N)</code>. </p>
-<p>Even though this is not the optimal <code>O(N)</code> time complexity, the benefit is the algorithm works with cyclic shifts. For example, <code>SA[0]</code> is the smallest cyclic shift.</p>
+<p>Compute the suffix array of a given string in \(O(N \log N)\). </p>
+<p>Even though this is not the optimal \(O(N)\) time complexity, the benefit is the algorithm works with cyclic shifts. For example, <code>SA[0]</code> is the smallest cyclic shift.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>The string </td></tr>

@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -98,7 +108,7 @@ $(document).ready(function(){initNavTree('d4/dfa/classrolling__hash.html','../..
 </div><!--header-->
 <div class="contents">
 
-<p>Get a substring hash in <code>O(1)</code> with <code>O(N)</code> precomputation.  
+<p>Get a substring hash in \(O(1)\) with \(O(N)\) precomputation.  
  <a href="../../d4/dfa/classrolling__hash.html#details">More...</a></p>
 
 <p><code>#include &lt;rolling_hash.hpp&gt;</code></p>
@@ -112,7 +122,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3fd0ed7a81c68422c5c0d0719fb8941d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Get a substring hash in <code>O(1)</code> with <code>O(N)</code> precomputation. </p>
+<div class="textblock"><p>Get a substring hash in \(O(1)\) with \(O(N)\) precomputation. </p>
 <p>This implementation uses one big modulo to avoid keeping two pairs of P and M. Also, the hashes are computed in such a way it avoids needing to divide by powers of P. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2e992420a5a28dff56c38f0c459a4f22" name="a2e992420a5a28dff56c38f0c459a4f22"></a>

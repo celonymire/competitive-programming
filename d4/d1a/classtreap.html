@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -164,7 +174,7 @@ class treap&lt; T, Combine &gt;</div><p>Implicit Treap for sequence operations w
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>All operations are O(log N) in expectation due to random priorities. </dd>
+<dl class="section note"><dt>Note</dt><dd>All operations are \(O(\log N)\) in expectation due to random priorities. </dd>
 <dd>
 Supports lazy propagation through the reversal flag. </dd>
 <dd>
@@ -207,10 +217,11 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Constructs a treap from an array. </p>
-<p>Time Complexity: O(N) expected</p>
+<p>Time Complexity: \(O(N)\) expected</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>Initial array values. </td></tr>
+    <tr><td class="paramname">combine</td><td>Binary associative operation for combining subtree answers. </td></tr>
   </table>
   </dd>
 </dl>
@@ -291,7 +302,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Extracts all values from the treap in sequence order. </p>
-<p>Time Complexity: O(N)</p>
+<p>Time Complexity: \(O(N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>Root of the treap. </td></tr>
@@ -331,7 +342,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Destroy the treap. </p>
-<p>Time Complexity: O(N)</p>
+<p>Time Complexity: \(O(N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>Treap root. </td></tr>
@@ -388,7 +399,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Merges two treaps into one. </p>
-<p>Time Complexity: O(log N) expected</p>
+<p>Time Complexity: \(O(\log N)\) expected</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Root of the left treap. </td></tr>
@@ -432,7 +443,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns a new node with specified value. </p>
-<p>Time Complexity: O(1)</p>
+<p>Time Complexity: \(O(1)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>Node value. </td></tr>
@@ -491,7 +502,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Queries the range [l, r] using the combine operation. </p>
-<p>Time Complexity: O(log N) expected</p>
+<p>Time Complexity: \(O(\log N)\) expected</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>Root of the treap. </td></tr>
@@ -550,7 +561,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Reverses the elements in the range [l, r]. </p>
-<p>Time Complexity: O(log N) expected</p>
+<p>Time Complexity: \(O(\log N)\) expected</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>Root of the treap. </td></tr>
@@ -613,7 +624,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Splits the treap at position k into two treaps. </p>
-<p>Time Complexity: O(log N) expected</p>
+<p>Time Complexity: \(O(\log N)\) expected</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">root</td><td>Root of the treap to split. </td></tr>

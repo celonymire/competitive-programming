@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -121,7 +131,7 @@ Friends</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lowest Common Ancestor (LCA) data structure using ±1 RMQ reduction. </p>
-<p>Answers LCA queries in O(1) time after O(N) preprocessing. This implementation uses the Euler tour technique with ±1 Range Minimum Query (RMQ) optimization, which is theoretically optimal. The algorithm splits the tour into blocks, uses sparse table for inter-block queries, and precomputes all possible block configurations for intra-block queries.</p>
+<p>Answers LCA queries in \(O(1)\) time after \(O(N)\) preprocessing. This implementation uses the Euler tour technique with ±1 Range Minimum Query (RMQ) optimization, which is theoretically optimal. The algorithm splits the tour into blocks, uses sparse table for inter-block queries, and precomputes all possible block configurations for intra-block queries.</p>
 <dl class="section note"><dt>Note</dt><dd>This is one of the most efficient LCA implementations for competitive programming. </dd>
 <dd>
 The tree must be connected and rooted at the specified root vertex. </dd></dl>
@@ -161,7 +171,7 @@ The tree must be connected and rooted at the specified root vertex. </dd></dl>
 </div><div class="memdoc">
 
 <p>Constructs the LCA data structure for the given tree. </p>
-<p>Time Complexity: O(N) Space Complexity: O(N)</p>
+<p>Time Complexity: \(O(N)\) Space Complexity: \(O(N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">g</td><td>The adjacency list representation of the tree. </td></tr>
@@ -208,7 +218,7 @@ The tree must be connected and rooted at the specified root vertex. </dd></dl>
 </div><div class="memdoc">
 
 <p>Computes the lowest common ancestor of two nodes. </p>
-<p>Time Complexity: O(1)</p>
+<p>Time Complexity: \(O(1)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>First node index. </td></tr>

@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -131,7 +141,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename U, typename Apply, typename Push, typename Combine&gt;<br />
 class segment_tree_lazy&lt; T, U, Apply, Push, Combine &gt;</div><p>Iterative Segment Tree with lazy propagation for range updates. </p>
-<p>Extends the basic segment tree to support efficient range updates using lazy propagation. Updates are deferred until needed, allowing O(log N) range updates. Requires careful implementation of apply and push functions.</p>
+<p>Extends the basic segment tree to support efficient range updates using lazy propagation. Updates are deferred until needed, allowing \(O(\log N)\) range updates. Requires careful implementation of apply and push functions.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Value type. </td></tr>
@@ -207,12 +217,15 @@ template&lt;typename T , typename U , typename Apply , typename Push , typename 
 </div><div class="memdoc">
 
 <p>Constructs a lazy segment tree from an array. </p>
-<p>Time Complexity: O(N)</p>
+<p>Time Complexity: \(O(N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>Initial array values. </td></tr>
     <tr><td class="paramname">v0</td><td>Default value for queries. </td></tr>
     <tr><td class="paramname">u0</td><td>Default lazy tag value. </td></tr>
+    <tr><td class="paramname">apply</td><td>Function to apply lazy tag to a node: (T, U, size) -&gt; T </td></tr>
+    <tr><td class="paramname">push</td><td>Function to combine lazy tags: (U, U, size) -&gt; U </td></tr>
+    <tr><td class="paramname">combine</td><td>Binary associative operation on values. </td></tr>
   </table>
   </dd>
 </dl>
@@ -308,7 +321,7 @@ template&lt;typename T , typename U , typename Apply , typename Push , typename 
 </div><div class="memdoc">
 
 <p>Returns the default value for queries. </p>
-<p>Time Complexity: O(1) </p>
+<p>Time Complexity: \(O(1)\) </p>
 
 </div>
 </div>
@@ -351,7 +364,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Find maximum <code>r&gt;=l</code> s.t. <code>f(a[l..r-1])</code> remains true. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Left bound. </td></tr>
@@ -401,7 +414,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Find minimum <code>l&lt;=r</code> s.t. <code>f(a[l+1..r])</code> remains true. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">r</td><td>Right bound. </td></tr>
@@ -449,7 +462,7 @@ template&lt;typename T , typename U , typename Apply , typename Push , typename 
 </div><div class="memdoc">
 
 <p>Query the range <code>[l, r)</code>. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Left bound. </td></tr>
@@ -503,7 +516,7 @@ template&lt;typename T , typename U , typename Apply , typename Push , typename 
 </div><div class="memdoc">
 
 <p>Applies a lazy update to the range [l, r). </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Left bound (inclusive). </td></tr>

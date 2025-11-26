@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -233,11 +243,12 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Constructs a Segment Tree from the array. </p>
-<p>Time Complexity: O(N)</p>
+<p>Time Complexity: \(O(N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>The array. </td></tr>
     <tr><td class="paramname">v0</td><td>Default value for queries. </td></tr>
+    <tr><td class="paramname">combine</td><td>Binary associative operation for combining range values. </td></tr>
   </table>
   </dd>
 </dl>
@@ -271,7 +282,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the default value for queries. </p>
-<p>Time Complexity: O(1) </p>
+<p>Time Complexity: \(O(1)\) </p>
 
 <p class="reference">Referenced by <a class="el" href="../../dc/de3/classheavy__light__decomposition.html#a726caf3fe261d4116248e3418e01c45e">heavy_light_decomposition&lt; T, Combine &gt;::query()</a>.</p>
 
@@ -316,7 +327,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Finds the maximum index r &gt;= l such that f(query(l, r)) is true. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Left bound (inclusive). </td></tr>
@@ -367,7 +378,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Finds the minimum index l &lt;= r such that f(query(l+1, r+1)) is true. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">r</td><td>Right bound (inclusive). </td></tr>
@@ -416,7 +427,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Queries the range [l, r) using the combine operation. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Left bound (inclusive). </td></tr>
@@ -467,7 +478,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the value at index i, replacing the current value. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Zero-indexed position. </td></tr>
@@ -517,7 +528,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Updates the value at index i using the combine operation. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Zero-indexed position. </td></tr>

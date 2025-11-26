@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -128,7 +138,7 @@ Functions</h2></td></tr>
 
 <p>Computes Hilbert curve ordering for 2D points/queries. </p>
 <p>Maps 2D coordinates to 1D values along a space-filling Hilbert curve. This ordering has excellent locality properties, making it ideal for reordering queries in Mo's algorithm to minimize pointer movements.</p>
-<p>Time Complexity: O(Q log max(coordinates)) Space Complexity: O(Q)</p>
+<p>Time Complexity: \(O(Q \log \max(\text{coordinates}))\) Space Complexity: \(O(Q)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">q</td><td>List of 2D points/queries as (x, y) pairs. </td></tr>

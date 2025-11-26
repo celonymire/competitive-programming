@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -171,10 +181,11 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Constructs a Fenwick Tree from an array. </p>
-<p>Time Complexity: O(N)</p>
+<p>Time Complexity: \(O(N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>Initial array values. </td></tr>
+    <tr><td class="paramname">combine</td><td>Binary associative operation for combining values. </td></tr>
   </table>
   </dd>
 </dl>
@@ -253,7 +264,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Queries the prefix sum for elements [0, i-1]. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>One-indexed index (exclusive upper bound). </td></tr>
@@ -301,7 +312,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Updates the element at index i using the combine operation. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>One-indexed index. </td></tr>

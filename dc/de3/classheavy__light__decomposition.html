@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -124,7 +134,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename Combine&gt;<br />
 class heavy_light_decomposition&lt; T, Combine &gt;</div><p>Heavy-Light Decomposition for path queries on trees. </p>
-<p>Decomposes a tree into heavy and light edges, allowing path queries and updates to be answered using a segment tree. Each root-to-node path crosses at most O(log N) light edges, enabling efficient queries.</p>
+<p>Decomposes a tree into heavy and light edges, allowing path queries and updates to be answered using a segment tree. Each root-to-node path crosses at most \(O(\log N)\) light edges, enabling efficient queries.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Value type. </td></tr>
@@ -185,11 +195,12 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Constructs HLD from a tree with uniform node values. </p>
-<p>Time Complexity: O(N)</p>
+<p>Time Complexity: \(O(N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">g</td><td>Tree adjacency list. </td></tr>
     <tr><td class="paramname">v</td><td>Initial value for all nodes. </td></tr>
+    <tr><td class="paramname">combine</td><td>Binary associative operation for path queries. </td></tr>
     <tr><td class="paramname">root</td><td>Root of the tree (default 0). </td></tr>
   </table>
   </dd>
@@ -252,12 +263,13 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Constructs HLD from a tree with specified node values. </p>
-<p>Time Complexity: O(N)</p>
+<p>Time Complexity: \(O(N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">g</td><td>Tree adjacency list. </td></tr>
     <tr><td class="paramname">v</td><td>Initial values for nodes. </td></tr>
     <tr><td class="paramname">v0</td><td>Default value for queries. </td></tr>
+    <tr><td class="paramname">combine</td><td>Binary associative operation for path queries. </td></tr>
     <tr><td class="paramname">root</td><td>Root of the tree (default 0). </td></tr>
   </table>
   </dd>
@@ -305,7 +317,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Queries the path between nodes a and b using the combine operation. </p>
-<p>Time Complexity: O(log² N)</p>
+<p>Time Complexity: \(O(\log^2 N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td>First node index. </td></tr>
@@ -356,7 +368,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the value at a node, replacing the current value. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td>Node index. </td></tr>
@@ -406,7 +418,7 @@ template&lt;typename T , typename Combine &gt; </div>
 </div><div class="memdoc">
 
 <p>Updates the value at a node using the combine operation. </p>
-<p>Time Complexity: O(log N)</p>
+<p>Time Complexity: \(O(\log N)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td>Node index. </td></tr>

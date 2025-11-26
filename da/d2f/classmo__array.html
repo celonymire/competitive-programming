@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -130,7 +140,7 @@ class mo_array&lt; R, Args &gt;</div><p>Mo's Algorithm for offline range queries
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Queries must be answered offline (all queries known in advance). </dd>
 <dd>
-Best for problems where incremental updates are O(1) or O(log N). </dd></dl>
+Best for problems where incremental updates are \(O(1)\) or \(O(\log N)\). </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://codeforces.com/blog/entry/61203">https://codeforces.com/blog/entry/61203</a> for Hilbert curve details. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab45c37cf8466666c508ac2225b63ded7" name="ab45c37cf8466666c508ac2225b63ded7"></a>
@@ -223,7 +233,7 @@ template&lt;typename R , typename... Args&gt; </div>
 </div><div class="memdoc">
 
 <p>Adds a range query to be solved offline. </p>
-<p>Time Complexity: O(1)</p>
+<p>Time Complexity: \(O(1)\)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Left boundary (inclusive). </td></tr>
@@ -264,7 +274,7 @@ template&lt;typename H &gt; </div>
 </div><div class="memdoc">
 
 <p>Solves all queries and returns answers in insertion order. </p>
-<p>Time Complexity: O((N + Q)√N) where Q is the number of queries</p>
+<p>Time Complexity: \(O((N + Q)\sqrt{N})\) where Q is the number of queries</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">heuristic</td><td>Function that assigns a comparable value to each query. Queries are processed in increasing order of these values. </td></tr>

@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -136,9 +146,9 @@ Friends</h2></td></tr>
 class matrix&lt; T &gt;</div><p>Matrix class optimized for competitive programming. </p>
 <p>Supports basic matrix operations: addition, subtraction, multiplication, and fast exponentiation. Designed for simplicity and efficiency in contest environments, particularly for solving linear recurrences and graph problems.</p>
 <p>Time Complexity:</p><ul>
-<li>Addition/Subtraction: O(N*M)</li>
-<li>Multiplication: O(N*C*M) where C is the common dimension</li>
-<li>Power: O(N³ log P) for N×N matrices Space Complexity: O(N*M)</li>
+<li>Addition/Subtraction: \(O(N \cdot M)\)</li>
+<li>Multiplication: \(O(N \cdot C \cdot M)\) where C is the common dimension</li>
+<li>Power: \(O(N^3 \log P)\) for N×N matrices Space Complexity: \(O(N \cdot M)\)</li>
 </ul>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">

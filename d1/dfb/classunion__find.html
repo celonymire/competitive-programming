@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -131,7 +141,7 @@ class union_find&lt; F &gt;</div><p>Disjoint Set Union (DSU) / Union-Find data s
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>α(N) is the inverse Ackermann function, effectively constant (&lt; 5) for all practical values of N. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>\(\alpha(N)\) is the inverse Ackermann function, effectively constant (&lt; 5) for all practical values of N. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a66f2ecb7527c621e1d5a10bce921d25d" name="a66f2ecb7527c621e1d5a10bce921d25d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66f2ecb7527c621e1d5a10bce921d25d">&#9670;&#160;</a></span>union_find()</h2>
@@ -173,6 +183,7 @@ template&lt;typename F &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>Number of elements (0 to n-1). </td></tr>
+    <tr><td class="paramname">f</td><td>Merge callback function with signature void(int parent, int child). </td></tr>
   </table>
   </dd>
 </dl>
@@ -206,7 +217,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the current number of disjoint components. </p>
-<p>Time Complexity: O(1) </p><dl class="section return"><dt>Returns</dt><dd>The number of connected components. </dd></dl>
+<p>Time Complexity: \(O(1)\) </p><dl class="section return"><dt>Returns</dt><dd>The number of connected components. </dd></dl>
 
 </div>
 </div>
@@ -237,7 +248,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Finds the leader of the component containing element i. </p>
-<p>Time Complexity: O(α(N)) amortized</p>
+<p>Time Complexity: \(O(\alpha(N))\) amortized</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Element index. </td></tr>
@@ -279,7 +290,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the size of the component containing element i. </p>
-<p>Time Complexity: O(α(N)) amortized</p>
+<p>Time Complexity: \(O(\alpha(N))\) amortized</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Element index. </td></tr>
@@ -329,7 +340,7 @@ template&lt;typename F &gt; </div>
 </div><div class="memdoc">
 
 <p>Unites the components containing elements i and j. </p>
-<p>Time Complexity: O(α(N)) amortized</p>
+<p>Time Complexity: \(O(\alpha(N))\) amortized</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>First element index. </td></tr>

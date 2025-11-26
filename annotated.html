@@ -16,6 +16,16 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -106,12 +116,12 @@ $(document).ready(function(){initNavTree('annotated.html',''); initResizable(); 
 <tr id="row_7_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="da/db9/classmo__tree.html" target="_self">mo_tree</a></td><td class="desc">Mo's Algorithm for offline path queries on trees </td></tr>
 <tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="df/d1e/classmodint.html" target="_self">modint</a></td><td class="desc">Modular integer class for arithmetic modulo M </td></tr>
 <tr id="row_9_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="dc/d14/structnode__update.html" target="_self">node_update</a></td><td class="desc"></td></tr>
-<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="d4/dfa/classrolling__hash.html" target="_self">rolling_hash</a></td><td class="desc">Get a substring hash in <code>O(1)</code> with <code>O(N)</code> precomputation </td></tr>
+<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="d4/dfa/classrolling__hash.html" target="_self">rolling_hash</a></td><td class="desc">Get a substring hash in \(O(1)\) with \(O(N)\) precomputation </td></tr>
 <tr id="row_11_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="d7/dde/structsafe__hash.html" target="_self">safe_hash</a></td><td class="desc">Cryptographically-inspired hash function resistant to collision attacks </td></tr>
 <tr id="row_12_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="dd/d23/classsegment__tree.html" target="_self">segment_tree</a></td><td class="desc">Iterative Segment Tree for point updates and range queries </td></tr>
 <tr id="row_13_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="db/d28/classsegment__tree__lazy.html" target="_self">segment_tree_lazy</a></td><td class="desc">Iterative Segment Tree with lazy propagation for range updates </td></tr>
 <tr id="row_14_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="d8/d31/structsieve.html" target="_self">sieve</a></td><td class="desc">Linear Sieve of Eratosthenes for prime factorization </td></tr>
-<tr id="row_15_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="d7/dbf/classsparse__table.html" target="_self">sparse_table</a></td><td class="desc">Sparse Table for O(1) range queries on immutable arrays </td></tr>
+<tr id="row_15_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="d7/dbf/classsparse__table.html" target="_self">sparse_table</a></td><td class="desc">Sparse Table for \(O(1)\) range queries on immutable arrays </td></tr>
 <tr id="row_16_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_16_" class="arrow" onclick="toggleFolder('16_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="d4/d1a/classtreap.html" target="_self">treap</a></td><td class="desc">Implicit Treap for sequence operations with range queries </td></tr>
 <tr id="row_16_0_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="d2/d74/structtreap_1_1node.html" target="_self">node</a></td><td class="desc"></td></tr>
 <tr id="row_17_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="d1/dfb/classunion__find.html" target="_self">union_find</a></td><td class="desc">Disjoint Set Union (DSU) / Union-Find data structure with custom merge callback </td></tr>

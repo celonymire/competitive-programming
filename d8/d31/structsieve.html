@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -126,9 +136,9 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Linear Sieve of Eratosthenes for prime factorization. </p>
 <p>Efficiently computes all primes up to N and stores the smallest prime divisor (SPD) for each number. The linear time complexity is achieved by ensuring each composite number is marked exactly once by its SPD.</p>
 <p>Time Complexity:</p><ul>
-<li>Construction: O(N)</li>
-<li><a class="el" href="../../d8/d31/structsieve.html#ab2035df9a09908baa6c6ea6537f97abb" title="Returns if a number is a prime.">is_prime()</a>: O(1)</li>
-<li><a class="el" href="../../d8/d31/structsieve.html#a667aa0d02b4fe41bd2fb795f98cb2593" title="Returns a list of divisors of a number.">divisors()</a>: O(d(N)) where d(N) is the number of divisors Space Complexity: O(N)</li>
+<li>Construction: \(O(N)\)</li>
+<li><a class="el" href="../../d8/d31/structsieve.html#ab2035df9a09908baa6c6ea6537f97abb" title="Returns if a number is a prime.">is_prime()</a>: \(O(1)\)</li>
+<li><a class="el" href="../../d8/d31/structsieve.html#a667aa0d02b4fe41bd2fb795f98cb2593" title="Returns a list of divisors of a number.">divisors()</a>: \(O(d(N))\) where d(N) is the number of divisors Space Complexity: \(O(N)\)</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>This is optimal for when you need both primes and factorization. </dd>
 <dd>

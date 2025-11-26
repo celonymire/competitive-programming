@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -128,7 +138,7 @@ Functions</h2></td></tr>
 
 <p>Find all edges that are bridges (cut edges) in an undirected graph. </p>
 <p>A bridge is an edge whose removal increases the number of connected components. Uses Tarjan's algorithm with DFS to identify such edges efficiently.</p>
-<p>Time Complexity: O(V + E) where V is the number of vertices and E is the number of edges. Space Complexity: O(V) for the auxiliary arrays and recursion stack.</p>
+<p>Time Complexity: \(O(V + E)\) where V is the number of vertices and E is the number of edges. Space Complexity: \(O(V)\) for the auxiliary arrays and recursion stack.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">g</td><td>The adjacency list representation of the undirected graph. g[i] contains the list of neighbors of vertex i. </td></tr>

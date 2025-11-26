@@ -16,6 +16,16 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -130,9 +140,9 @@ Public Member Functions</h2></td></tr>
 class modint&lt; M &gt;</div><p>Modular integer class for arithmetic modulo M. </p>
 <p>Automatically maintains values in the range [0, M) and supports all standard arithmetic operations. Uses compile-time constant modulus for efficiency. Division uses Fermat's little theorem for modular inverse, requiring prime modulus.</p>
 <p>Time Complexity:</p><ul>
-<li>All arithmetic operations: O(1)</li>
-<li><a class="el" href="../../df/d1e/classmodint.html#a7e34f5f8a9ad0d5671c8b770cf7e9cf2" title="Compute x^p mod M using binary exponentiation.">pow()</a>: O(log P)</li>
-<li><a class="el" href="../../df/d1e/classmodint.html#af1f0a7e5d688cc3cf8ca49c61aa1b4e7" title="Compute the modulo inverse of the internal value.">inv()</a>: O(log M) Space Complexity: O(1)</li>
+<li>All arithmetic operations: \(O(1)\)</li>
+<li><a class="el" href="../../df/d1e/classmodint.html#a7e34f5f8a9ad0d5671c8b770cf7e9cf2" title="Compute x^p mod M using binary exponentiation.">pow()</a>: \(O(\log P)\)</li>
+<li><a class="el" href="../../df/d1e/classmodint.html#af1f0a7e5d688cc3cf8ca49c61aa1b4e7" title="Compute the modulo inverse of the internal value.">inv()</a>: \(O(\log M)\) Space Complexity: \(O(1)\)</li>
 </ul>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
