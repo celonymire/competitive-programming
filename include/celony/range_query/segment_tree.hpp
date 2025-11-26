@@ -2,12 +2,17 @@
 using namespace std;
 
 /**
- * @brief Segment Tree for efficient point update and range queries.
+ * @brief Iterative Segment Tree for point updates and range queries.
  *
- * The Segment Tree is implemented iteratively.
+ * A versatile data structure supporting efficient range queries and point updates
+ * for any associative operation. This iterative implementation is faster and
+ * simpler than recursive versions, with excellent cache locality.
  *
  * @tparam T Value type.
- * @tparam Combine Binary callable.
+ * @tparam Combine Binary associative operation (e.g., min, max, sum, gcd).
+ *
+ * @note Combine operation must be associative.
+ * @note Supports efficient binary search on prefixes/suffixes.
  */
 template <typename T, typename Combine> class segment_tree {
   vector<T> t;
@@ -21,9 +26,10 @@ public:
   /**
    * @brief Constructs a Segment Tree from the array.
    *
+   * Time Complexity: O(N)
+   *
    * @param v The array.
    * @param v0 Default value for queries.
-   * @param combine Binary callable.
    */
   segment_tree(const vector<T> &v, const T &v0, const Combine &combine)
       : combine(combine) {
@@ -38,14 +44,18 @@ public:
 
   /**
    * @brief Returns the default value for queries.
+   *
+   * Time Complexity: O(1)
    */
   T identity() const { return t[0]; }
 
   /**
-   * @brief Update the value at the index.
+   * @brief Updates the value at index i using the combine operation.
    *
-   * @param i The index.
-   * @param v Value to update with.
+   * Time Complexity: O(log N)
+   *
+   * @param i Zero-indexed position.
+   * @param v Value to combine with the current element.
    */
   void update(int i, const T &v) {
     int n = t.size() >> 1;
@@ -54,10 +64,12 @@ public:
   }
 
   /**
-   * @brief Sets the value at the index.
+   * @brief Sets the value at index i, replacing the current value.
    *
-   * @param i The index.
-   * @param v Value to set.
+   * Time Complexity: O(log N)
+   *
+   * @param i Zero-indexed position.
+   * @param v New value.
    */
   void set(int i, const T &v) {
     int n = t.size() >> 1;
@@ -66,10 +78,13 @@ public:
   }
 
   /**
-   * @brief Queries the range `[l, r)`.
+   * @brief Queries the range [l, r) using the combine operation.
    *
-   * @param l Left bound.
-   * @param r Right bound.
+   * Time Complexity: O(log N)
+   *
+   * @param l Left bound (inclusive).
+   * @param r Right bound (exclusive).
+   * @return The combined result of elements [l, r).
    */
   T query(int l, int r) const {
     int n = t.size() >> 1;
@@ -84,10 +99,13 @@ public:
   }
 
   /**
-   * @brief Find maximum `r>=l` s.t. `f(a[l..r-1])` remains true.
+   * @brief Finds the maximum index r >= l such that f(query(l, r)) is true.
    *
-   * @param l Left bound.
-   * @param f Predicate callable.
+   * Time Complexity: O(log N)
+   *
+   * @param l Left bound (inclusive).
+   * @param f Predicate function that takes a query result and returns bool.
+   * @return Maximum valid index r, or n if no valid range exists.
    */
   template <typename F> int max_r(int l, F &&f) {
     int n = t.size() >> 1;
@@ -106,10 +124,13 @@ public:
   }
 
   /**
-   * @brief Find minimum `l<=r` s.t. `f(a[l+1..r])` remains true.
+   * @brief Finds the minimum index l <= r such that f(query(l+1, r+1)) is true.
    *
-   * @param r Right bound.
-   * @param f Predicate callable.
+   * Time Complexity: O(log N)
+   *
+   * @param r Right bound (inclusive).
+   * @param f Predicate function that takes a query result and returns bool.
+   * @return Minimum valid index l.
    */
   template <typename F> int min_l(int r, F &&f) {
     int n = t.size() >> 1;

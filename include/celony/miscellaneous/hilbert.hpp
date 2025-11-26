@@ -2,9 +2,21 @@
 using namespace std;
 
 /**
- * @brief Computes the Hilbert Curve for the queries.
+ * @brief Computes Hilbert curve ordering for 2D points/queries.
  *
- * @param q List of queries of `a[l..r]`.
+ * Maps 2D coordinates to 1D values along a space-filling Hilbert curve.
+ * This ordering has excellent locality properties, making it ideal for
+ * reordering queries in Mo's algorithm to minimize pointer movements.
+ *
+ * Time Complexity: O(Q log max(coordinates))
+ * Space Complexity: O(Q)
+ *
+ * @param q List of 2D points/queries as (x, y) pairs.
+ * @return Vector of 64-bit integers representing Hilbert curve positions.
+ *         Sorting queries by these values optimizes Mo's algorithm.
+ *
+ * @note This is the recommended heuristic for Mo's algorithm.
+ * @see https://codeforces.com/blog/entry/61203
  */
 vector<uint64_t> hilbert(const vector<pair<int, int>> &q) {
   int n = q.size();

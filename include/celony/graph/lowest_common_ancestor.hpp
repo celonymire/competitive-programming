@@ -2,7 +2,16 @@
 using namespace std;
 
 /**
- * @brief Answers the LCA of two nodes in `O(1)` with `O(N)` precomputation.
+ * @brief Lowest Common Ancestor (LCA) data structure using ±1 RMQ reduction.
+ *
+ * Answers LCA queries in O(1) time after O(N) preprocessing. This implementation
+ * uses the Euler tour technique with ±1 Range Minimum Query (RMQ) optimization,
+ * which is theoretically optimal. The algorithm splits the tour into blocks,
+ * uses sparse table for inter-block queries, and precomputes all possible
+ * block configurations for intra-block queries.
+ *
+ * @note This is one of the most efficient LCA implementations for competitive programming.
+ * @note The tree must be connected and rooted at the specified root vertex.
  */
 class lowest_common_ancestor {
   vector<int> tour, start, end, node, depth, mask;
@@ -20,6 +29,15 @@ class lowest_common_ancestor {
   template <typename R, typename... Args> friend class mo_tree;
 
 public:
+  /**
+   * @brief Constructs the LCA data structure for the given tree.
+   *
+   * Time Complexity: O(N)
+   * Space Complexity: O(N)
+   *
+   * @param g The adjacency list representation of the tree.
+   * @param root The root vertex of the tree (default is 0).
+   */
   lowest_common_ancestor(const vector<vector<int>> &g, int root = 0) {
     int n = g.size();
     tour.reserve(2 * n);
@@ -85,10 +103,13 @@ public:
   }
 
   /**
-   * @brief Returns the LCA of two nodes.
+   * @brief Computes the lowest common ancestor of two nodes.
    *
-   * @param v First node.
-   * @param u Second node.
+   * Time Complexity: O(1)
+   *
+   * @param v First node index.
+   * @param u Second node index.
+   * @return The index of the lowest common ancestor of u and v.
    */
   int query(int v, int u) const {
     int l = start[v], r = start[u],

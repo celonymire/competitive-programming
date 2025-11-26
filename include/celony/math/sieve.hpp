@@ -2,8 +2,20 @@
 using namespace std;
 
 /**
- * @brief Precomputes the primes as well as smallest-prime-divisor in from 1 to
- * `N` in `O(N)`.
+ * @brief Linear Sieve of Eratosthenes for prime factorization.
+ *
+ * Efficiently computes all primes up to N and stores the smallest prime
+ * divisor (SPD) for each number. The linear time complexity is achieved
+ * by ensuring each composite number is marked exactly once by its SPD.
+ *
+ * Time Complexity:
+ * - Construction: O(N)
+ * - is_prime(): O(1)
+ * - divisors(): O(d(N)) where d(N) is the number of divisors
+ * Space Complexity: O(N)
+ *
+ * @note This is optimal for when you need both primes and factorization.
+ * @note The SPD array enables efficient prime factorization.
  */
 struct sieve {
   vector<int> primes, spd;

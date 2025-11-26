@@ -2,20 +2,21 @@
 using namespace std;
 
 /**
- * @brief Mo's Algorithm to answer offline range queries in `O(sqrt(N))`.
+ * @brief Mo's Algorithm for offline range queries on arrays.
  *
- * Use this when the queries are non-trivial to merge from both halves, and the
- * answer can be computed whenever an element is added and deleted in a "sliding
- * window" fashion.
+ * Efficiently answers multiple range queries by reordering them to minimize
+ * the number of add/remove operations in a sliding window. Particularly useful
+ * when direct computation is expensive but incremental updates are cheap.
  *
- * The actual performance depends on the heuristic used to determine the order
- * of the queries. The best all-around heuristic used is Hilbert Curve, but this
- * implementation allows passing arbitrary heuristic function.
- *
- * Learn more about Hilbert Curve at https://codeforces.com/blog/entry/61203.
+ * The actual performance heavily depends on the query ordering heuristic.
+ * Hilbert curve ordering typically provides 2-3x speedup over simpler heuristics.
  *
  * @tparam R Query answer type.
- * @tparam Args Additional argument types to pass to the answer function.
+ * @tparam Args Additional argument types passed to answer function.
+ *
+ * @note Queries must be answered offline (all queries known in advance).
+ * @note Best for problems where incremental updates are O(1) or O(log N).
+ * @see https://codeforces.com/blog/entry/61203 for Hilbert curve details.
  */
 template <typename R, typename... Args> class mo_array {
   vector<pair<int, int>> q;
@@ -24,16 +25,21 @@ template <typename R, typename... Args> class mo_array {
   function<R(Args...)> f;
 
 public:
+  /**
+   * @brief Constructs a Mo's algorithm solver.
+   */
   mo_array(function<void(int)> add, function<void(int)> erase,
            function<R(Args...)> f)
       : add(std::move(add)), erase(std::move(erase)), f(std::move(f)) {}
 
   /**
-   * @brief Adds a query of `f(a[l..r])` to solve.
+   * @brief Adds a range query to be solved offline.
    *
-   * @param l Left boundary.
-   * @param r right boundary.
-   * @param args Additional arguments for the current query.
+   * Time Complexity: O(1)
+   *
+   * @param l Left boundary (inclusive).
+   * @param r Right boundary (inclusive).
+   * @param args Additional arguments to pass to the answer function.
    */
   void query(int l, int r, const Args &...args) {
     q.push_back({l, r});
@@ -41,11 +47,13 @@ public:
   };
 
   /**
-   * @brief Solves all the queries and return list of answers in the order of
-   * the queries added.
+   * @brief Solves all queries and returns answers in insertion order.
    *
-   * @param f The heuristic function with signature `Fn(queries) -> H` where
-   * `Q[i]` will be processed before `Q[j]` if `H[i]<H[j]`.
+   * Time Complexity: O((N + Q)√N) where Q is the number of queries
+   *
+   * @param heuristic Function that assigns a comparable value to each query.
+   *                  Queries are processed in increasing order of these values.
+   * @return Vector of answers corresponding to each query in the order they were added.
    */
   template <typename H> auto solve(H &&heuristic) {
     int m = q.size();

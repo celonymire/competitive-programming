@@ -15,13 +15,17 @@ template <int Begin, int End> struct aho_corasick_node_t {
 };
 
 /**
- * @brief Computes the automaton to efficiently match the given patterns.
+ * @brief Constructs an Aho-Corasick automaton for multi-pattern string matching.
  *
- * Dedicated template parameters denoting the ASCII range of characters are
- * provided to create C-style arrays for adjacent list (blame CodeForces).
+ * Time Complexity: O(sum of pattern lengths + alphabet size * number of states)
+ * Space Complexity: O(sum of pattern lengths * alphabet size)
  *
- * @tparam Begin Lowest character in range.
- * @tparam End Highest character in range.
+ * @tparam Begin Lowest character value in the alphabet range.
+ * @tparam End Highest character value in the alphabet range.
+ * @param p Vector of pattern strings to match.
+ * @return The constructed automaton as a vector of nodes.
+ *
+ * @note Template parameters define the alphabet using C-style arrays for performance.
  */
 template <int Begin, int End>
 vector<aho_corasick_node_t<Begin, End>>

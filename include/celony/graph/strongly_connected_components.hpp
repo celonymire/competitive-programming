@@ -2,9 +2,21 @@
 using namespace std;
 
 /**
- * @brief Find all the strongly connected components of a graph.
+ * @brief Find all strongly connected components (SCCs) in a directed graph.
  *
- * @param g The graph.
+ * A strongly connected component is a maximal subgraph where every vertex
+ * is reachable from every other vertex. Uses Kosaraju's algorithm with two
+ * DFS passes to identify all SCCs.
+ *
+ * Time Complexity: O(V + E) where V is vertices and E is edges.
+ * Space Complexity: O(V + E) for storing the transpose graph.
+ *
+ * @param g The adjacency list representation of the directed graph.
+ * @return A vector of vectors, where each inner vector contains the vertices
+ *         of one strongly connected component.
+ *
+ * @note The SCCs are returned in reverse topological order of the
+ *       condensation graph.
  */
 vector<vector<int>> strongly_connected_components(vector<vector<int>> &g) {
   int n = g.size();

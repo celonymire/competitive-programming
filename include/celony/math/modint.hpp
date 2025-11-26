@@ -2,12 +2,23 @@
 using namespace std;
 
 /**
- * @brief Keeps the internal 32-bit integer value modulo `M`.
+ * @brief Modular integer class for arithmetic modulo M.
  *
- * The modulo is taken as a constant template parameter to optimize for the
- * common case of fixed modulo, and it assumes the modulus is prime.
+ * Automatically maintains values in the range [0, M) and supports all
+ * standard arithmetic operations. Uses compile-time constant modulus for
+ * efficiency. Division uses Fermat's little theorem for modular inverse,
+ * requiring prime modulus.
  *
- * @tparam M The modulus.
+ * Time Complexity:
+ * - All arithmetic operations: O(1)
+ * - pow(): O(log P)
+ * - inv(): O(log M)
+ * Space Complexity: O(1)
+ *
+ * @tparam M The modulus (must be prime for division to work).
+ *
+ * @note Modulus must be prime for division and inv() to work correctly.
+ * @note The modulus is a compile-time constant for optimization.
  */
 template <int M> class modint {
   int v{};

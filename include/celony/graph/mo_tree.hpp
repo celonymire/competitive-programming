@@ -4,16 +4,20 @@ using namespace std;
 #include <celony/graph/lowest_common_ancestor.hpp>
 
 /**
- * @brief Mo's Algorithm to answer offline path queries in `O(sqrt(N))`.
+ * @brief Mo's Algorithm for offline path queries on trees.
  *
- * The actual performance depends on the heuristic used to determine the order
- * of the queries. The best all-around heuristic used is Hilbert Curve, but this
- * implementation allows passing arbitrary heuristic function.
+ * Efficiently answers multiple path queries on a tree by reordering them
+ * to minimize the number of add/remove operations. Uses the Euler tour
+ * technique to flatten the tree into an array, then applies Mo's algorithm.
  *
- * Learn more about Hilbert Curve at https://codeforces.com/blog/entry/61203.
+ * The actual performance heavily depends on the heuristic used to order queries.
+ * Hilbert curve ordering provides the best practical performance.
  *
  * @tparam R Query answer type.
  * @tparam Args Additional argument types to pass to the answer function.
+ *
+ * @note Requires a lowest_common_ancestor object to be constructed first.
+ * @see https://codeforces.com/blog/entry/61203 for Hilbert curve details.
  */
 template <typename R, typename... Args> class mo_tree {
   vector<pair<int, int>> q;
@@ -22,16 +26,21 @@ template <typename R, typename... Args> class mo_tree {
   function<R(Args...)> f;
 
 public:
+  /**
+   * @brief Constructs a Mo's algorithm solver for tree paths.
+   */
   mo_tree(function<void(int)> add, function<void(int)> remove,
           function<R(Args...)> f)
       : add(std::move(add)), erase(std::move(erase)), f(std::move(f)) {}
 
   /**
-   * @brief Adds a query of `f(path-from-a-to-b)` to solve.
+   * @brief Adds a tree path query to be solved offline.
    *
-   * @param l Left node.
-   * @param r right node.
-   * @param args Additional arguments for the current query.
+   * Time Complexity: O(1)
+   *
+   * @param l First node index.
+   * @param r Second node index.
+   * @param args Additional arguments to pass to the answer function.
    */
   void add_query(int l, int r, const Args &...args) {
     q.push_back({l, r});
@@ -39,12 +48,15 @@ public:
   };
 
   /**
-   * @brief Solves all the queries and return list of answers in the order of
-   * the queries added.
+   * @brief Solves all tree path queries and returns answers in insertion order.
    *
-   * @param f The heuristic function with signature `Fn(queries) -> H` where
-   * `Q[i]` will be answered before `Q[j]` if `H[i]<H[j]`.
-   * @param lca The LCA object of the graph.
+   * Time Complexity: O((N + Q)√N) where Q is the number of queries
+   *
+   * @param f Heuristic function that assigns comparable values to queries.
+   *          Queries are processed in increasing order of these values.
+   *          For best performance, use Hilbert curve ordering.
+   * @param lca The LCA data structure for the tree.
+   * @return Vector of answers corresponding to each query in the order they were added.
    */
   template <typename F>
   vector<R> solve(F &&f, const lowest_common_ancestor &lca) {

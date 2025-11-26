@@ -2,22 +2,31 @@
 using namespace std;
 
 /**
- * @brief Fenwick Tree that answers prefix queries in `O(log N)` with very low
- * constant factor.
+ * @brief Binary Indexed Tree (Fenwick Tree) for prefix queries.
  *
- * The difference with Segment Tree is:
- * 1) Cannot directly set an element, instead update it through the combine
- * function.
- * 2) Very low constant factor for its operations.
+ * Supports efficient point updates and prefix queries for associative operations.
+ * Much faster in practice than segment trees due to simpler operations and
+ * better cache locality. However, can only query prefixes, not arbitrary ranges.
  *
  * @tparam T Value type.
- * @tparam Combine Binary callable.
+ * @tparam Combine Binary associative operation (e.g., addition, multiplication).
+ *
+ * @note Cannot directly set elements; only update via the combine function.
+ * @note For range queries, compute query(r) - query(l-1).
+ * @note Works best with invertible operations (addition, XOR, etc.).
  */
 template <typename T, typename Combine> class fenwick {
   vector<T> t;
   Combine combine;
 
 public:
+  /**
+   * @brief Constructs a Fenwick Tree from an array.
+   *
+   * Time Complexity: O(N)
+   *
+   * @param v Initial array values.
+   */
   fenwick(const vector<T> &v, const Combine &combine) : t(v.size() + 1) {
     int n = v.size();
     for (int i = 0; i < n; i++)
@@ -32,10 +41,12 @@ public:
       : fenwick(vector<T>(n, v), combine) {}
 
   /**
-   * @brief Update the element.
+   * @brief Updates the element at index i using the combine operation.
+   *
+   * Time Complexity: O(log N)
    *
    * @param i One-indexed index.
-   * @param v The value.
+   * @param v Value to combine with the current element.
    */
   void update(int i, T v) {
     for (; i < t.size(); i += i & -i)
@@ -43,9 +54,12 @@ public:
   }
 
   /**
-   * @brief Query the prefix `a[0..i-1]`.
+   * @brief Queries the prefix sum for elements [0, i-1].
    *
-   * @param i One-indexed index.
+   * Time Complexity: O(log N)
+   *
+   * @param i One-indexed index (exclusive upper bound).
+   * @return The combined result of elements [0, i-1].
    */
   T query(int i) const {
     T ans = t[0];

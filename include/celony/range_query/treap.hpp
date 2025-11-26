@@ -2,11 +2,18 @@
 using namespace std;
 
 /**
- * @brief Treap class that automatically handles updating subtree values.
+ * @brief Implicit Treap for sequence operations with range queries.
+ *
+ * A randomized binary search tree that maintains sequence order implicitly
+ * through subtree sizes. Supports split/merge for flexible range operations,
+ * including reversals, insertions, deletions, and range queries.
  *
  * @tparam T Value type.
- * @tparam Combine Combines two subtree values with signature `Fn(left, right)
- * -> new-value`.
+ * @tparam Combine Binary associative operation for combining subtree answers.
+ *
+ * @note All operations are O(log N) in expectation due to random priorities.
+ * @note Supports lazy propagation through the reversal flag.
+ * @note Perfect for problems requiring sequence modifications.
  */
 template <typename T, typename Combine> class treap {
 public:
@@ -57,6 +64,13 @@ private:
   }
 
 public:
+  /**
+   * @brief Constructs a treap from an array.
+   *
+   * Time Complexity: O(N) expected
+   *
+   * @param v Initial array values.
+   */
   treap(const vector<T> &v, const Combine &combine) : combine(combine) {
     int n = v.size();
     auto build = [&](auto &&self, int l, int r) -> node * {
@@ -78,12 +92,16 @@ public:
   /**
    * @brief Returns a new node with specified value.
    *
+   * Time Complexity: O(1)
+   *
    * @param v Node value.
    */
   static node *new_node(const T &v) { return new node{v}; }
 
   /**
    * @brief Destroy the treap.
+   *
+   * Time Complexity: O(N)
    *
    * @param root Treap root.
    */
@@ -96,13 +114,14 @@ public:
   }
 
   /**
-   * @brief Split the treap where `l` have first `k` elements and `r` have the
-   * rest.
+   * @brief Splits the treap at position k into two treaps.
    *
-   * @param root Root of treap.
-   * @param k Number of elements for `l`.
-   * @param l Pointer reference for left root.
-   * @param r Pointer reference for right root.
+   * Time Complexity: O(log N) expected
+   *
+   * @param root Root of the treap to split.
+   * @param k Split position (left subtree will contain first k elements).
+   * @param l Output parameter for the left subtree root.
+   * @param r Output parameter for the right subtree root.
    */
   void split(node *root, int k, node *&l, node *&r) {
     if (!root) {
@@ -124,12 +143,14 @@ public:
   /**
    * @brief Merges two treaps into one.
    *
-   * This implemenetation assumes all left treap node values are less than
-   * right treap node.
+   * Time Complexity: O(log N) expected
    *
-   * @param l Left treap root.
-   * @param r Right treap root.
-   * @param root Pointer reference for new root;
+   * @param l Root of the left treap.
+   * @param r Root of the right treap.
+   * @param root Output parameter for the merged treap root.
+   *
+   * @note This implementation assumes all elements in the left treap
+   *       come before all elements in the right treap in sequence order.
    */
   void merge(node *l, node *r, node *&root) {
     _push(l);
@@ -147,11 +168,13 @@ public:
   }
 
   /**
-   * @brief Reverses the range `[l, r]`.
+   * @brief Reverses the elements in the range [l, r].
    *
-   * @param root Treap root.
-   * @param l Left boundary.
-   * @param r Right boundary.
+   * Time Complexity: O(log N) expected
+   *
+   * @param root Root of the treap.
+   * @param l Left boundary (inclusive, 0-indexed).
+   * @param r Right boundary (inclusive, 0-indexed).
    */
   void reverse(node *root, int l, int r) {
     node *tl, *tm, *tr;
@@ -163,12 +186,15 @@ public:
   }
 
   /**
-   * @brief Queries the range `[l, r]`.
+   * @brief Queries the range [l, r] using the combine operation.
    *
-   * @param root Treap root.
-   * @param l Left boundary.
-   * @param r Right boundary.
-   * @param ans0 Default answer for nodes.
+   * Time Complexity: O(log N) expected
+   *
+   * @param root Root of the treap.
+   * @param l Left boundary (inclusive, 0-indexed).
+   * @param r Right boundary (inclusive, 0-indexed).
+   * @param ans0 Identity value for empty ranges.
+   * @return The combined result of elements [l, r].
    */
   T query(node *root, int l, int r, const T &ans0) {
     node *tl, *tm, *tr;
@@ -181,9 +207,12 @@ public:
   }
 
   /**
-   * @brief Returns the values of nodes ordered by their indices.
+   * @brief Extracts all values from the treap in sequence order.
    *
-   * @param root Treap root.
+   * Time Complexity: O(N)
+   *
+   * @param root Root of the treap.
+   * @return Vector containing all elements in their sequence order.
    */
   vector<T> data(node *root) {
     vector<T> ans;

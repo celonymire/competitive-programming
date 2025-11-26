@@ -2,9 +2,20 @@
 using namespace std;
 
 /**
- * @brief Find all the vertices that are articulation points.
+ * @brief Find all vertices that are articulation points (cut vertices) in an undirected graph.
  *
- * @param g The graph.
+ * An articulation point is a vertex whose removal increases the number of connected components.
+ * Uses Tarjan's algorithm with DFS to identify such vertices efficiently.
+ *
+ * Time Complexity: O(V + E) where V is the number of vertices and E is the number of edges.
+ * Space Complexity: O(V) for the auxiliary arrays and recursion stack.
+ *
+ * @param g The adjacency list representation of the undirected graph.
+ *            g[i] contains the list of neighbors of vertex i.
+ * @return A vector containing the indices of all articulation points.
+ *
+ * @note The graph is assumed to be undirected.
+ * @note Works correctly on graphs with multiple connected components.
  */
 vector<int> articulation_points(vector<vector<int>> &g) {
   int n = g.size();

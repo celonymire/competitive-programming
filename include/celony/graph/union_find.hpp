@@ -2,12 +2,17 @@
 using namespace std;
 
 /**
- * @brief Union Find that automatically calls merge functor.
+ * @brief Disjoint Set Union (DSU) / Union-Find data structure with custom merge callback.
  *
- * Uses true `O(N)` memory but uses size rather than rank, but size is much more
- * useful information in practice and still runs very fast.
+ * Supports efficient union and find operations with path compression.
+ * Uses union-by-size for optimization and provides a callback mechanism
+ * to execute custom logic when merging components.
  *
- * @tparam F Merge functor.
+ * @tparam F Merge functor type with signature `void(int parent, int child)`.
+ *           Called when merging components, where parent is the leader that
+ *           absorbs the child component.
+ *
+ * @note α(N) is the inverse Ackermann function, effectively constant (< 5) for all practical values of N.
  */
 template <typename F> class union_find {
   int comps = 0;
@@ -15,32 +20,49 @@ template <typename F> class union_find {
   F f;
 
 public:
+  /**
+   * @brief Constructs a Union-Find structure with n elements.
+   *
+   * @param n Number of elements (0 to n-1).
+   */
   union_find(int n, const F &f) : comps(n), v(n, 1), f(f) {}
 
   /**
-   * @brief Find the leader of component.
+   * @brief Finds the leader of the component containing element i.
    *
-   * @param i The component.
+   * Time Complexity: O(α(N)) amortized
+   *
+   * @param i Element index.
+   * @return The leader (representative) of the component.
    */
   int find(int i) { return v[i] > 0 ? i : -(v[i] = -find(-v[i])); }
 
   /**
-   * @brief Get the size of `i`'s component.
+   * @brief Returns the size of the component containing element i.
    *
-   * @param i The component.
+   * Time Complexity: O(α(N)) amortized
+   *
+   * @param i Element index.
+   * @return The number of elements in the component.
    */
   int size(int i) { return v[find(i)]; }
 
   /**
-   * @brief Get the number of components.
+   * @brief Returns the current number of disjoint components.
+   *
+   * Time Complexity: O(1)
+   * @return The number of connected components.
    */
   int components() const { return comps; }
 
   /**
-   * @brief Unites two components if they are different.
+   * @brief Unites the components containing elements i and j.
    *
-   * @param i First component.
-   * @param j Second component.
+   * Time Complexity: O(α(N)) amortized
+   *
+   * @param i First element index.
+   * @param j Second element index.
+   * @return True if the elements were in different components and were merged, false otherwise.
    */
   bool unite(int i, int j) {
     i = find(i), j = find(j);

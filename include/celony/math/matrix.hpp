@@ -2,13 +2,23 @@
 using namespace std;
 
 /**
- * @brief Matrix class with overloaded arithmetic.
+ * @brief Matrix class optimized for competitive programming.
  *
- * This implementation is designed for competitive programming, so it does not
- * have fancy features compared to something such as Numpy. Only the most
- * relevant operations are included.
+ * Supports basic matrix operations: addition, subtraction, multiplication,
+ * and fast exponentiation. Designed for simplicity and efficiency in
+ * contest environments, particularly for solving linear recurrences and
+ * graph problems.
  *
- * @tparam T Value type.
+ * Time Complexity:
+ * - Addition/Subtraction: O(N*M)
+ * - Multiplication: O(N*C*M) where C is the common dimension
+ * - Power: O(N³ log P) for N×N matrices
+ * Space Complexity: O(N*M)
+ *
+ * @tparam T Value type (can be modint for modular arithmetic).
+ *
+ * @note Multiplication includes an optimization to skip zero elements.
+ * @note Power operation requires square matrices.
  */
 template <typename T> class matrix {
   vector<vector<T>> v;

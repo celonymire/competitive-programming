@@ -2,12 +2,22 @@
 using namespace std;
 
 /**
- * @brief The extended GCD algorithm that finds a solution for `ax+by=gcd(a,b)`.
+ * @brief Extended Euclidean Algorithm for finding Bézout coefficients.
+ *
+ * Computes integers x and y such that ax + by = gcd(a, b). This is useful
+ * for finding modular inverses and solving linear Diophantine equations.
+ *
+ * Time Complexity: O(log(min(a, b)))
+ * Space Complexity: O(1)
  *
  * @param a First number.
  * @param b Second number.
- * @param x Reference to store `x`.
- * @param y Reference to store `y`.
+ * @param x Reference to store the coefficient for a.
+ * @param y Reference to store the coefficient for b.
+ * @return gcd(a, b)
+ *
+ * @note To find modular inverse of a mod b (when gcd(a,b)=1),
+ *       x will be the inverse after calling this function.
  */
 template <typename T> T gcd(T a, T b, T &x, T &y) {
   x = 1, y = 0;

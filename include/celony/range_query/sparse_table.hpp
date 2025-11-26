@@ -2,20 +2,33 @@
 using namespace std;
 
 /**
- * @brief Answers subarray queries in `O(1)` with `O(N log N)` preprocessing.
+ * @brief Sparse Table for O(1) range queries on immutable arrays.
  *
- * Sparse Tables are immutable, but they can answer range queries very fast if
- * the answer remains correct when merging answers of two (possibly) overlapping
- * ranges. Some example operations are `gcd` and `min`.
+ * Precomputes answers for all ranges of length 2^k, enabling constant-time
+ * queries for idempotent operations. An operation is idempotent if
+ * f(x, x) = x, which allows overlapping ranges in queries.
  *
  * @tparam T Value type.
- * @tparam Combine Binary functor to merge two values.
+ * @tparam Combine Binary idempotent operation (e.g., min, max, gcd, lcm).
+ *
+ * @note The array is immutable after construction.
+ * @note Combine must be idempotent: f(x, x) = x.
+ * @note Perfect for static RMQ (Range Minimum Query) problems.
+ * @note More space-efficient than segment trees for read-only scenarios.
  */
 template <typename T, typename Combine> class sparse_table {
   vector<vector<T>> dp;
   Combine combine;
 
 public:
+  /**
+   * @brief Constructs a sparse table from an array.
+   *
+   * Time Complexity: O(N log N)
+   * Space Complexity: O(N log N)
+   *
+   * @param v The array.
+   */
   sparse_table(const vector<T> &v, const Combine &combine) : combine(combine) {
     int n = v.size();
     dp.resize(__lg(n) + 1, vector<T>(n));
@@ -26,10 +39,13 @@ public:
   }
 
   /**
-   * @brief Queries the range `[l, r]` in `O(1)`.
+   * @brief Queries the range [l, r] using the idempotent combine operation.
    *
-   * @param l Left bound.
-   * @param r Right bound.
+   * Time Complexity: O(1)
+   *
+   * @param l Left bound (inclusive).
+   * @param r Right bound (inclusive).
+   * @return The combined result of elements [l, r].
    */
   T query(int l, int r) const {
     int i = __lg(r - l + 1);

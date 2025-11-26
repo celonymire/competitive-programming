@@ -2,9 +2,18 @@
 using namespace std;
 
 /**
- * @brief Custom hasher to avoid exponential blowup for hash lookups.
+ * @brief Cryptographically-inspired hash function resistant to collision attacks.
  *
- * Learn more at https://codeforces.com/blog/entry/62393.
+ * Standard unordered_map hash functions are vulnerable to adversarial input
+ * that causes many collisions, degrading performance to O(N) per operation.
+ * This hasher uses a random seed and mixing functions to prevent such attacks.
+ *
+ * Time Complexity: O(1) per hash
+ * Space Complexity: O(1)
+ *
+ * @note Essential for contests where adversaries can craft anti-hash test cases.
+ * @note Uses a random seed initialized at program startup.
+ * @see https://codeforces.com/blog/entry/62393
  */
 struct safe_hash {
   size_t operator()(uint64_t x) const {

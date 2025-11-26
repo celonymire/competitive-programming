@@ -2,15 +2,20 @@
 using namespace std;
 
 /**
- * @brief Segment Tree for efficient range updates and queries.
+ * @brief Iterative Segment Tree with lazy propagation for range updates.
  *
- * The Segment Tree is implemented iteratively.
+ * Extends the basic segment tree to support efficient range updates using
+ * lazy propagation. Updates are deferred until needed, allowing O(log N)
+ * range updates. Requires careful implementation of apply and push functions.
  *
  * @tparam T Value type.
- * @tparam U Update type.
- * @tparam Apply Applies accumulated updates to value.
- * @tparam Push Accumulates updates with new update.
- * @tparam Combine Binary callable.
+ * @tparam U Update/lazy tag type.
+ * @tparam Apply Function to apply lazy tag to a node: (T, U, size) -> T
+ * @tparam Push Function to combine lazy tags: (U, U, size) -> U
+ * @tparam Combine Binary associative operation on values.
+ *
+ * @note Apply and Push functions must correctly handle the size parameter.
+ * @note Updates are applied lazily and propagated on-demand.
  */
 template <typename T, typename U, typename Apply, typename Push,
           typename Combine>
@@ -50,6 +55,15 @@ class segment_tree_lazy {
   }
 
 public:
+  /**
+   * @brief Constructs a lazy segment tree from an array.
+   *
+   * Time Complexity: O(N)
+   *
+   * @param v Initial array values.
+   * @param v0 Default value for queries.
+   * @param u0 Default lazy tag value.
+   */
   segment_tree_lazy(const vector<T> &v, const T &v0, const U &u0,
                     const Apply &apply, const Push &push,
                     const Combine &combine)
@@ -70,15 +84,19 @@ public:
 
   /**
    * @brief Returns the default value for queries.
+   *
+   * Time Complexity: O(1)
    */
   T identity() const { return t[0]; }
 
   /**
-   * @brief Update the range `[l, r)`.
+   * @brief Applies a lazy update to the range [l, r).
    *
-   * @param l Left bound.
-   * @param r Right bound.
-   * @param v Value to update with.
+   * Time Complexity: O(log N)
+   *
+   * @param l Left bound (inclusive).
+   * @param r Right bound (exclusive).
+   * @param v Update value to apply.
    */
   void update(int l, int r, const U &v) {
     _push(l);
@@ -109,6 +127,8 @@ public:
   /**
    * @brief Query the range `[l, r)`.
    *
+   * Time Complexity: O(log N)
+   *
    * @param l Left bound.
    * @param r Right bound.
    */
@@ -128,6 +148,8 @@ public:
 
   /**
    * @brief Find maximum `r>=l` s.t. `f(a[l..r-1])` remains true.
+   *
+   * Time Complexity: O(log N)
    *
    * @param l Left bound.
    * @param f Predicate callable.
@@ -153,6 +175,8 @@ public:
 
   /**
    * @brief Find minimum `l<=r` s.t. `f(a[l+1..r])` remains true.
+   *
+   * Time Complexity: O(log N)
    *
    * @param r Right bound.
    * @param f Predicate callable.
