@@ -26,10 +26,11 @@ public:
   /**
    * @brief Constructs a Segment Tree from the array.
    *
-   * Time Complexity: O(N)
+   * Time Complexity: \f$O(N)\f$
    *
    * @param v The array.
    * @param v0 Default value for queries.
+   * @param combine Binary associative operation for combining range values.
    */
   segment_tree(const vector<T> &v, const T &v0, const Combine &combine)
       : combine(combine) {
@@ -45,14 +46,14 @@ public:
   /**
    * @brief Returns the default value for queries.
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    */
   T identity() const { return t[0]; }
 
   /**
    * @brief Updates the value at index i using the combine operation.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param i Zero-indexed position.
    * @param v Value to combine with the current element.
@@ -66,7 +67,7 @@ public:
   /**
    * @brief Sets the value at index i, replacing the current value.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param i Zero-indexed position.
    * @param v New value.
@@ -80,7 +81,7 @@ public:
   /**
    * @brief Queries the range [l, r) using the combine operation.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param l Left bound (inclusive).
    * @param r Right bound (exclusive).
@@ -101,7 +102,7 @@ public:
   /**
    * @brief Finds the maximum index r >= l such that f(query(l, r)) is true.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param l Left bound (inclusive).
    * @param f Predicate function that takes a query result and returns bool.
@@ -126,7 +127,7 @@ public:
   /**
    * @brief Finds the minimum index l <= r such that f(query(l+1, r+1)) is true.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param r Right bound (inclusive).
    * @param f Predicate function that takes a query result and returns bool.

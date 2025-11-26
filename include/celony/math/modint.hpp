@@ -10,10 +10,10 @@ using namespace std;
  * requiring prime modulus.
  *
  * Time Complexity:
- * - All arithmetic operations: O(1)
- * - pow(): O(log P)
- * - inv(): O(log M)
- * Space Complexity: O(1)
+ * - All arithmetic operations: \f$O(1)\f$
+ * - pow(): \f$O(\log P)\f$
+ * - inv(): \f$O(\log M)\f$
+ * Space Complexity: \f$O(1)\f$
  *
  * @tparam M The modulus (must be prime for division to work).
  *

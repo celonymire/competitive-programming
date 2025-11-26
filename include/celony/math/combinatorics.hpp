@@ -6,14 +6,14 @@ using namespace std;
 /**
  * @brief Precomputes factorials and inverses for fast combinatorial calculations.
  *
- * Enables O(1) computation of binomial coefficients and permutations using
+ * Enables \f$O(1)\f$ computation of binomial coefficients and permutations using
  * precomputed factorials, inverse factorials, and modular inverses. Uses
  * Fermat's little theorem for computing modular inverses, requiring prime modulus.
  *
  * Time Complexity:
- * - Construction: O(N)
- * - ncr(), npr(): O(1)
- * Space Complexity: O(N)
+ * - Construction: \f$O(N)\f$
+ * - ncr(), npr(): \f$O(1)\f$
+ * Space Complexity: \f$O(N)\f$
  *
  * @tparam M The modulus (must be prime).
  *
@@ -38,7 +38,7 @@ template <int M> struct combinatorics {
   /**
    * @brief Computes the binomial coefficient C(n, k) = n! / (k! * (n-k)!).
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    *
    * @param n Total number of objects.
    * @param k Number of objects to choose.
@@ -51,7 +51,7 @@ template <int M> struct combinatorics {
   /**
    * @brief Computes the permutation P(n, k) = n! / (n-k)!.
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    *
    * @param n Total number of objects.
    * @param k Number of objects to arrange.

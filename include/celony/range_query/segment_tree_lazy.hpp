@@ -5,7 +5,7 @@ using namespace std;
  * @brief Iterative Segment Tree with lazy propagation for range updates.
  *
  * Extends the basic segment tree to support efficient range updates using
- * lazy propagation. Updates are deferred until needed, allowing O(log N)
+ * lazy propagation. Updates are deferred until needed, allowing \f$O(\log N)\f$
  * range updates. Requires careful implementation of apply and push functions.
  *
  * @tparam T Value type.
@@ -58,11 +58,14 @@ public:
   /**
    * @brief Constructs a lazy segment tree from an array.
    *
-   * Time Complexity: O(N)
+   * Time Complexity: \f$O(N)\f$
    *
    * @param v Initial array values.
    * @param v0 Default value for queries.
    * @param u0 Default lazy tag value.
+   * @param apply Function to apply lazy tag to a node: (T, U, size) -> T
+   * @param push Function to combine lazy tags: (U, U, size) -> U
+   * @param combine Binary associative operation on values.
    */
   segment_tree_lazy(const vector<T> &v, const T &v0, const U &u0,
                     const Apply &apply, const Push &push,
@@ -85,14 +88,14 @@ public:
   /**
    * @brief Returns the default value for queries.
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    */
   T identity() const { return t[0]; }
 
   /**
    * @brief Applies a lazy update to the range [l, r).
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param l Left bound (inclusive).
    * @param r Right bound (exclusive).
@@ -127,7 +130,7 @@ public:
   /**
    * @brief Query the range `[l, r)`.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param l Left bound.
    * @param r Right bound.
@@ -149,7 +152,7 @@ public:
   /**
    * @brief Find maximum `r>=l` s.t. `f(a[l..r-1])` remains true.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param l Left bound.
    * @param f Predicate callable.
@@ -176,7 +179,7 @@ public:
   /**
    * @brief Find minimum `l<=r` s.t. `f(a[l+1..r])` remains true.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param r Right bound.
    * @param f Predicate callable.

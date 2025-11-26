@@ -23,9 +23,10 @@ public:
   /**
    * @brief Constructs a Fenwick Tree from an array.
    *
-   * Time Complexity: O(N)
+   * Time Complexity: \f$O(N)\f$
    *
    * @param v Initial array values.
+   * @param combine Binary associative operation for combining values.
    */
   fenwick(const vector<T> &v, const Combine &combine) : t(v.size() + 1) {
     int n = v.size();
@@ -43,7 +44,7 @@ public:
   /**
    * @brief Updates the element at index i using the combine operation.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param i One-indexed index.
    * @param v Value to combine with the current element.
@@ -56,7 +57,7 @@ public:
   /**
    * @brief Queries the prefix sum for elements [0, i-1].
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param i One-indexed index (exclusive upper bound).
    * @return The combined result of elements [0, i-1].

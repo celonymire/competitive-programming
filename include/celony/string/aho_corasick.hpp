@@ -17,8 +17,8 @@ template <int Begin, int End> struct aho_corasick_node_t {
 /**
  * @brief Constructs an Aho-Corasick automaton for multi-pattern string matching.
  *
- * Time Complexity: O(sum of pattern lengths + alphabet size * number of states)
- * Space Complexity: O(sum of pattern lengths * alphabet size)
+ * Time Complexity: \f$O(\sum \text{pattern lengths} + |\Sigma| \cdot |\text{states}|)\f$
+ * Space Complexity: \f$O(\sum \text{pattern lengths} \cdot |\Sigma|)\f$
  *
  * @tparam Begin Lowest character value in the alphabet range.
  * @tparam End Highest character value in the alphabet range.

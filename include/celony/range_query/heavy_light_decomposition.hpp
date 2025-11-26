@@ -8,7 +8,7 @@ using namespace std;
  *
  * Decomposes a tree into heavy and light edges, allowing path queries and
  * updates to be answered using a segment tree. Each root-to-node path
- * crosses at most O(log N) light edges, enabling efficient queries.
+ * crosses at most \f$O(\log N)\f$ light edges, enabling efficient queries.
  *
  * @tparam T Value type.
  * @tparam Combine Binary associative operation for combining path values.
@@ -26,10 +26,11 @@ public:
   /**
    * @brief Constructs HLD from a tree with uniform node values.
    *
-   * Time Complexity: O(N)
+   * Time Complexity: \f$O(N)\f$
    *
    * @param g Tree adjacency list.
    * @param v Initial value for all nodes.
+   * @param combine Binary associative operation for path queries.
    * @param root Root of the tree (default 0).
    */
   heavy_light_decomposition(const vector<vector<int>> &g, const T &v,
@@ -40,11 +41,12 @@ public:
   /**
    * @brief Constructs HLD from a tree with specified node values.
    *
-   * Time Complexity: O(N)
+   * Time Complexity: \f$O(N)\f$
    *
    * @param g Tree adjacency list.
    * @param v Initial values for nodes.
    * @param v0 Default value for queries.
+   * @param combine Binary associative operation for path queries.
    * @param root Root of the tree (default 0).
    */
   heavy_light_decomposition(const vector<vector<int>> &g, const vector<T> &v,
@@ -90,7 +92,7 @@ public:
   /**
    * @brief Updates the value at a node using the combine operation.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param a Node index.
    * @param v Value to combine with the current node value.
@@ -100,7 +102,7 @@ public:
   /**
    * @brief Sets the value at a node, replacing the current value.
    *
-   * Time Complexity: O(log N)
+   * Time Complexity: \f$O(\log N)\f$
    *
    * @param a Node index.
    * @param v New value.
@@ -110,7 +112,7 @@ public:
   /**
    * @brief Queries the path between nodes a and b using the combine operation.
    *
-   * Time Complexity: O(log² N)
+   * Time Complexity: \f$O(\log^2 N)\f$
    *
    * @param a First node index.
    * @param b Second node index.

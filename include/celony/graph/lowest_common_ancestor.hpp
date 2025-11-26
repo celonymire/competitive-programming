@@ -4,7 +4,7 @@ using namespace std;
 /**
  * @brief Lowest Common Ancestor (LCA) data structure using ±1 RMQ reduction.
  *
- * Answers LCA queries in O(1) time after O(N) preprocessing. This implementation
+ * Answers LCA queries in \f$O(1)\f$ time after \f$O(N)\f$ preprocessing. This implementation
  * uses the Euler tour technique with ±1 Range Minimum Query (RMQ) optimization,
  * which is theoretically optimal. The algorithm splits the tour into blocks,
  * uses sparse table for inter-block queries, and precomputes all possible
@@ -32,8 +32,8 @@ public:
   /**
    * @brief Constructs the LCA data structure for the given tree.
    *
-   * Time Complexity: O(N)
-   * Space Complexity: O(N)
+   * Time Complexity: \f$O(N)\f$
+   * Space Complexity: \f$O(N)\f$
    *
    * @param g The adjacency list representation of the tree.
    * @param root The root vertex of the tree (default is 0).
@@ -105,7 +105,7 @@ public:
   /**
    * @brief Computes the lowest common ancestor of two nodes.
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    *
    * @param v First node index.
    * @param u Second node index.

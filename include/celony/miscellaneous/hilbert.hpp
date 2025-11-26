@@ -8,8 +8,8 @@ using namespace std;
  * This ordering has excellent locality properties, making it ideal for
  * reordering queries in Mo's algorithm to minimize pointer movements.
  *
- * Time Complexity: O(Q log max(coordinates))
- * Space Complexity: O(Q)
+ * Time Complexity: \f$O(Q \log \max(\text{coordinates}))\f$
+ * Space Complexity: \f$O(Q)\f$
  *
  * @param q List of 2D points/queries as (x, y) pairs.
  * @return Vector of 64-bit integers representing Hilbert curve positions.

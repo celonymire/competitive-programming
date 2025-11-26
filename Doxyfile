@@ -128,6 +128,12 @@ SEARCHENGINE           = YES
 SERVER_BASED_SEARCH    = NO
 EXTERNAL_SEARCH        = NO
 
+# Math rendering with MathJax
+USE_MATHJAX            = YES
+MATHJAX_VERSION        = MathJax_3
+MATHJAX_FORMAT         = HTML-CSS
+MATHJAX_RELPATH        = https://cdn.jsdelivr.net/npm/mathjax@3
+
 # Index and presentation
 ALPHABETICAL_INDEX     = YES
 HTML_INDEX_NUM_ENTRIES = 100

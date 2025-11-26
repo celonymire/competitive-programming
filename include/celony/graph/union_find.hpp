@@ -12,7 +12,7 @@ using namespace std;
  *           Called when merging components, where parent is the leader that
  *           absorbs the child component.
  *
- * @note α(N) is the inverse Ackermann function, effectively constant (< 5) for all practical values of N.
+ * @note \f$\alpha(N)\f$ is the inverse Ackermann function, effectively constant (< 5) for all practical values of N.
  */
 template <typename F> class union_find {
   int comps = 0;
@@ -24,13 +24,14 @@ public:
    * @brief Constructs a Union-Find structure with n elements.
    *
    * @param n Number of elements (0 to n-1).
+   * @param f Merge callback function with signature void(int parent, int child).
    */
   union_find(int n, const F &f) : comps(n), v(n, 1), f(f) {}
 
   /**
    * @brief Finds the leader of the component containing element i.
    *
-   * Time Complexity: O(α(N)) amortized
+   * Time Complexity: \f$O(\alpha(N))\f$ amortized
    *
    * @param i Element index.
    * @return The leader (representative) of the component.
@@ -40,7 +41,7 @@ public:
   /**
    * @brief Returns the size of the component containing element i.
    *
-   * Time Complexity: O(α(N)) amortized
+   * Time Complexity: \f$O(\alpha(N))\f$ amortized
    *
    * @param i Element index.
    * @return The number of elements in the component.
@@ -50,7 +51,7 @@ public:
   /**
    * @brief Returns the current number of disjoint components.
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    * @return The number of connected components.
    */
   int components() const { return comps; }
@@ -58,7 +59,7 @@ public:
   /**
    * @brief Unites the components containing elements i and j.
    *
-   * Time Complexity: O(α(N)) amortized
+   * Time Complexity: \f$O(\alpha(N))\f$ amortized
    *
    * @param i First element index.
    * @param j Second element index.

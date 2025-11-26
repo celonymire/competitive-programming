@@ -36,7 +36,7 @@ public:
   /**
    * @brief Adds a tree path query to be solved offline.
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    *
    * @param l First node index.
    * @param r Second node index.
@@ -50,7 +50,7 @@ public:
   /**
    * @brief Solves all tree path queries and returns answers in insertion order.
    *
-   * Time Complexity: O((N + Q)√N) where Q is the number of queries
+   * Time Complexity: \f$O((N + Q)\sqrt{N})\f$ where Q is the number of queries
    *
    * @param f Heuristic function that assigns comparable values to queries.
    *          Queries are processed in increasing order of these values.

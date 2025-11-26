@@ -2,7 +2,7 @@
 using namespace std;
 
 /**
- * @brief Sparse Table for O(1) range queries on immutable arrays.
+ * @brief Sparse Table for \f$O(1)\f$ range queries on immutable arrays.
  *
  * Precomputes answers for all ranges of length 2^k, enabling constant-time
  * queries for idempotent operations. An operation is idempotent if
@@ -24,10 +24,11 @@ public:
   /**
    * @brief Constructs a sparse table from an array.
    *
-   * Time Complexity: O(N log N)
-   * Space Complexity: O(N log N)
+   * Time Complexity: \f$O(N \log N)\f$
+   * Space Complexity: \f$O(N \log N)\f$
    *
    * @param v The array.
+   * @param combine Binary idempotent operation for combining values.
    */
   sparse_table(const vector<T> &v, const Combine &combine) : combine(combine) {
     int n = v.size();
@@ -41,7 +42,7 @@ public:
   /**
    * @brief Queries the range [l, r] using the idempotent combine operation.
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    *
    * @param l Left bound (inclusive).
    * @param r Right bound (inclusive).

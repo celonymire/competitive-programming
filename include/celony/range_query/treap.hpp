@@ -11,7 +11,7 @@ using namespace std;
  * @tparam T Value type.
  * @tparam Combine Binary associative operation for combining subtree answers.
  *
- * @note All operations are O(log N) in expectation due to random priorities.
+ * @note All operations are \f$O(\log N)\f$ in expectation due to random priorities.
  * @note Supports lazy propagation through the reversal flag.
  * @note Perfect for problems requiring sequence modifications.
  */
@@ -67,9 +67,10 @@ public:
   /**
    * @brief Constructs a treap from an array.
    *
-   * Time Complexity: O(N) expected
+   * Time Complexity: \f$O(N)\f$ expected
    *
    * @param v Initial array values.
+   * @param combine Binary associative operation for combining subtree answers.
    */
   treap(const vector<T> &v, const Combine &combine) : combine(combine) {
     int n = v.size();
@@ -92,7 +93,7 @@ public:
   /**
    * @brief Returns a new node with specified value.
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    *
    * @param v Node value.
    */
@@ -101,7 +102,7 @@ public:
   /**
    * @brief Destroy the treap.
    *
-   * Time Complexity: O(N)
+   * Time Complexity: \f$O(N)\f$
    *
    * @param root Treap root.
    */
@@ -116,7 +117,7 @@ public:
   /**
    * @brief Splits the treap at position k into two treaps.
    *
-   * Time Complexity: O(log N) expected
+   * Time Complexity: \f$O(\log N)\f$ expected
    *
    * @param root Root of the treap to split.
    * @param k Split position (left subtree will contain first k elements).
@@ -143,7 +144,7 @@ public:
   /**
    * @brief Merges two treaps into one.
    *
-   * Time Complexity: O(log N) expected
+   * Time Complexity: \f$O(\log N)\f$ expected
    *
    * @param l Root of the left treap.
    * @param r Root of the right treap.
@@ -170,7 +171,7 @@ public:
   /**
    * @brief Reverses the elements in the range [l, r].
    *
-   * Time Complexity: O(log N) expected
+   * Time Complexity: \f$O(\log N)\f$ expected
    *
    * @param root Root of the treap.
    * @param l Left boundary (inclusive, 0-indexed).
@@ -188,7 +189,7 @@ public:
   /**
    * @brief Queries the range [l, r] using the combine operation.
    *
-   * Time Complexity: O(log N) expected
+   * Time Complexity: \f$O(\log N)\f$ expected
    *
    * @param root Root of the treap.
    * @param l Left boundary (inclusive, 0-indexed).
@@ -209,7 +210,7 @@ public:
   /**
    * @brief Extracts all values from the treap in sequence order.
    *
-   * Time Complexity: O(N)
+   * Time Complexity: \f$O(N)\f$
    *
    * @param root Root of the treap.
    * @return Vector containing all elements in their sequence order.

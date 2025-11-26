@@ -10,10 +10,10 @@ using namespace std;
  * graph problems.
  *
  * Time Complexity:
- * - Addition/Subtraction: O(N*M)
- * - Multiplication: O(N*C*M) where C is the common dimension
- * - Power: O(N³ log P) for N×N matrices
- * Space Complexity: O(N*M)
+ * - Addition/Subtraction: \f$O(N \cdot M)\f$
+ * - Multiplication: \f$O(N \cdot C \cdot M)\f$ where C is the common dimension
+ * - Power: \f$O(N^3 \log P)\f$ for N×N matrices
+ * Space Complexity: \f$O(N \cdot M)\f$
  *
  * @tparam T Value type (can be modint for modular arithmetic).
  *

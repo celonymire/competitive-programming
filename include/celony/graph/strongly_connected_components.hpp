@@ -8,8 +8,8 @@ using namespace std;
  * is reachable from every other vertex. Uses Kosaraju's algorithm with two
  * DFS passes to identify all SCCs.
  *
- * Time Complexity: O(V + E) where V is vertices and E is edges.
- * Space Complexity: O(V + E) for storing the transpose graph.
+ * Time Complexity: \f$O(V + E)\f$ where V is vertices and E is edges.
+ * Space Complexity: \f$O(V + E)\f$ for storing the transpose graph.
  *
  * @param g The adjacency list representation of the directed graph.
  * @return A vector of vectors, where each inner vector contains the vertices

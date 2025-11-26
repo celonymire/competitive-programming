@@ -2,7 +2,7 @@
 using namespace std;
 
 /**
- * @brief Get a substring hash in `O(1)` with `O(N)` precomputation.
+ * @brief Get a substring hash in \f$O(1)\f$ with \f$O(N)\f$ precomputation.
  *
  * This implementation uses one big modulo to avoid keeping two pairs of P and
  * M. Also, the hashes are computed in such a way it avoids needing to divide by

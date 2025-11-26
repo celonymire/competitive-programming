@@ -7,8 +7,8 @@ using namespace std;
  * Computes integers x and y such that ax + by = gcd(a, b). This is useful
  * for finding modular inverses and solving linear Diophantine equations.
  *
- * Time Complexity: O(log(min(a, b)))
- * Space Complexity: O(1)
+ * Time Complexity: \f$O(\log(\min(a, b)))\f$
+ * Space Complexity: \f$O(1)\f$
  *
  * @param a First number.
  * @param b Second number.

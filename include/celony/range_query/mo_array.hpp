@@ -15,7 +15,7 @@ using namespace std;
  * @tparam Args Additional argument types passed to answer function.
  *
  * @note Queries must be answered offline (all queries known in advance).
- * @note Best for problems where incremental updates are O(1) or O(log N).
+ * @note Best for problems where incremental updates are \f$O(1)\f$ or \f$O(\log N)\f$.
  * @see https://codeforces.com/blog/entry/61203 for Hilbert curve details.
  */
 template <typename R, typename... Args> class mo_array {
@@ -35,7 +35,7 @@ public:
   /**
    * @brief Adds a range query to be solved offline.
    *
-   * Time Complexity: O(1)
+   * Time Complexity: \f$O(1)\f$
    *
    * @param l Left boundary (inclusive).
    * @param r Right boundary (inclusive).
@@ -49,7 +49,7 @@ public:
   /**
    * @brief Solves all queries and returns answers in insertion order.
    *
-   * Time Complexity: O((N + Q)√N) where Q is the number of queries
+   * Time Complexity: \f$O((N + Q)\sqrt{N})\f$ where Q is the number of queries
    *
    * @param heuristic Function that assigns a comparable value to each query.
    *                  Queries are processed in increasing order of these values.
