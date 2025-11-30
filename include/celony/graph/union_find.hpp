@@ -2,7 +2,8 @@
 using namespace std;
 
 /**
- * @brief Disjoint Set Union (DSU) / Union-Find data structure with custom merge callback.
+ * @brief Disjoint Set Union (DSU) / Union-Find data structure with custom merge
+ * callback.
  *
  * Supports efficient union and find operations with path compression.
  * Uses union-by-size for optimization and provides a callback mechanism
@@ -12,7 +13,8 @@ using namespace std;
  *           Called when merging components, where parent is the leader that
  *           absorbs the child component.
  *
- * @note \f$\alpha(N)\f$ is the inverse Ackermann function, effectively constant (< 5) for all practical values of N.
+ * @note \f$\alpha(N)\f$ is the inverse Ackermann function, effectively constant
+ * (< 5) for all practical values of N.
  */
 template <typename F> class union_find {
   int comps = 0;
@@ -24,7 +26,8 @@ public:
    * @brief Constructs a Union-Find structure with n elements.
    *
    * @param n Number of elements (0 to n-1).
-   * @param f Merge callback function with signature void(int parent, int child).
+   * @param f Merge callback function with signature void(int parent, int
+   * child).
    */
   union_find(int n, const F &f) : comps(n), v(n, 1), f(f) {}
 
@@ -63,7 +66,8 @@ public:
    *
    * @param i First element index.
    * @param j Second element index.
-   * @return True if the elements were in different components and were merged, false otherwise.
+   * @return True if the elements were in different components and were merged,
+   * false otherwise.
    */
   bool unite(int i, int j) {
     i = find(i), j = find(j);

@@ -4,12 +4,14 @@ using namespace std;
 /**
  * @brief Binary Indexed Tree (Fenwick Tree) for prefix queries.
  *
- * Supports efficient point updates and prefix queries for associative operations.
- * Much faster in practice than segment trees due to simpler operations and
- * better cache locality. However, can only query prefixes, not arbitrary ranges.
+ * Supports efficient point updates and prefix queries for associative
+ * operations. Much faster in practice than segment trees due to simpler
+ * operations and better cache locality. However, can only query prefixes, not
+ * arbitrary ranges.
  *
  * @tparam T Value type.
- * @tparam Combine Binary associative operation (e.g., addition, multiplication).
+ * @tparam Combine Binary associative operation (e.g., addition,
+ * multiplication).
  *
  * @note Cannot directly set elements; only update via the combine function.
  * @note For range queries, compute query(r) - query(l-1).

@@ -11,7 +11,8 @@ using namespace std;
  * @tparam T Value type.
  * @tparam Combine Binary associative operation for combining subtree answers.
  *
- * @note All operations are \f$O(\log N)\f$ in expectation due to random priorities.
+ * @note All operations are \f$O(\log N)\f$ in expectation due to random
+ * priorities.
  * @note Supports lazy propagation through the reversal flag.
  * @note Perfect for problems requiring sequence modifications.
  */

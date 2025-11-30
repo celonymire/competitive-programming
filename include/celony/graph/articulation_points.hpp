@@ -2,13 +2,16 @@
 using namespace std;
 
 /**
- * @brief Find all vertices that are articulation points (cut vertices) in an undirected graph.
+ * @brief Find all vertices that are articulation points (cut vertices) in an
+ * undirected graph.
  *
- * An articulation point is a vertex whose removal increases the number of connected components.
- * Uses Tarjan's algorithm with DFS to identify such vertices efficiently.
+ * An articulation point is a vertex whose removal increases the number of
+ * connected components. Uses Tarjan's algorithm with DFS to identify such
+ * vertices efficiently.
  *
- * Time Complexity: \f$O(V + E)\f$ where V is the number of vertices and E is the number of edges.
- * Space Complexity: \f$O(V)\f$ for the auxiliary arrays and recursion stack.
+ * Time Complexity: \f$O(V + E)\f$ where V is the number of vertices and E is
+ * the number of edges. Space Complexity: \f$O(V)\f$ for the auxiliary arrays
+ * and recursion stack.
  *
  * @param g The adjacency list representation of the undirected graph.
  *            g[i] contains the list of neighbors of vertex i.

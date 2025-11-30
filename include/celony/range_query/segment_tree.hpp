@@ -4,9 +4,9 @@ using namespace std;
 /**
  * @brief Iterative Segment Tree for point updates and range queries.
  *
- * A versatile data structure supporting efficient range queries and point updates
- * for any associative operation. This iterative implementation is faster and
- * simpler than recursive versions, with excellent cache locality.
+ * A versatile data structure supporting efficient range queries and point
+ * updates for any associative operation. This iterative implementation is
+ * faster and simpler than recursive versions, with excellent cache locality.
  *
  * @tparam T Value type.
  * @tparam Combine Binary associative operation (e.g., min, max, sum, gcd).

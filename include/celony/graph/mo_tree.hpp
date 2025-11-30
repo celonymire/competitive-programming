@@ -10,8 +10,8 @@ using namespace std;
  * to minimize the number of add/remove operations. Uses the Euler tour
  * technique to flatten the tree into an array, then applies Mo's algorithm.
  *
- * The actual performance heavily depends on the heuristic used to order queries.
- * Hilbert curve ordering provides the best practical performance.
+ * The actual performance heavily depends on the heuristic used to order
+ * queries. Hilbert curve ordering provides the best practical performance.
  *
  * @tparam R Query answer type.
  * @tparam Args Additional argument types to pass to the answer function.
@@ -56,7 +56,8 @@ public:
    *          Queries are processed in increasing order of these values.
    *          For best performance, use Hilbert curve ordering.
    * @param lca The LCA data structure for the tree.
-   * @return Vector of answers corresponding to each query in the order they were added.
+   * @return Vector of answers corresponding to each query in the order they
+   * were added.
    */
   template <typename F>
   vector<R> solve(F &&f, const lowest_common_ancestor &lca) {

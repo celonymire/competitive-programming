@@ -4,13 +4,14 @@ using namespace std;
 /**
  * @brief Lowest Common Ancestor (LCA) data structure using ±1 RMQ reduction.
  *
- * Answers LCA queries in \f$O(1)\f$ time after \f$O(N)\f$ preprocessing. This implementation
- * uses the Euler tour technique with ±1 Range Minimum Query (RMQ) optimization,
- * which is theoretically optimal. The algorithm splits the tour into blocks,
- * uses sparse table for inter-block queries, and precomputes all possible
- * block configurations for intra-block queries.
+ * Answers LCA queries in \f$O(1)\f$ time after \f$O(N)\f$ preprocessing. This
+ * implementation uses the Euler tour technique with ±1 Range Minimum Query
+ * (RMQ) optimization, which is theoretically optimal. The algorithm splits the
+ * tour into blocks, uses sparse table for inter-block queries, and precomputes
+ * all possible block configurations for intra-block queries.
  *
- * @note This is one of the most efficient LCA implementations for competitive programming.
+ * @note This is one of the most efficient LCA implementations for competitive
+ * programming.
  * @note The tree must be connected and rooted at the specified root vertex.
  */
 class lowest_common_ancestor {

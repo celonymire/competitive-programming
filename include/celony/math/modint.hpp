@@ -59,7 +59,7 @@ public:
   constexpr explicit operator bool() { return v != 0; }
 
 #define OP(op, op2, f)                                                         \
-  constexpr modint &operator op##=(const modint & other) {                     \
+  constexpr modint &operator op## = (const modint &other) {                    \
     v = ((1LL * v op2 other.f) % M + M) % M;                                   \
     return *this;                                                              \
   }                                                                            \

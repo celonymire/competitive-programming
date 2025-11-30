@@ -4,11 +4,13 @@ using namespace std;
 #include <celony/math/modint.hpp>
 
 /**
- * @brief Precomputes factorials and inverses for fast combinatorial calculations.
+ * @brief Precomputes factorials and inverses for fast combinatorial
+ * calculations.
  *
- * Enables \f$O(1)\f$ computation of binomial coefficients and permutations using
- * precomputed factorials, inverse factorials, and modular inverses. Uses
- * Fermat's little theorem for computing modular inverses, requiring prime modulus.
+ * Enables \f$O(1)\f$ computation of binomial coefficients and permutations
+ * using precomputed factorials, inverse factorials, and modular inverses. Uses
+ * Fermat's little theorem for computing modular inverses, requiring prime
+ * modulus.
  *
  * Time Complexity:
  * - Construction: \f$O(N)\f$

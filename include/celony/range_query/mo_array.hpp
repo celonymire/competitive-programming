@@ -9,13 +9,15 @@ using namespace std;
  * when direct computation is expensive but incremental updates are cheap.
  *
  * The actual performance heavily depends on the query ordering heuristic.
- * Hilbert curve ordering typically provides 2-3x speedup over simpler heuristics.
+ * Hilbert curve ordering typically provides 2-3x speedup over simpler
+ * heuristics.
  *
  * @tparam R Query answer type.
  * @tparam Args Additional argument types passed to answer function.
  *
  * @note Queries must be answered offline (all queries known in advance).
- * @note Best for problems where incremental updates are \f$O(1)\f$ or \f$O(\log N)\f$.
+ * @note Best for problems where incremental updates are \f$O(1)\f$ or \f$O(\log
+ * N)\f$.
  * @see https://codeforces.com/blog/entry/61203 for Hilbert curve details.
  */
 template <typename R, typename... Args> class mo_array {
@@ -53,7 +55,8 @@ public:
    *
    * @param heuristic Function that assigns a comparable value to each query.
    *                  Queries are processed in increasing order of these values.
-   * @return Vector of answers corresponding to each query in the order they were added.
+   * @return Vector of answers corresponding to each query in the order they
+   * were added.
    */
   template <typename H> auto solve(H &&heuristic) {
     int m = q.size();

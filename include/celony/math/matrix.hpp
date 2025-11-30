@@ -67,7 +67,7 @@ public:
   }
 
 #define OP(op)                                                                 \
-  matrix &operator op##=(const matrix & other) {                               \
+  matrix &operator op## = (const matrix &other) {                              \
     int n = v.size(), m = v[0].size();                                         \
     for (int i = 0; i < n; i++)                                                \
       for (int j = 0; j < m; j++)                                              \

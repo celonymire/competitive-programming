@@ -2,16 +2,19 @@
 using namespace std;
 
 /**
- * @brief Cryptographically-inspired hash function resistant to collision attacks.
+ * @brief Cryptographically-inspired hash function resistant to collision
+ * attacks.
  *
  * Standard unordered_map hash functions are vulnerable to adversarial input
- * that causes many collisions, degrading performance to \f$O(N)\f$ per operation.
- * This hasher uses a random seed and mixing functions to prevent such attacks.
+ * that causes many collisions, degrading performance to \f$O(N)\f$ per
+ * operation. This hasher uses a random seed and mixing functions to prevent
+ * such attacks.
  *
  * Time Complexity: \f$O(1)\f$ per hash
  * Space Complexity: \f$O(1)\f$
  *
- * @note Essential for contests where adversaries can craft anti-hash test cases.
+ * @note Essential for contests where adversaries can craft anti-hash test
+ * cases.
  * @note Uses a random seed initialized at program startup.
  * @see https://codeforces.com/blog/entry/62393
  */

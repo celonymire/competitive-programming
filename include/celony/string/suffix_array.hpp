@@ -4,9 +4,9 @@ using namespace std;
 /**
  * @brief Compute the suffix array of a given string in \f$O(N \log N)\f$.
  *
- * Even though this is not the optimal \f$O(N)\f$ time complexity, the benefit is
- * the algorithm works with cyclic shifts. For example, `SA[0]` is the smallest
- * cyclic shift.
+ * Even though this is not the optimal \f$O(N)\f$ time complexity, the benefit
+ * is the algorithm works with cyclic shifts. For example, `SA[0]` is the
+ * smallest cyclic shift.
  *
  * @param s The string
  * @param k Size of the alphabet.
