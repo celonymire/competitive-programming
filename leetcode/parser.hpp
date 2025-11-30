@@ -268,13 +268,7 @@ void run(R (Solution::*fn)(Ts...)) {
   get<0>(args) = Solution{};
   try {
     [&]<size_t... Idx>(index_sequence<Idx...>) {
-      size_t arg_num = 0;
-      (
-          [&]() {
-            arg_num = Idx + 1;
-            get<Idx + 1>(args) = parse<decay_t<Ts>>();
-          }(),
-          ...);
+      ([&]() { get<Idx + 1>(args) = parse<decay_t<Ts>>(); }(), ...);
     }(index_sequence_for<Ts...>{});
   } catch (const exception &e) {
     cerr << "Error: " << e.what() << endl;
