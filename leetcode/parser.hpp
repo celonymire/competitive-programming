@@ -122,27 +122,39 @@ void print_impl(ostream &os, const T &val, bool write_newline) {
 #define DBG_8(x, ...) DBG_VAL(x), DBG_7(__VA_ARGS__)
 #define DBG_9(x, ...) DBG_VAL(x), DBG_8(__VA_ARGS__)
 #define DBG_10(x, ...) DBG_VAL(x), DBG_9(__VA_ARGS__)
-#define dbg(...) CONCAT(DBG_, NUM_ARGS(__VA_ARGS__))(__VA_ARGS__), cerr << '\n';
+
 // supports up to 10 arguments debugging at one time
+#define dbg(...) CONCAT(DBG_, NUM_ARGS(__VA_ARGS__))(__VA_ARGS__), cerr << '\n';
 
 template <typename T> T parse(istream &is = cin) {
   T ans;
   char ch;
+  is >> ws;
   if constexpr (same_as<T, char>) {
-    is >> ch; // skip '"'
-    is >> ans;
-    is >> ch; // skip '"'
+    if (!(is >> ch) || ch != '"')
+      throw runtime_error("Expected '\"' before char");
+    if (!(is >> ans))
+      throw runtime_error("Failed to parse char");
+    if (!(is >> ch) || ch != '"')
+      throw runtime_error("Expected '\"' after char");
   } else if constexpr (same_as<T, bool>) {
     string s;
-    is >> s;
+    if (!(is >> s))
+      throw runtime_error("Failed to parse bool");
+    if (s != "true" && s != "false")
+      throw runtime_error("Expected 'true' or 'false' for bool, got: " + s);
     ans = (s == "true");
   } else if constexpr (same_as<T, string>) {
-    is >> ch; // skip '"'
-    getline(is, ans, '"');
+    if (!(is >> ch) || ch != '"')
+      throw runtime_error("Expected '\"' before string");
+    if (!getline(is, ans, '"'))
+      throw runtime_error("Failed to parse string or missing closing '\"'");
   } else if constexpr (is_arithmetic_v<T>) {
-    is >> ans;
+    if (!(is >> ans))
+      throw runtime_error("Failed to parse numeric value");
   } else if constexpr (same_as<T, TreeNode *>) {
-    is >> ch; // skip '['
+    if (!(is >> ch) || ch != '[')
+      throw runtime_error("Expected '[' at start of TreeNode array");
     is >> ws;
     if (is.peek() == ']') {
       is >> ch;
@@ -153,66 +165,98 @@ template <typename T> T parse(istream &is = cin) {
       queue<TreeNode *> q;
       q.push(dummy);
 
-      while (is && is.peek() != ']') {
-        is >> ws;
-        string token;
-        char c;
-        while (is && (c = is.peek()) != ',' && c != ']') {
-          token += c;
-          is.get();
-        }
-        if (token != "null") {
-          auto new_node = new TreeNode{stoi(token)};
-          if (right)
-            q.front()->right = new_node;
-          else
-            q.front()->left = new_node;
-          q.push(new_node);
-        }
-        if (right)
-          q.pop();
-        right = !right;
+      try {
+        while (is && is.peek() != ']') {
+          is >> ws;
+          string token;
+          char c;
+          while (is && (c = is.peek()) != ',' && c != ']') {
+            token += c;
+            is.get();
+          }
+          if (token.empty())
+            throw runtime_error("Empty token in TreeNode array");
 
-        if (is.peek() == ',')
-          is >> ch;
+          if (token != "null") {
+            int val;
+            try {
+              val = stoi(token);
+            } catch (...) {
+              throw runtime_error("Invalid integer in TreeNode array: " +
+                                  token);
+            }
+            auto new_node = new TreeNode{val};
+            if (right)
+              q.front()->right = new_node;
+            else
+              q.front()->left = new_node;
+            q.push(new_node);
+          }
+          if (right)
+            q.pop();
+          right = !right;
+
+          if (is.peek() == ',')
+            is >> ch;
+        }
+        if (!is || is.peek() != ']')
+          throw runtime_error("Expected ']' at end of TreeNode array");
+        is >> ch; // skip ']'
+        ans = dummy->right;
+        dummy->right = nullptr;
+        delete dummy;
+      } catch (...) {
+        dummy->right = nullptr;
+        delete dummy;
+        throw;
       }
-      is >> ch; // skip ']'
-      ans = dummy->right;
-      dummy->right = nullptr;
-      delete dummy;
     }
   } else if constexpr (same_as<T, ListNode *>) {
     auto dummy = new ListNode{};
     auto cur = dummy;
-    is >> ch; // skip '['
+    if (!(is >> ch) || ch != '[')
+      throw runtime_error("Expected '[' at start of ListNode array");
     is >> ws;
     if (is.peek() != ']') {
-      while (true) {
-        cur->next = new ListNode{parse<int>(is)};
-        cur = cur->next;
-        is >> ws;
-        if (is.peek() == ']')
-          break;
-        is >> ch; // skip ','
+      try {
+        while (true) {
+          cur->next = new ListNode{parse<int>(is)};
+          cur = cur->next;
+          is >> ws;
+          if (is.peek() == ']')
+            break;
+          if (!(is >> ch) || ch != ',')
+            throw runtime_error("Expected ',' between ListNode elements");
+        }
+      } catch (...) {
+        dummy->next = nullptr;
+        delete dummy;
+        throw;
       }
     }
-    is >> ch; // skip ']'
+    if (!(is >> ch) || ch != ']')
+      throw runtime_error("Expected ']' at end of ListNode array");
     ans = dummy->next;
     dummy->next = nullptr;
     delete dummy;
   } else if constexpr (ranges::range<T>) {
-    is >> ch; // skip '['
+    if (!(is >> ch) || ch != '[')
+      throw runtime_error("Expected '[' at start of array");
     is >> ws;
     if (is.peek() != ']') {
       while (true) {
         ans.emplace_back(parse<typename T::value_type>(is));
         is >> ws;
+        if (!is)
+          throw runtime_error("Stream error while parsing array");
         if (is.peek() == ']')
           break;
-        is >> ch; // skip ','
+        if (!(is >> ch) || ch != ',')
+          throw runtime_error("Expected ',' between array elements");
       }
     }
-    is >> ch; // skip ']'
+    if (!(is >> ch) || ch != ']')
+      throw runtime_error("Expected ']' at end of array");
   } else
     static_assert(false, "parsing for type not supported");
   return ans;
@@ -221,18 +265,35 @@ template <typename T> T parse(istream &is = cin) {
 template <typename Solution, typename R, typename... Ts>
 void run(R (Solution::*fn)(Ts...)) {
   tuple<Solution, decay_t<Ts>...> args;
-  [&]<size_t... Idx>(index_sequence<Idx...>) {
-    (((get<Idx + 1>(args) = parse<decay_t<Ts>>())), ...);
-  }(index_sequence_for<Ts...>{});
-  if constexpr (same_as<R, void>) {
-    apply(fn, args);
-    []<size_t... Idx>(auto &&args, index_sequence<Idx...>) {
-      ((cout << "#" << (Idx + 1) << ": ",
-        print_impl(cout, get<Idx + 1>(args), true)),
-       ...);
-    }(args, index_sequence_for<Ts...>{});
-  } else {
-    auto res = apply(fn, args);
-    print_impl(cout, res, true);
+  get<0>(args) = Solution{};
+  try {
+    [&]<size_t... Idx>(index_sequence<Idx...>) {
+      size_t arg_num = 0;
+      (
+          [&]() {
+            arg_num = Idx + 1;
+            get<Idx + 1>(args) = parse<decay_t<Ts>>();
+          }(),
+          ...);
+    }(index_sequence_for<Ts...>{});
+  } catch (const exception &e) {
+    cerr << "Error: " << e.what() << endl;
+    return;
+  }
+
+  try {
+    if constexpr (same_as<R, void>) {
+      apply(fn, args);
+      []<size_t... Idx>(auto &&args, index_sequence<Idx...>) {
+        ((cout << "#" << (Idx + 1) << ": ",
+          print_impl(cout, get<Idx + 1>(args), true)),
+         ...);
+      }(args, index_sequence_for<Ts...>{});
+    } else {
+      auto res = apply(fn, args);
+      print_impl(cout, res, true);
+    }
+  } catch (const exception &e) {
+    cerr << "Runtime error: " << e.what() << endl;
   }
 }
