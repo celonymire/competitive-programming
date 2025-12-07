@@ -126,7 +126,7 @@ void print_impl(ostream &os, const T &val, bool write_newline) {
 // supports up to 10 arguments debugging at one time
 #define dbg(...) CONCAT(DBG_, NUM_ARGS(__VA_ARGS__))(__VA_ARGS__), cerr << '\n';
 
-template <typename T> T parse(istream &is = cin) {
+template <typename T> T parse(istream &is) {
   T ans;
   char ch;
   is >> ws;
@@ -268,7 +268,8 @@ void run(R (Solution::*fn)(Ts...)) {
   get<0>(args) = Solution{};
   try {
     [&]<size_t... Idx>(index_sequence<Idx...>) {
-      ([&]() { get<Idx + 1>(args) = parse<decay_t<Ts>>(); }(), ...);
+      ([&]() { get<Idx + 1>(args) = (cin >> ws, parse<decay_t<Ts>>(cin)); }(),
+       ...);
     }(index_sequence_for<Ts...>{});
   } catch (const exception &e) {
     cerr << "Error: " << e.what() << endl;
