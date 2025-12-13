@@ -124,7 +124,7 @@ void print_impl(ostream &os, const T &val, bool write_newline) {
 #define DBG_10(x, ...) DBG_VAL(x), DBG_9(__VA_ARGS__)
 
 // supports up to 10 arguments debugging at one time
-#define dbg(...) CONCAT(DBG_, NUM_ARGS(__VA_ARGS__))(__VA_ARGS__), cerr << '\n';
+#define dbg(...) CONCAT(DBG_, NUM_ARGS(__VA_ARGS__))(__VA_ARGS__)
 
 template <typename T> T parse(istream &is) {
   T ans;
