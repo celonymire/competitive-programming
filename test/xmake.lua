@@ -1,5 +1,5 @@
 add_includedirs("../include")
-set_languages("c++17")
+set_languages("c++17", {extensions = false})
 
 function library_target(name)
     target(name .. "_program")
