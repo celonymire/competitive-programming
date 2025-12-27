@@ -276,19 +276,15 @@ void run(R (Solution::*fn)(Ts...)) {
     return;
   }
 
-  try {
-    if constexpr (same_as<R, void>) {
-      apply(fn, args);
-      []<size_t... Idx>(auto &&args, index_sequence<Idx...>) {
-        ((cout << "#" << (Idx + 1) << ": ",
-          print_impl(cout, get<Idx + 1>(args), true)),
-         ...);
-      }(args, index_sequence_for<Ts...>{});
-    } else {
-      auto res = apply(fn, args);
-      print_impl(cout, res, true);
-    }
-  } catch (const exception &e) {
-    cerr << "Runtime error: " << e.what() << endl;
+  if constexpr (same_as<R, void>) {
+    apply(fn, args);
+    []<size_t... Idx>(auto &&args, index_sequence<Idx...>) {
+      ((cout << "#" << (Idx + 1) << ": ",
+        print_impl(cout, get<Idx + 1>(args), true)),
+       ...);
+    }(args, index_sequence_for<Ts...>{});
+  } else {
+    auto res = apply(fn, args);
+    print_impl(cout, res, true);
   }
 }
