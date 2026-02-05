@@ -10,6 +10,7 @@ var annotated_dup =
     [ "mo_tree", "da/db9/classmo__tree.html", "da/db9/classmo__tree" ],
     [ "modint", "df/d1e/classmodint.html", "df/d1e/classmodint" ],
     [ "node_update", "dc/d14/structnode__update.html", "dc/d14/structnode__update" ],
+    [ "power_monoid", "d2/d47/structpower__monoid.html", "d2/d47/structpower__monoid" ],
     [ "rolling_hash", "d4/dfa/classrolling__hash.html", "d4/dfa/classrolling__hash" ],
     [ "safe_hash", "d7/dde/structsafe__hash.html", "d7/dde/structsafe__hash" ],
     [ "segment_tree", "dd/d23/classsegment__tree.html", "dd/d23/classsegment__tree" ],

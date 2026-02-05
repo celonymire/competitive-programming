@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rolling_5fhash_0',['rolling_hash',['../d4/dfa/classrolling__hash.html',1,'']]]
+  ['power_5fmonoid_0',['power_monoid',['../d2/d47/structpower__monoid.html',1,'']]]
 ];
