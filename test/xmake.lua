@@ -26,6 +26,7 @@ end
 -- graph
 library_target("bridges")
 library_target("lowest_common_ancestor")
+library_target("max_flow")
 library_target("strongly_connected_components")
 library_target("union_find")
 
