@@ -11,11 +11,19 @@ using namespace std;
  *
  * @see https://codeforces.com/blog/entry/66006 for scaling optimization.
  */
-template <typename F> class max_flow {
-  vector<vector<tuple<int, int, int, F>>> g; // [to, rev id, e idx, cap]
-  vector<tuple<int, int, F>> e;              // [a, b, cap]
+template <typename F> struct max_flow {
+  /**
+   * @brief Edge structure for the flow graph.
+   *
+   * The original vertex is omitted since the graph is an adjacency list.
+   */
+  struct edge_t {
+    int to;  // Destination vertex index.
+    int rev; // Index of the reverse edge in `g[to]`.
+    F cap;   // Remaining capacity of the edge.
+  };
+  vector<vector<edge_t>> g; // Adjacency list graph.
 
-public:
   /**
    * @brief Constructs a max flow graph with the given number of vertices.
    *
@@ -31,15 +39,9 @@ public:
    * @param cap Capacity of the edge.
    */
   void add_edge(int a, int b, F cap) {
-    g[a].push_back({b, (int)g[b].size(), (int)e.size(), cap});
-    g[b].push_back({a, (int)g[a].size() - 1, -1, 0});
-    e.push_back({a, b, cap});
+    g[a].push_back({b, (int)g[b].size(), cap});
+    g[b].push_back({a, (int)g[a].size() - 1, 0});
   }
-
-  /**
-   * @brief Returns the adjacency list representation of the flow graph.
-   */
-  const vector<tuple<int, int, F>> &edges() const { return e; }
 
   /**
    * @brief Computes the maximum flow from source to target.
@@ -60,10 +62,10 @@ public:
       while (q.size()) {
         auto v = q.front();
         q.pop();
-        for (auto &[u, rev, e_idx, flow] : g[v]) {
-          if (flow > 0 && lvl[u] == -1) {
-            lvl[u] = lvl[v] + 1;
-            q.push(u);
+        for (auto &e : g[v]) {
+          if (e.cap > 0 && lvl[e.to] == -1) {
+            lvl[e.to] = lvl[v] + 1;
+            q.push(e.to);
           }
         }
       }
@@ -75,17 +77,12 @@ public:
           return f;
         }
         F ans = 0;
-        for (auto &[u, rev, e_idx, cap] : g[v]) {
-          F ff = min(f, cap);
-          if (lvl[v] + 1 == lvl[u] && ff > 0) {
-            F res = self(self, u, ff);
-            cap -= res;
-            get<3>(g[u][rev]) += res;
-            if (e_idx != -1) {
-              get<2>(e[e_idx]) -= res;
-            } else {
-              get<2>(e[get<2>(g[u][rev])]) += res;
-            }
+        for (auto &e : g[v]) {
+          F ff = min(f, e.cap);
+          if (lvl[v] + 1 == lvl[e.to] && ff > 0) {
+            F res = self(self, e.to, ff);
+            e.cap -= res;
+            g[e.to][e.rev].cap += res;
             f -= res;
             ans += res;
           }
@@ -98,6 +95,7 @@ public:
         break;
       }
       ans += flow;
+      initial_flow -= flow;
     }
     return ans;
   }
