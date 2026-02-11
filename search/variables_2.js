@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fact_0',['fact',['../dd/d5c/structcombinatorics.html#a7de1f6f8bec90f337637f831807d47f7',1,'combinatorics']]]
+  ['exit_0',['exit',['../d7/de0/structaho__corasick__node__t.html#a2fba10a2518b371b104d4cd4d27f85e2',1,'aho_corasick_node_t']]]
 ];

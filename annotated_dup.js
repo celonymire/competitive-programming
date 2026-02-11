@@ -6,7 +6,7 @@ var annotated_dup =
     [ "heavy_light_decomposition", "dc/de3/classheavy__light__decomposition.html", "dc/de3/classheavy__light__decomposition" ],
     [ "lowest_common_ancestor", "d9/d3b/classlowest__common__ancestor.html", "d9/d3b/classlowest__common__ancestor" ],
     [ "matrix", "d1/d8d/classmatrix.html", "d1/d8d/classmatrix" ],
-    [ "max_flow", "d9/daf/classmax__flow.html", "d9/daf/classmax__flow" ],
+    [ "max_flow", "d8/d7d/structmax__flow.html", "d8/d7d/structmax__flow" ],
     [ "mo_array", "da/d2f/classmo__array.html", "da/d2f/classmo__array" ],
     [ "mo_tree", "da/db9/classmo__tree.html", "da/db9/classmo__tree" ],
     [ "modint", "df/d1e/classmodint.html", "df/d1e/classmodint" ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kmp_0',['kmp',['../d1/dd4/kmp_8hpp.html#a0291d24a8d106917d078f3f0bb4f0a60',1,'kmp.hpp']]]
+  ['lowest_5fcommon_5fancestor_0',['lowest_common_ancestor',['../d9/d3b/classlowest__common__ancestor.html#ac42c3e2baf76f42e8f08b5fa4853ff58',1,'lowest_common_ancestor']]]
 ];

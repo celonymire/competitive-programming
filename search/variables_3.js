@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ifact_0',['ifact',['../dd/d5c/structcombinatorics.html#aefdc33f7992e5314dddd3e26310ea79e',1,'combinatorics']]],
-  ['inv_1',['inv',['../dd/d5c/structcombinatorics.html#ab440703745414b4c9a993775d45301ae',1,'combinatorics']]]
+  ['fact_0',['fact',['../dd/d5c/structcombinatorics.html#a7de1f6f8bec90f337637f831807d47f7',1,'combinatorics']]]
 ];

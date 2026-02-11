@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pow_0',['pow',['../d1/d8d/classmatrix.html#a302ba8fbc179816ef1faa6e64c2255eb',1,'matrix::pow()'],['../df/d1e/classmodint.html#a7e34f5f8a9ad0d5671c8b770cf7e9cf2',1,'modint::pow()']]]
+  ['query_0',['query',['../d9/d3b/classlowest__common__ancestor.html#ae800afbd2d9fc0914c7ad49438383bd0',1,'lowest_common_ancestor::query()'],['../df/d92/classfenwick.html#a928b3e127ed80409d8a90f1d928872d7',1,'fenwick::query()'],['../dc/de3/classheavy__light__decomposition.html#a726caf3fe261d4116248e3418e01c45e',1,'heavy_light_decomposition::query()'],['../da/d2f/classmo__array.html#afba534e0c7524199225c424589a44b9a',1,'mo_array::query()'],['../dd/d23/classsegment__tree.html#abb5cf511cf48aabdba5f1088e611481c',1,'segment_tree::query()'],['../db/d28/classsegment__tree__lazy.html#a6f02dc4c5470757cd3047d59dd98ff3a',1,'segment_tree_lazy::query()'],['../d7/dbf/classsparse__table.html#ab56dcd2a529052f44a82e09b7d6ecaaf',1,'sparse_table::query()'],['../d4/d1a/classtreap.html#af2115a3a71dddbd3f8a4b3a3a356a09a',1,'treap::query()']]]
 ];

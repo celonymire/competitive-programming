@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lowest_5fcommon_5fancestor_0',['lowest_common_ancestor',['../d9/d3b/classlowest__common__ancestor.html',1,'']]]
+  ['heavy_5flight_5fdecomposition_0',['heavy_light_decomposition',['../dc/de3/classheavy__light__decomposition.html',1,'']]]
 ];

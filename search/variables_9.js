@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['size_0',['size',['../d2/d74/structtreap_1_1node.html#a4b1384139de02baba254c725c98ba194',1,'treap::node']]],
-  ['spd_1',['spd',['../d8/d31/structsieve.html#a31bf872a8ec935b06d43f7837ab3137c',1,'sieve']]]
+  ['p_0',['p',['../d2/d74/structtreap_1_1node.html#ae56af06b69c1a829e617b1698188cb5c',1,'treap::node']]],
+  ['primes_1',['primes',['../d8/d31/structsieve.html#ac806e0938f901cdcc624ab17f33084e3',1,'sieve']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hash_0',['hash',['../d4/dfa/classrolling__hash.html#a3fd0ed7a81c68422c5c0d0719fb8941d',1,'rolling_hash']]],
-  ['heavy_5flight_5fdecomposition_1',['heavy_light_decomposition',['../dc/de3/classheavy__light__decomposition.html#a2d5d4e2e91390c7532d6ac064eef2636',1,'heavy_light_decomposition::heavy_light_decomposition(const vector&lt; vector&lt; int &gt; &gt; &amp;g, const T &amp;v, const Combine &amp;combine, int root=0)'],['../dc/de3/classheavy__light__decomposition.html#a8c883e44f00722554ed1369e56ce281b',1,'heavy_light_decomposition::heavy_light_decomposition(const vector&lt; vector&lt; int &gt; &gt; &amp;g, const vector&lt; T &gt; &amp;v, const T &amp;v0, const Combine &amp;combine, int root=0)']]],
-  ['hilbert_2',['hilbert',['../dd/d14/hilbert_8hpp.html#abbc570a0bbca31b3dcbc9021c65f0c17',1,'hilbert.hpp']]]
+  ['identity_0',['identity',['../d1/d8d/classmatrix.html#a7afd2fc319b5f56ca3984cf5d45a03a6',1,'matrix::identity()'],['../dd/d23/classsegment__tree.html#a5d09fdefa168f2c439e3e180a6623181',1,'segment_tree::identity()'],['../db/d28/classsegment__tree__lazy.html#a9f47407eac35cf6f489a4453bbffd975',1,'segment_tree_lazy::identity()']]],
+  ['inv_1',['inv',['../df/d1e/classmodint.html#af1f0a7e5d688cc3cf8ca49c61aa1b4e7',1,'modint']]],
+  ['is_5fprime_2',['is_prime',['../d8/d31/structsieve.html#ab2035df9a09908baa6c6ea6537f97abb',1,'sieve']]]
 ];

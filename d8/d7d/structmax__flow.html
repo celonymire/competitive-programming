@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Celony&#39;s Competitive Programming Collection: max_flow&lt; F &gt; Class Template Reference</title>
+<title>Celony&#39;s Competitive Programming Collection: max_flow&lt; F &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -75,7 +75,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('d9/daf/classmax__flow.html','../../'); initResizable(); });
+$(document).ready(function(){initNavTree('d8/d7d/structmax__flow.html','../../'); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -102,35 +102,45 @@ $(document).ready(function(){initNavTree('d9/daf/classmax__flow.html','../../');
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../db/d42/classmax__flow-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">max_flow&lt; F &gt; Class Template Reference</div></div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../de/dec/structmax__flow-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">max_flow&lt; F &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Dinic's algorithm for maximum flow.  
- <a href="../../d9/daf/classmax__flow.html#details">More...</a></p>
+ <a href="../../d8/d7d/structmax__flow.html#details">More...</a></p>
 
 <p><code>#include &lt;max_flow.hpp&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/structmax__flow_1_1edge__t.html">edge_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edge structure for the flow graph.  <a href="../../d1/dd6/structmax__flow_1_1edge__t.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a083764d34fee1e8f3bd36554132e7674" id="r_a083764d34fee1e8f3bd36554132e7674"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/daf/classmax__flow.html#a083764d34fee1e8f3bd36554132e7674">max_flow</a> (int n)</td></tr>
+<tr class="memitem:a083764d34fee1e8f3bd36554132e7674" id="r_a083764d34fee1e8f3bd36554132e7674"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d7d/structmax__flow.html#a083764d34fee1e8f3bd36554132e7674">max_flow</a> (int n)</td></tr>
 <tr class="memdesc:a083764d34fee1e8f3bd36554132e7674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a max flow graph with the given number of vertices.  <br /></td></tr>
 <tr class="separator:a083764d34fee1e8f3bd36554132e7674"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a894bb7e3885cdac250396a2e6567027a" id="r_a894bb7e3885cdac250396a2e6567027a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/daf/classmax__flow.html#a894bb7e3885cdac250396a2e6567027a">add_edge</a> (int a, int b, F cap)</td></tr>
+<tr class="memitem:a894bb7e3885cdac250396a2e6567027a" id="r_a894bb7e3885cdac250396a2e6567027a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d7d/structmax__flow.html#a894bb7e3885cdac250396a2e6567027a">add_edge</a> (int a, int b, F cap)</td></tr>
 <tr class="memdesc:a894bb7e3885cdac250396a2e6567027a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a directed edge with the given capacity to the flow graph.  <br /></td></tr>
 <tr class="separator:a894bb7e3885cdac250396a2e6567027a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6de7dbb91dc0e13e1eaa5c0d40e42540" id="r_a6de7dbb91dc0e13e1eaa5c0d40e42540"><td class="memItemLeft" align="right" valign="top">const vector&lt; tuple&lt; int, int, F &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/daf/classmax__flow.html#a6de7dbb91dc0e13e1eaa5c0d40e42540">edges</a> () const</td></tr>
-<tr class="memdesc:a6de7dbb91dc0e13e1eaa5c0d40e42540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the adjacency list representation of the flow graph.  <br /></td></tr>
-<tr class="separator:a6de7dbb91dc0e13e1eaa5c0d40e42540"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06659773c13be537ef39787c89fc644c" id="r_a06659773c13be537ef39787c89fc644c"><td class="memItemLeft" align="right" valign="top">F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/daf/classmax__flow.html#a06659773c13be537ef39787c89fc644c">flow</a> (int source, int target, F initial_flow=numeric_limits&lt; F &gt;::max())</td></tr>
+<tr class="memitem:a06659773c13be537ef39787c89fc644c" id="r_a06659773c13be537ef39787c89fc644c"><td class="memItemLeft" align="right" valign="top">F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d7d/structmax__flow.html#a06659773c13be537ef39787c89fc644c">flow</a> (int source, int target, F initial_flow=numeric_limits&lt; F &gt;::max())</td></tr>
 <tr class="memdesc:a06659773c13be537ef39787c89fc644c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the maximum flow from source to target.  <br /></td></tr>
 <tr class="separator:a06659773c13be537ef39787c89fc644c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aaad10726bd84533ce88fba249b376b11" id="r_aaad10726bd84533ce88fba249b376b11"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; <a class="el" href="../../d1/dd6/structmax__flow_1_1edge__t.html">edge_t</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d7d/structmax__flow.html#aaad10726bd84533ce88fba249b376b11">g</a></td></tr>
+<tr class="separator:aaad10726bd84533ce88fba249b376b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename F&gt;<br />
-class max_flow&lt; F &gt;</div><p>Dinic's algorithm for maximum flow. </p>
+struct max_flow&lt; F &gt;</div><p>Dinic's algorithm for maximum flow. </p>
 <p>Computes the maximum flow in a directed graph with given capacities in \(O(VE^2)\) time with \(O(VE)\) space.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -152,7 +162,7 @@ template&lt;typename F &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/daf/classmax__flow.html">max_flow</a>&lt; F &gt;<a class="el" href="../../d9/daf/classmax__flow.html">::max_flow</a> </td>
+          <td class="memname"><a class="el" href="../../d8/d7d/structmax__flow.html">max_flow</a>&lt; F &gt;<a class="el" href="../../d8/d7d/structmax__flow.html">::max_flow</a> </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -189,7 +199,7 @@ template&lt;typename F &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d9/daf/classmax__flow.html">max_flow</a>&lt; F &gt;::add_edge </td>
+          <td class="memname">void <a class="el" href="../../d8/d7d/structmax__flow.html">max_flow</a>&lt; F &gt;::add_edge </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -229,34 +239,7 @@ template&lt;typename F &gt; </div>
   </dd>
 </dl>
 
-</div>
-</div>
-<a id="a6de7dbb91dc0e13e1eaa5c0d40e42540" name="a6de7dbb91dc0e13e1eaa5c0d40e42540"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6de7dbb91dc0e13e1eaa5c0d40e42540">&#9670;&#160;</a></span>edges()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename F &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const vector&lt; tuple&lt; int, int, F &gt; &gt; &amp; <a class="el" href="../../d9/daf/classmax__flow.html">max_flow</a>&lt; F &gt;::edges </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the adjacency list representation of the flow graph. </p>
+<p class="reference">References <a class="el" href="../../d8/d7d/structmax__flow.html#aaad10726bd84533ce88fba249b376b11">max_flow&lt; F &gt;::g</a>.</p>
 
 </div>
 </div>
@@ -272,7 +255,7 @@ template&lt;typename F &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">F <a class="el" href="../../d9/daf/classmax__flow.html">max_flow</a>&lt; F &gt;::flow </td>
+          <td class="memname">F <a class="el" href="../../d8/d7d/structmax__flow.html">max_flow</a>&lt; F &gt;::flow </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>source</em>, </td>
@@ -313,13 +296,32 @@ template&lt;typename F &gt; </div>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="../../d9/daf/classmax__flow.html#a06659773c13be537ef39787c89fc644c">max_flow&lt; F &gt;::flow()</a>.</p>
+<p class="reference">References <a class="el" href="../../d8/d7d/structmax__flow.html#a06659773c13be537ef39787c89fc644c">max_flow&lt; F &gt;::flow()</a>, and <a class="el" href="../../d8/d7d/structmax__flow.html#aaad10726bd84533ce88fba249b376b11">max_flow&lt; F &gt;::g</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d9/daf/classmax__flow.html#a06659773c13be537ef39787c89fc644c">max_flow&lt; F &gt;::flow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d8/d7d/structmax__flow.html#a06659773c13be537ef39787c89fc644c">max_flow&lt; F &gt;::flow()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aaad10726bd84533ce88fba249b376b11" name="aaad10726bd84533ce88fba249b376b11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaad10726bd84533ce88fba249b376b11">&#9670;&#160;</a></span>g</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;vector&lt;<a class="el" href="../../d1/dd6/structmax__flow_1_1edge__t.html">edge_t</a>&gt; &gt; <a class="el" href="../../d8/d7d/structmax__flow.html">max_flow</a>&lt; F &gt;::g</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="../../d8/d7d/structmax__flow.html#a894bb7e3885cdac250396a2e6567027a">max_flow&lt; F &gt;::add_edge()</a>, and <a class="el" href="../../d8/d7d/structmax__flow.html#a06659773c13be537ef39787c89fc644c">max_flow&lt; F &gt;::flow()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/celony/graph/<a class="el" href="../../d4/d8d/max__flow_8hpp.html">max_flow.hpp</a></li>
 </ul>
 </div><!-- contents -->
@@ -327,7 +329,7 @@ template&lt;typename F &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/daf/classmax__flow.html">max_flow</a></li>
+    <li class="navelem"><a class="el" href="../../d8/d7d/structmax__flow.html">max_flow</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

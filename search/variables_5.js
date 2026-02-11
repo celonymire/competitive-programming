@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['matches_0',['matches',['../d7/de0/structaho__corasick__node__t.html#a3cd1142255d906d772efab97d94c6ea2',1,'aho_corasick_node_t']]]
+  ['ifact_0',['ifact',['../dd/d5c/structcombinatorics.html#aefdc33f7992e5314dddd3e26310ea79e',1,'combinatorics']]],
+  ['inv_1',['inv',['../dd/d5c/structcombinatorics.html#ab440703745414b4c9a993775d45301ae',1,'combinatorics']]]
 ];

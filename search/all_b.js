@@ -3,7 +3,7 @@ var searchData=
   ['matches_0',['matches',['../d7/de0/structaho__corasick__node__t.html#a3cd1142255d906d772efab97d94c6ea2',1,'aho_corasick_node_t']]],
   ['matrix_1',['matrix',['../d1/d8d/classmatrix.html',1,'matrix&lt; T &gt;'],['../d1/d8d/classmatrix.html#a43589154d425f41ab4d71ab49ccaec87',1,'matrix::matrix(const vector&lt; vector&lt; T &gt; &gt; &amp;v0)'],['../d1/d8d/classmatrix.html#a6528361a505d6bf6c4889cebc758ef66',1,'matrix::matrix(int n, int m, const T &amp;v0={})']]],
   ['matrix_2ehpp_2',['matrix.hpp',['../df/dce/matrix_8hpp.html',1,'']]],
-  ['max_5fflow_3',['max_flow',['../d9/daf/classmax__flow.html',1,'max_flow&lt; F &gt;'],['../d9/daf/classmax__flow.html#a083764d34fee1e8f3bd36554132e7674',1,'max_flow::max_flow()']]],
+  ['max_5fflow_3',['max_flow',['../d8/d7d/structmax__flow.html',1,'max_flow&lt; F &gt;'],['../d8/d7d/structmax__flow.html#a083764d34fee1e8f3bd36554132e7674',1,'max_flow::max_flow()']]],
   ['max_5fflow_2ehpp_4',['max_flow.hpp',['../d4/d8d/max__flow_8hpp.html',1,'']]],
   ['max_5fr_5',['max_r',['../dd/d23/classsegment__tree.html#ae334781887d068a460010a8fd0479c79',1,'segment_tree::max_r()'],['../db/d28/classsegment__tree__lazy.html#a3dd988d0367fe2e27ef571b289e90b72',1,'segment_tree_lazy::max_r()']]],
   ['merge_6',['merge',['../d4/d1a/classtreap.html#afa04855fe380e494f3d5ab10d797d147',1,'treap']]],

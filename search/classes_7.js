@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['power_5fmonoid_0',['power_monoid',['../d2/d47/structpower__monoid.html',1,'']]]
+  ['node_0',['node',['../d2/d74/structtreap_1_1node.html',1,'treap']]],
+  ['node_5fupdate_1',['node_update',['../dc/d14/structnode__update.html',1,'']]]
 ];

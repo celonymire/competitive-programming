@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['add_5fedge_0',['add_edge',['../d9/daf/classmax__flow.html#a894bb7e3885cdac250396a2e6567027a',1,'max_flow']]],
+  ['add_5fedge_0',['add_edge',['../d8/d7d/structmax__flow.html#a894bb7e3885cdac250396a2e6567027a',1,'max_flow']]],
   ['add_5fquery_1',['add_query',['../da/db9/classmo__tree.html#aa66c9dd7227715d3e249be077b91f3f6',1,'mo_tree']]],
   ['aho_5fcorasick_2ehpp_2',['aho_corasick.hpp',['../d8/d43/aho__corasick_8hpp.html',1,'']]],
   ['aho_5fcorasick_5fautomaton_3',['aho_corasick_automaton',['../d8/d43/aho__corasick_8hpp.html#af5676c042973e1fb1a71beb59b9ae036',1,'aho_corasick.hpp']]],
