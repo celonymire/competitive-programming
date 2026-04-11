@@ -121,6 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abc69bd2cf18d1704b4c8070328e6e45a" id="r_abc69bd2cf18d1704b4c8070328e6e45a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfb/classunion__find.html#abc69bd2cf18d1704b4c8070328e6e45a">find</a> (int i)</td></tr>
 <tr class="memdesc:abc69bd2cf18d1704b4c8070328e6e45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the leader of the component containing element i.  <br /></td></tr>
 <tr class="separator:abc69bd2cf18d1704b4c8070328e6e45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a420b8817347c32d67707514f77ad0137" id="r_a420b8817347c32d67707514f77ad0137"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfb/classunion__find.html#a420b8817347c32d67707514f77ad0137">same</a> (int i, int j)</td></tr>
+<tr class="memdesc:a420b8817347c32d67707514f77ad0137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the two indices are in the same component.  <br /></td></tr>
+<tr class="separator:a420b8817347c32d67707514f77ad0137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95ed91bd106663fb259c01334206a6f9" id="r_a95ed91bd106663fb259c01334206a6f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dfb/classunion__find.html#a95ed91bd106663fb259c01334206a6f9">size</a> (int i)</td></tr>
 <tr class="memdesc:a95ed91bd106663fb259c01334206a6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the component containing element i.  <br /></td></tr>
 <tr class="separator:a95ed91bd106663fb259c01334206a6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -260,7 +263,58 @@ template&lt;typename F &gt; </div>
 
 <p class="reference">References <a class="el" href="../../d1/dfb/classunion__find.html#abc69bd2cf18d1704b4c8070328e6e45a">union_find&lt; F &gt;::find()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d1/dfb/classunion__find.html#abc69bd2cf18d1704b4c8070328e6e45a">union_find&lt; F &gt;::find()</a>, <a class="el" href="../../d1/dfb/classunion__find.html#a95ed91bd106663fb259c01334206a6f9">union_find&lt; F &gt;::size()</a>, and <a class="el" href="../../d1/dfb/classunion__find.html#a246e0721ec646beb5c9c5126ed379a50">union_find&lt; F &gt;::unite()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d1/dfb/classunion__find.html#abc69bd2cf18d1704b4c8070328e6e45a">union_find&lt; F &gt;::find()</a>, <a class="el" href="../../d1/dfb/classunion__find.html#a420b8817347c32d67707514f77ad0137">union_find&lt; F &gt;::same()</a>, <a class="el" href="../../d1/dfb/classunion__find.html#a95ed91bd106663fb259c01334206a6f9">union_find&lt; F &gt;::size()</a>, and <a class="el" href="../../d1/dfb/classunion__find.html#a246e0721ec646beb5c9c5126ed379a50">union_find&lt; F &gt;::unite()</a>.</p>
+
+</div>
+</div>
+<a id="a420b8817347c32d67707514f77ad0137" name="a420b8817347c32d67707514f77ad0137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a420b8817347c32d67707514f77ad0137">&#9670;&#160;</a></span>same()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/dfb/classunion__find.html">union_find</a>&lt; F &gt;::same </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether the two indices are in the same component. </p>
+<p>Time Complexity: \(O(\alpha(N))\) amortized</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>First element index. </td></tr>
+    <tr><td class="paramname">j</td><td>Second element index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the elements are in the same component, false otherwise. </dd></dl>
+
+<p class="reference">References <a class="el" href="../../d1/dfb/classunion__find.html#abc69bd2cf18d1704b4c8070328e6e45a">union_find&lt; F &gt;::find()</a>.</p>
 
 </div>
 </div>
