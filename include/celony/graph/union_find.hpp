@@ -42,6 +42,17 @@ public:
   int find(int i) { return v[i] > 0 ? i : -(v[i] = -find(-v[i])); }
 
   /**
+   * @brief Returns whether the two indices are in the same component.
+   *
+   * Time Complexity: \f$O(\alpha(N))\f$ amortized
+   *
+   * @param i First element index.
+   * @param j Second element index.
+   * @return True if the elements are in the same component, false otherwise.
+   */
+  bool same(int i, int j) { return find(i) == find(j); }
+
+  /**
    * @brief Returns the size of the component containing element i.
    *
    * Time Complexity: \f$O(\alpha(N))\f$ amortized

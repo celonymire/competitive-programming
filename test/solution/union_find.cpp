@@ -47,6 +47,7 @@ int main() {
       --n_components;
       largest_size = max(sz[find(a)], largest_size);
     }
+    cout << boolalpha << (find(a) == find(b)) << '\n'; // my own test
     cout << n_components << ' ' << largest_size << '\n';
   }
 }

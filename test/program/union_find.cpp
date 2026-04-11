@@ -17,6 +17,7 @@ int main() {
     int a, b;
     cin >> a >> b;
     uf.unite(a, b);
+    cout << boolalpha << uf.same(a, b) << '\n'; // my own test
     cout << uf.components() - 1 << ' ' << mx_size << '\n';
   }
 }
