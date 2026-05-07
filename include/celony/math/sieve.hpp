@@ -56,4 +56,20 @@ struct sieve {
       }
     return ans;
   }
+
+  /**
+   * @brief Returns a list of unique prime factors of a number.
+   *
+   * @param x The number.
+   */
+  vector<int> prime_factors(int x) {
+    vector<int> ans;
+    while (x > 1) {
+      int d = spd[x];
+      ans.push_back(d);
+      while (spd[x] == d)
+        x /= d;
+    }
+    return ans;
+  }
 };
