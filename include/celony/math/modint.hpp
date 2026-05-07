@@ -45,6 +45,15 @@ public:
   }
 
   /**
+   * @brief Compute `x^p mod M` using binary exponentiation.
+   *
+   * @param p The power.
+   */
+  template <int M2> constexpr modint<M> pow(const modint<M2> &p) const {
+    return pow(p.value());
+  }
+
+  /**
    * @brief Compute the modulo inverse of the internal value.
    */
   constexpr modint inv() const { return pow(M - 2); }
