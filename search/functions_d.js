@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pow_0',['pow',['../d1/d8d/classmatrix.html#a302ba8fbc179816ef1faa6e64c2255eb',1,'matrix::pow()'],['../df/d1e/classmodint.html#a7e34f5f8a9ad0d5671c8b770cf7e9cf2',1,'modint::pow()']]]
+  ['pow_0',['pow',['../d1/d8d/classmatrix.html#a302ba8fbc179816ef1faa6e64c2255eb',1,'matrix::pow()'],['../df/d1e/classmodint.html#a7e34f5f8a9ad0d5671c8b770cf7e9cf2',1,'modint::pow(long long p) const'],['../df/d1e/classmodint.html#a5f91f67572c041a399d37ed83478f4aa',1,'modint::pow(const modint&lt; M2 &gt; &amp;p) const']]]
 ];

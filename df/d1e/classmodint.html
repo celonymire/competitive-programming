@@ -124,6 +124,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7e34f5f8a9ad0d5671c8b770cf7e9cf2" id="r_a7e34f5f8a9ad0d5671c8b770cf7e9cf2"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../df/d1e/classmodint.html">modint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d1e/classmodint.html#a7e34f5f8a9ad0d5671c8b770cf7e9cf2">pow</a> (long long p) const</td></tr>
 <tr class="memdesc:a7e34f5f8a9ad0d5671c8b770cf7e9cf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>x^p mod M</code> using binary exponentiation.  <br /></td></tr>
 <tr class="separator:a7e34f5f8a9ad0d5671c8b770cf7e9cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f91f67572c041a399d37ed83478f4aa" id="r_a5f91f67572c041a399d37ed83478f4aa"><td class="memTemplParams" colspan="2">template&lt;int M2&gt; </td></tr>
+<tr class="memitem:a5f91f67572c041a399d37ed83478f4aa"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="../../df/d1e/classmodint.html">modint</a>&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d1e/classmodint.html#a5f91f67572c041a399d37ed83478f4aa">pow</a> (const <a class="el" href="../../df/d1e/classmodint.html">modint</a>&lt; M2 &gt; &amp;p) const</td></tr>
+<tr class="memdesc:a5f91f67572c041a399d37ed83478f4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>x^p mod M</code> using binary exponentiation.  <br /></td></tr>
+<tr class="separator:a5f91f67572c041a399d37ed83478f4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1f0a7e5d688cc3cf8ca49c61aa1b4e7" id="r_af1f0a7e5d688cc3cf8ca49c61aa1b4e7"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../df/d1e/classmodint.html">modint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d1e/classmodint.html#af1f0a7e5d688cc3cf8ca49c61aa1b4e7">inv</a> () const</td></tr>
 <tr class="memdesc:af1f0a7e5d688cc3cf8ca49c61aa1b4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the modulo inverse of the internal value.  <br /></td></tr>
 <tr class="separator:af1f0a7e5d688cc3cf8ca49c61aa1b4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -323,8 +327,48 @@ template&lt;int M&gt; </div>
 
 </div>
 </div>
+<a id="a5f91f67572c041a399d37ed83478f4aa" name="a5f91f67572c041a399d37ed83478f4aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f91f67572c041a399d37ed83478f4aa">&#9670;&#160;</a></span>pow() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int M&gt; </div>
+<div class="memtemplate">
+template&lt;int M2&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../df/d1e/classmodint.html">modint</a>&lt; M &gt; <a class="el" href="../../df/d1e/classmodint.html">modint</a>&lt; M &gt;::pow </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d1e/classmodint.html">modint</a>&lt; M2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute <code>x^p mod M</code> using binary exponentiation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>The power. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="../../df/d1e/classmodint.html#a7e34f5f8a9ad0d5671c8b770cf7e9cf2">modint&lt; M &gt;::pow()</a>, and <a class="el" href="../../df/d1e/classmodint.html#abc3c00245095ec8b6c045062a20b1a71">modint&lt; M &gt;::value()</a>.</p>
+
+</div>
+</div>
 <a id="a7e34f5f8a9ad0d5671c8b770cf7e9cf2" name="a7e34f5f8a9ad0d5671c8b770cf7e9cf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e34f5f8a9ad0d5671c8b770cf7e9cf2">&#9670;&#160;</a></span>pow()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e34f5f8a9ad0d5671c8b770cf7e9cf2">&#9670;&#160;</a></span>pow() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,7 +401,7 @@ template&lt;int M&gt; </div>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="../../df/d1e/classmodint.html#af1f0a7e5d688cc3cf8ca49c61aa1b4e7">modint&lt; M &gt;::inv()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/d1e/classmodint.html#af1f0a7e5d688cc3cf8ca49c61aa1b4e7">modint&lt; M &gt;::inv()</a>, and <a class="el" href="../../df/d1e/classmodint.html#a5f91f67572c041a399d37ed83478f4aa">modint&lt; M &gt;::pow()</a>.</p>
 
 </div>
 </div>
@@ -387,6 +431,8 @@ template&lt;int M&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the internal integer value. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../df/d1e/classmodint.html#a5f91f67572c041a399d37ed83478f4aa">modint&lt; M &gt;::pow()</a>.</p>
 
 </div>
 </div>
